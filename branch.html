@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分支圖｜數學工具地圖</title>
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/mapstyle.css">
+<link rel="stylesheet" href="assets/theme-cow.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/mathfit.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
+  <a href="index.html">🏠 首頁</a>
+  <a href="map.html">🗺️ 回總圖</a>
+  <a href="cross.html">🔀 跨章流程圖</a>
+  <span class="crumb" id="crumb">分支圖</span>
+  <span class="spacer"></span>
+  <span id="edSwitch"></span>
+</div></div>
+
+<div class="wrap-wide">
+  <div class="map-hero">
+    <h1 id="domTitle">—</h1>
+    <p id="domAsk"></p>
+  </div>
+
+  <div class="mm-shell">
+    <div class="mm-bar">
+      <span>🖱️ 點<b>工具</b>看公式、使用時機與限制</span>
+      <span class="sp"></span>
+      <button id="viewToggle">☰ 改用清單模式</button>
+      <button onclick="window.print()">🖨️ 列印</button>
+    </div>
+    <div class="mm-scroll" id="branchMap"></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--cow-wine-d,#1f2937)"></i>領域</span>
+    <span id="lgTopic"><i></i>主題</span>
+    <span><i style="background:#fff;border:1.5px solid #cbd5e1"></i>工具（點我）</span>
+  </div>
+
+  <h2 class="sec"><span class="tag tag-keyword">📋</span>工具總表（可列印、可遮欄自測）</h2>
+  <p class="kw-hint">建議用法：遮住「工具」欄，只看「什麼時候用」，練習反射性想出該用哪個工具；再遮住「限制」欄，檢查自己會不會踩坑。</p>
+  <div id="toolTable"></div>
+
+  <div class="ch-nav">
+    <a href="map.html">← 回全景圖</a>
+    <a id="nextDom" href="#">下一個領域 →</a>
+  </div>
+</div>
+
+<script src="data/site.js"></script>
+<script src="data/scope.js"></script>
+<script src="data/toolmap.js"></script>
+<script src="data/tm-1-number.js"></script>
+<script src="data/tm-2-equation.js"></script>
+<script src="data/tm-3-function.js"></script>
+<script src="data/tm-4-trig.js"></script>
+<script src="data/tm-5-geometry.js"></script>
+<script src="data/tm-6-vector.js"></script>
+<script src="data/tm-7-sequence.js"></script>
+<script src="data/tm-8-prob.js"></script>
+<script src="data/tm-9-calculus.js"></script>
+<script src="assets/map.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MathMap.mountEditionSwitch("edSwitch");
+  var doms = MathMap.domains();            // 學測版下已濾掉高三選修的領域
+  var id = MathMap.param("d") || doms[0].id;
+  var dom = MathMap.domainById(id) || doms[0];
+
+  document.title = dom.n + "｜數學工具地圖";
+  document.getElementById("crumb").textContent = "工具地圖 ▸ " + dom.n;
+  var h = document.getElementById("domTitle");
+  h.textContent = dom.icon + " " + dom.n;
+  h.style.color = dom.color;
+  document.getElementById("domAsk").textContent = dom.ask;
+  document.querySelector("#lgTopic i").style.cssText =
+    "background:" + dom.color + "22;border:1.5px solid " + dom.color;
+
+  MathMap.viewController("viewToggle", function (mode) {
+    var box = document.getElementById("branchMap");
+    box.classList.toggle("list", mode === "list");
+    if (mode === "list") MathMap.renderBranchList("branchMap", dom);
+    else MathMap.renderBranch("branchMap", dom);
+  });
+  MathMap.renderToolTable("toolTable", dom);
+
+  // 下一個領域
+  var idx = doms.indexOf(dom);
+  var nxt = doms[(idx + 1) % doms.length];
+  var a = document.getElementById("nextDom");
+  a.href = "branch.html#d=" + nxt.id;
+  a.textContent = nxt.icon + " " + nxt.n + " →";
+  a.onclick = function (e) { e.preventDefault(); location.href = a.href; location.reload(); };
+
+  // 若帶 &t=主題，直接開該主題的說明
+  var t = MathMap.param("t");
+  if (t) {
+    (dom.topics || []).forEach(function (tp) {
+      if (tp.id === t) {
+        MathMap.openTool({
+          n: tp.n,
+          w: (tp.kw || []).map(function (k) { return "「" + k + "」"; }).join("、"),
+          l: tp.flow || "",
+          ref: tp.ref, refName: tp.refName
+        }, dom.n);
+      }
+    });
+  }
+});
+</script>
+<div class="wrap"><div class="cow-credit">
+  <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
+  <div><b>牛夫子</b>　圖／楊安琪　・　本頁沿用《國中數學工具地圖》的牛夫子主題，色票取自角色本身：斑塊的深酒紅、數學課本的粉紅、圓框眼鏡的黑、紙張的米白。</div>
+</div></div>
+</body>
+</html>

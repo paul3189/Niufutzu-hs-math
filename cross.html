@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>跨章決策流程圖｜數學工具地圖</title>
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/mapstyle.css">
+<link rel="stylesheet" href="assets/theme-cow.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/mathfit.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
+  <a href="index.html">🏠 首頁</a>
+  <a href="map.html">🗺️ 工具地圖</a>
+  <a href="cross.html">🔀 跨章流程圖</a>
+  <span class="crumb" id="crumb">跨章決策流程圖</span>
+  <span class="spacer"></span>
+  <span id="edSwitch"></span>
+</div></div>
+
+<div class="wrap-wide">
+
+  <div class="map-hero">
+    <div class="hero-row">
+      <img class="hero-cow" src="assets/mascot/web/cow_question.png" alt="思考中的牛夫子">
+      <div class="hero-text">
+        <h1>🔀 跨章決策流程圖</h1>
+        <p>考試不按章節出題。這裡把散在各冊的工具，依<b>「題目在問什麼」</b>重新排成 10 張判斷圖：<br>
+        順著問題往下走，走到底就是該用的工具，旁邊灰字就是它的限制。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cx-tabs" id="cxTabs"></div>
+
+  <div class="cx-lead" id="cxLead"></div>
+
+  <div class="mm-shell">
+    <div class="mm-bar">
+      <span>➡️ 由左往右讀：<b>圓角框＝要問自己的問題</b>，白框＝可用的工具，紅框＝必須檢查的事</span>
+      <span class="sp"></span>
+      <button id="viewToggle">☰ 改用清單模式</button>
+      <button onclick="window.print()">🖨️ 列印</button>
+    </div>
+    <div class="mm-scroll" id="flowMap"></div>
+  </div>
+
+  <div id="cxScope"></div>
+  <div class="cx-notes" id="cxNotes"></div>
+
+  <div class="ch-nav">
+    <a href="map.html">← 回全景圖</a>
+    <a id="nextC" href="#">下一張 →</a>
+  </div>
+</div>
+
+<script src="data/site.js"></script>
+<script src="data/scope.js"></script>
+<script src="data/crossmap.js"></script>
+<script src="assets/flow.js"></script>
+<script src="assets/map.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var tabs = document.getElementById("cxTabs");
+  var cur = 0;
+  // 同時支援 ?c=xxx 與 #c=xxx（file:// 直接開檔時 query string 可能被忽略）
+  var q = new URLSearchParams(location.search).get("c") ||
+          new URLSearchParams(location.hash.replace(/^#/, "")).get("c");
+  CROSSMAP.forEach(function (c, i) { if (c.id === q) cur = i; });
+
+  function katex(el) {
+    if (window.renderMathInElement) {
+      renderMathInElement(el, {
+        delimiters: [{ left: "$$", right: "$$", display: true }, { left: "$", right: "$", display: false }],
+        throwOnError: false
+      });
+    }
+  }
+
+  function drawChart() {
+    var c = CROSSMAP[cur];
+    var box = document.getElementById("flowMap");
+    var mode = MathMap.viewMode();
+    box.classList.toggle("list", mode === "list");
+    var tree = JSON.parse(JSON.stringify(c.tree));   // 排版會改寫節點，每次都用乾淨的副本
+
+    var note = document.getElementById("cxScope");
+    if (MathMap.edition() === "gsat") {
+      var p = MathFlow.prune(tree);
+      tree = p.tree;
+      note.innerHTML = p.removed.length
+        ? '<div class="ed-note">🎓 學測版：本圖已隱藏 ' + p.removed.length + ' 個高三選修的分支（' +
+          p.removed.join("、") + "）。切回「完整版」可看到全部。</div>"
+        : "";
+    } else {
+      note.innerHTML = "";
+    }
+
+    if (mode === "list") MathFlow.renderList("flowMap", tree, c.color);
+    else MathFlow.render("flowMap", tree, c.color);
+  }
+
+  function show(i) {
+    cur = i;
+    var c = CROSSMAP[i];
+    document.title = c.n + "｜跨章決策流程圖";
+    document.getElementById("crumb").textContent = "跨章流程圖 ▸ " + c.n;
+    try { history.replaceState(null, "", "#c=" + c.id); } catch (e) {}
+
+    tabs.querySelectorAll("button").forEach(function (b, j) {
+      b.classList.toggle("active", j === i);
+      b.style.background = j === i ? CROSSMAP[j].color : "#fff";
+      b.style.borderColor = j === i ? CROSSMAP[j].color : "";
+    });
+
+    var lead = document.getElementById("cxLead");
+    lead.style.borderLeftColor = c.color;
+    lead.innerHTML = '<h2 style="color:' + c.color + '">' + c.icon + " " + c.n + "</h2>" +
+      "<p>" + c.lead + "</p>" +
+      '<div class="cx-kw">' + c.when.map(function (k) { return "<span>" + k + "</span>"; }).join("") + "</div>";
+    katex(lead);
+
+    drawChart();
+
+    var nt = document.getElementById("cxNotes");
+    nt.innerHTML = (c.notes || []).map(function (n) {
+      return '<div class="cx-note" style="border-left:5px solid ' + c.color + '">' +
+        "<h4>" + n.t + "</h4><div>" + n.b + "</div></div>";
+    }).join("");
+    katex(nt);
+
+    var nx = CROSSMAP[(i + 1) % CROSSMAP.length];
+    var a = document.getElementById("nextC");
+    a.href = "cross.html#c=" + nx.id;
+    a.textContent = nx.icon + " " + nx.n + " →";
+    a.onclick = function (e) { e.preventDefault(); show((i + 1) % CROSSMAP.length); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  }
+
+  CROSSMAP.forEach(function (c, i) {
+    var b = document.createElement("button");
+    b.textContent = c.icon + " " + c.n;
+    b.addEventListener("click", function () { show(i); });
+    tabs.appendChild(b);
+  });
+  MathMap.mountEditionSwitch("edSwitch");
+  show(cur);
+  MathMap.viewController("viewToggle", function () { drawChart(); });
+});
+</script>
+<div class="wrap"><div class="cow-credit">
+  <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
+  <div><b>牛夫子</b>　圖／楊安琪　・　本頁沿用《國中數學工具地圖》的牛夫子主題，色票取自角色本身：斑塊的深酒紅、數學課本的粉紅、圓框眼鏡的黑、紙張的米白。</div>
+</div></div>
+</body>
+</html>

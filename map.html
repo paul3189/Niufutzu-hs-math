@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>數學工具地圖｜高中數學全景心智圖</title>
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/mapstyle.css">
+<link rel="stylesheet" href="assets/theme-cow.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/mathfit.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
+  <a href="index.html">🏠 首頁</a>
+  <a href="map.html">🗺️ 工具地圖</a>
+  <a href="cross.html">🔀 跨章流程圖</a>
+  <span class="crumb">全景心智圖</span>
+  <span class="spacer"></span>
+  <span id="edSwitch"></span>
+</div></div>
+
+<div class="wrap-wide">
+
+  <div class="map-hero">
+    <div class="hero-row">
+      <img class="hero-cow" src="assets/mascot/web/cow_scholar.png" alt="翻著書的牛夫子">
+      <div class="hero-text">
+        <h1>🗺️ 數學工具地圖</h1>
+        <p>把整個高中數學攤開成一張圖：<b>問什麼 → 出現什麼關鍵字 → 可以動用哪些工具 → 這些工具有什麼限制</b><br>
+        面對陌生題目時，你需要的不是「想起某一題」，而是「知道自己有哪些武器」。</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="edBanner"></div>
+
+  <!-- ── 關鍵字搜尋 ── -->
+  <h2 class="sec"><span class="tag tag-keyword">🔍</span>關鍵字 → 工具｜直接搜</h2>
+  <div class="kw-search">
+    <input id="kwInput" type="text" placeholder="輸入題目裡的字，例如：最大值、垂直、至少、相切、恆成立、餘數、期望值…">
+  </div>
+  <p class="kw-hint">會在全部 <b id="toolCount">—</b> 項工具的「名稱／使用時機／限制／常見錯誤」中搜尋。點搜尋結果可看完整說明。</p>
+  <div id="kwHits" class="hit-list"></div>
+
+  <!-- ── 破題流程 ── -->
+  <h2 class="sec"><span class="tag tag-concept">🧭</span>拆解問題的四個提問</h2>
+  <div class="flow-grid">
+    <div class="flow-card">
+      <h4>① 這題「問什麼」？</h4>
+      <ul>
+        <li>求<b>一個值</b> → 解方程式／代公式</li>
+        <li>求<b>範圍</b> → 不等式、判別式、值域</li>
+        <li>求<b>個數</b> → 計數、判別式、圖形交點</li>
+        <li>求<b>最大最小</b> → 最值策略表（7 條路）</li>
+        <li>求<b>位置關係</b> → 距離 vs 半徑、向量、行列式</li>
+        <li>要<b>證明</b> → 從定義出發、歸納法、反證</li>
+      </ul>
+    </div>
+    <div class="flow-card">
+      <h4>② 題目「給了什麼」？</h4>
+      <ul>
+        <li>給<b>幾個點的坐標</b> → 坐標幾何／向量</li>
+        <li>給<b>邊與角</b> → 正弦、餘弦定理</li>
+        <li>給<b>前後項關係</b> → 數列與遞迴</li>
+        <li>給<b>條件機率式的敘述</b> → 樹狀圖、貝氏</li>
+        <li>給<b>對所有 x 成立</b> → 恆成立轉最值</li>
+        <li>給<b>一堆數據</b> → 平均與標準差、相關係數</li>
+      </ul>
+    </div>
+    <div class="flow-card">
+      <h4>③ 我有「哪些工具」？</h4>
+      <ul>
+        <li>同一件事常有 <b>代數解</b> 與 <b>幾何解</b> 兩條路</li>
+        <li>算不出來時，換一個表示法：<br>坐標 ↔ 向量 ↔ 三角 ↔ 複數</li>
+        <li>式子太複雜 → <b>換元</b>（記得換範圍）</li>
+        <li>正面難算 → <b>補集</b>、<b>反證</b></li>
+        <li>看不出結構 → <b>先畫圖</b>、先試小的 n</li>
+      </ul>
+    </div>
+    <div class="flow-card">
+      <h4>④ 這個工具的「限制」是什麼？</h4>
+      <ul>
+        <li>分母 ≠ 0、根號內 ≥ 0、真數 &gt; 0</li>
+        <li>平方 / 去絕對值 → <b>一定要驗根</b></li>
+        <li>公比 r ≠ 1、底數 a &gt; 0 且 a ≠ 1</li>
+        <li>不等式乘負數 → <b>變號</b></li>
+        <li>算幾／柯西 → <b>等號能不能成立</b></li>
+        <li>換元後 → <b>新變數的範圍</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── 跨章流程圖入口 ── -->
+  <h2 class="sec"><span class="tag tag-example">🔀</span>跨章決策流程圖（10 張）</h2>
+  <p class="kw-hint">課本按章編排，考試從不按章出題。這 10 張圖依「<b>題目在問什麼</b>」把散在各冊的工具重新排隊，順著問題往下走就找得到該用的工具。</p>
+  <div class="dom-grid" id="crossCards"></div>
+
+  <!-- ── 總圖 ── -->
+  <h2 class="sec"><span class="tag tag-concept">🌳</span>全景圖：九大領域</h2>
+  <p class="kw-hint">點<b>領域</b>或<b>主題</b>可展開該分支的細部心智圖（每個領域有自己一張圖）。圖太寬可左右捲動。</p>
+  <div class="mm-shell">
+    <div class="mm-bar">
+      <span>🖱️ 點節點進入分支圖</span>
+      <span class="sp"></span>
+      <button id="viewToggle">☰ 改用清單模式</button>
+      <button onclick="window.print()">🖨️ 列印</button>
+    </div>
+    <div class="mm-scroll" id="masterMap"></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--cow-wine-d,#1f2937)"></i>根：高中數學</span>
+    <span><i style="background:#dbeafe;border:1.5px solid #2563eb"></i>領域（9 個）</span>
+    <span><i style="background:#fff;border:1.5px solid #9ec5fb"></i>主題（點進去看工具）</span>
+  </div>
+
+  <!-- ── 領域卡 ── -->
+  <h2 class="sec"><span class="tag tag-example">📚</span>九大領域各自負責什麼</h2>
+  <div id="domCards"></div>
+
+  <!-- ── 使用建議 ── -->
+  <h2 class="sec"><span class="tag tag-check">💡</span>怎麼用這張圖</h2>
+  <div class="card concept">
+    <p><b>平常讀書時：</b>每讀完一章，回到這張圖找到它的位置，問自己「它跟旁邊的主題有什麼關係？」——
+    孤立記住的公式最容易忘，長在樹上的公式才叫理解。</p>
+    <p><b>寫題目卡住時：</b>不要馬上翻解答。先問「這題屬於哪個領域？」→ 進入該分支圖 →
+    掃過那個主題的所有工具 → 逐一問「這個工具的觸發條件，題目有沒有給？」</p>
+    <p><b>訂正錯題時：</b>錯的往往不是計算，而是「限制沒檢查」。到工具的<span style="color:var(--red);font-weight:700">限制／前提</span>欄
+    找到你踩的那個坑，把它抄進錯題本。</p>
+    <p><b>考前複習時：</b>把每個領域的分支圖印出來，遮住「工具」欄，只看「什麼時候用」，測試自己能不能反射性地說出工具名稱。</p>
+  </div>
+
+</div>
+
+<script src="data/site.js"></script>
+<script src="data/scope.js"></script>
+<script src="data/crossmap.js"></script>
+<script src="data/toolmap.js"></script>
+<script src="data/tm-1-number.js"></script>
+<script src="data/tm-2-equation.js"></script>
+<script src="data/tm-3-function.js"></script>
+<script src="data/tm-4-trig.js"></script>
+<script src="data/tm-5-geometry.js"></script>
+<script src="data/tm-6-vector.js"></script>
+<script src="data/tm-7-sequence.js"></script>
+<script src="data/tm-8-prob.js"></script>
+<script src="data/tm-9-calculus.js"></script>
+<script src="assets/map.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MathMap.mountEditionSwitch("edSwitch");
+  MathMap.renderEditionBanner("edBanner");
+  MathMap.viewController("viewToggle", function (mode) {
+    var box = document.getElementById("masterMap");
+    box.classList.toggle("list", mode === "list");
+    if (mode === "list") MathMap.renderMasterList("masterMap");
+    else MathMap.renderMaster("masterMap");
+  });
+  MathMap.renderDomainCards("domCards");
+  MathMap.bindSearch("kwInput", "kwHits");
+  document.getElementById("toolCount").textContent = MathMap.allTools().length;
+
+  var cc = document.getElementById("crossCards");
+  CROSSMAP.forEach(function (c) {
+    var a = document.createElement("a");
+    a.className = "dom-card";
+    a.href = "cross.html#c=" + c.id;
+    a.style.borderLeftColor = c.color;
+    a.innerHTML = '<span class="dc-t" style="color:' + c.color + '">' + c.icon + " " + c.n + "</span>" +
+      '<span class="dc-k">🔑 ' + c.when.join("・") + "</span>";
+    cc.appendChild(a);
+  });
+});
+</script>
+<div class="wrap"><div class="cow-credit">
+  <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
+  <div><b>牛夫子</b>　圖／楊安琪　・　本頁沿用《國中數學工具地圖》的牛夫子主題，色票取自角色本身：斑塊的深酒紅、數學課本的粉紅、圓框眼鏡的黑、紙張的米白。</div>
+</div></div>
+</body>
+</html>

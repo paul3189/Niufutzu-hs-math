@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>牛夫子‧高中數學｜知識體系心智圖 × 直覺反應遊戲</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/theme-cow.css">
+<style>
+/* 只有兩個入口，卡片做大一點，手機上一行一張 */
+.entry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 22px 0 8px; }
+.entry {
+  display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--line); border-left: 7px solid var(--cow-wine);
+  border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow);
+  transition: transform .12s;
+}
+.entry:hover { transform: translateY(-2px); text-decoration: none; border-color: var(--cow-pink); border-left-color: var(--cow-wine); }
+.entry .e-t { font-size: 1.28rem; font-weight: 800; color: var(--cow-wine); }
+.entry .e-d { font-size: .95rem; color: var(--ink-soft); line-height: 1.75; }
+.entry .e-go { margin-top: 4px; font-weight: 700; font-size: .9rem; color: var(--cow-wine); }
+.entry.sub { border-left-color: var(--amber); }
+.entry.sub .e-t, .entry.sub .e-go { color: #a85b1e; }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
+  <a href="index.html">🏠 首頁</a>
+  <a href="map.html">🗺️ 工具地圖</a>
+  <a href="reflex.html">⚔️ 直覺道場</a>
+  <span class="spacer"></span>
+  <span class="crumb">108課綱｜高中數學</span>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-row">
+      <img class="hero-cow" src="assets/mascot/web/cow_baton.png" alt="拿著指揮棒上課的牛夫子">
+      <div class="hero-text">
+        <h1>牛夫子‧高中數學</h1>
+        <p>面對陌生題目時，你需要的不是「想起某一題」，<br>
+        而是<b>知道自己有哪些武器、每把武器什麼時候能用</b>。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="entry-grid">
+    <a class="entry" href="map.html">
+      <span class="e-t">🗺️ 高中知識體系心智圖</span>
+      <span class="e-d">把整個高中數學攤開成一張圖：<b>9 大領域、51 個主題、314 個工具</b>。
+      每個工具都寫清楚四件事——公式是什麼、<b>什麼時候用</b>、<b>有什麼限制</b>、<b>最常錯在哪</b>。
+      最上面有關鍵字搜尋，直接輸入題目裡的字（「最大值」「至少」「相切」）就會列出所有可能用得上的工具。
+      另外附 <b>10 張跨章決策流程圖</b>，依「題目在問什麼」重排，順著走就找得到方法。</span>
+      <span class="e-go">打開心智圖 →</span>
+    </a>
+
+    <a class="entry sub" href="reflex.html">
+      <span class="e-t">⚔️ 高中數學直覺反應遊戲</span>
+      <span class="e-d">考場上真正拖垮你的不是<b>不會</b>，而是<b>想太久</b>。
+      這裡只練一件事：看到題目的那一秒，正確的觀念要自己跳出來。
+      限時作答、答對打怪、想太久就被怪打；可以自己選<b>難度、範圍、題型</b>，
+      一場 10 題，結束後會告訴你哪一章最弱、錯在哪裡。</span>
+      <span class="e-go">開始訓練 →</span>
+    </a>
+  </div>
+
+  <h2 class="sec"><span class="tag tag-check">💡</span>三個使用時機</h2>
+  <div class="card concept">
+    <p><b>① 寫題目卡住時</b>：不要馬上翻解答。先到心智圖問自己「這題屬於哪個領域？」，
+    進入那張分支圖，把該主題的工具掃過一遍，逐一問「這個工具的觸發條件，題目有沒有給我？」</p>
+    <p><b>② 訂正錯題時</b>：錯的往往不是計算，而是<b>限制沒檢查</b>。
+    到工具的<span style="color:var(--red);font-weight:700">限制／前提</span>欄找到你踩的那個坑，抄進錯題本。</p>
+    <p><b>③ 考前</b>：先玩幾場直覺道場，看結算頁指出哪一章最弱，
+    再回心智圖把那個主題的工具表遮住「工具」欄自測一次。</p>
+  </div>
+
+  <div class="callout tip">
+    <div class="co-title">🎓 高三的先切「學測版」</div>
+    心智圖右上角可以切換<b>完整版（314 個工具）</b>與<b>學測版（259 個工具）</b>。
+    切到學測版之後，高三選修（微積分、複數平面、圓錐曲線、極限、線性規劃等）會自動隱藏，
+    上方也會列出被隱藏了哪些東西。選擇記在你自己的瀏覽器裡，每個人可以各自設定。
+  </div>
+
+  <div class="callout warn">
+    <div class="co-title">📱 手機、電腦都能開</div>
+    不用安裝、不用登入。手機上心智圖會自動變成可折疊的清單，公式會自動換列、不用左右拉。
+    直覺道場的成績存在<b>你自己的手機／電腦裡</b>，換裝置會歸零，這是正常的。
+  </div>
+</div>
+
+<div class="wrap"><div class="cow-credit">
+  <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
+  <div><b>牛夫子</b>　圖／楊安琪</div>
+</div></div>
+</body>
+</html>
