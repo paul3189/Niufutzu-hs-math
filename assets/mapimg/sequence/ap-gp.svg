@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="140" y="28" text-anchor="middle" font-size="17" fill="#111">等差：點落在一條直線上</text>
+  <text x="420" y="28" text-anchor="middle" font-size="17" fill="#111">等比：點落在指數曲線上</text>
+
+  <!-- 左圖：等差 aₙ = 2n − 1 -->
+  <line x1="55" y1="290" x2="268" y2="290" stroke="#555" stroke-width="1.5"/>
+  <line x1="55" y1="290" x2="55" y2="60" stroke="#555" stroke-width="1.5"/>
+  <text x="272" y="295" font-size="13" fill="#555">n</text>
+  <text x="40" y="58" font-size="13" fill="#555">aₙ</text>
+
+  <line x1="75" y1="268" x2="235" y2="92" stroke="#db2777" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <circle cx="75"  cy="268" r="5" fill="#db2777"/>
+  <circle cx="115" cy="224" r="5" fill="#db2777"/>
+  <circle cx="155" cy="180" r="5" fill="#db2777"/>
+  <circle cx="195" cy="136" r="5" fill="#db2777"/>
+  <circle cx="235" cy="92"  r="5" fill="#db2777"/>
+
+  <text x="75"  y="308" text-anchor="middle" font-size="12" fill="#555">1</text>
+  <text x="115" y="308" text-anchor="middle" font-size="12" fill="#555">2</text>
+  <text x="155" y="308" text-anchor="middle" font-size="12" fill="#555">3</text>
+  <text x="195" y="308" text-anchor="middle" font-size="12" fill="#555">4</text>
+  <text x="235" y="308" text-anchor="middle" font-size="12" fill="#555">5</text>
+
+  <text x="82"  y="264" font-size="12" fill="#333">1</text>
+  <text x="240" y="90"  font-size="12" fill="#333">9</text>
+
+  <!-- 公差階梯 -->
+  <line x1="155" y1="180" x2="195" y2="180" stroke="#888" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <line x1="195" y1="180" x2="195" y2="136" stroke="#888" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="200" y="164" font-size="13" fill="#db2777">d = 2</text>
+  <text x="140" y="332" text-anchor="middle" font-size="14" fill="#333">每往右一格，就往上固定的 d</text>
+
+  <!-- 右圖：等比 aₙ = 2^(n−1) -->
+  <line x1="325" y1="290" x2="538" y2="290" stroke="#555" stroke-width="1.5"/>
+  <line x1="325" y1="290" x2="325" y2="60" stroke="#555" stroke-width="1.5"/>
+  <text x="542" y="295" font-size="13" fill="#555">n</text>
+  <text x="310" y="58" font-size="13" fill="#555">aₙ</text>
+
+  <path d="M345 277 Q 385 268 425 240 T 505 85" fill="none" stroke="#db2777" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <circle cx="345" cy="277" r="5" fill="#db2777"/>
+  <circle cx="385" cy="265" r="5" fill="#db2777"/>
+  <circle cx="425" cy="240" r="5" fill="#db2777"/>
+  <circle cx="465" cy="190" r="5" fill="#db2777"/>
+  <circle cx="505" cy="90"  r="5" fill="#db2777"/>
+
+  <text x="345" y="308" text-anchor="middle" font-size="12" fill="#555">1</text>
+  <text x="385" y="308" text-anchor="middle" font-size="12" fill="#555">2</text>
+  <text x="425" y="308" text-anchor="middle" font-size="12" fill="#555">3</text>
+  <text x="465" y="308" text-anchor="middle" font-size="12" fill="#555">4</text>
+  <text x="505" y="308" text-anchor="middle" font-size="12" fill="#555">5</text>
+
+  <text x="352" y="274" font-size="12" fill="#333">1</text>
+  <text x="470" y="186" font-size="12" fill="#333">8</text>
+  <text x="510" y="88"  font-size="12" fill="#333">16</text>
+
+  <text x="400" y="248" font-size="13" fill="#db2777">×2</text>
+  <text x="432" y="212" font-size="13" fill="#db2777">×2</text>
+  <text x="462" y="150" font-size="13" fill="#db2777">×2</text>
+  <text x="420" y="332" text-anchor="middle" font-size="14" fill="#333">每往右一格，就乘上固定的 r</text>
+</svg>

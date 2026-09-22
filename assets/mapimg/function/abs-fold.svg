@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">絕對值套外面 vs 套裡面（以 f(x) = (x − 1)² − 4 為例）</text>
+  <text x="280" y="52" text-anchor="middle" font-size="12" fill="#64748b">虛線為原本的 y = f(x)</text>
+
+  <!-- 左panel：y = |f(x)| -->
+  <line x1="100" y1="190" x2="268" y2="190" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="160" y1="265" x2="160" y2="105" stroke="#94a3b8" stroke-width="1.4"/>
+  <polyline points="116,120 127,158.5 138,190 149,214.5 160,232 171,242.5 182,246 193,242.5 204,232 215,214.5 226,190 237,158.5 248,120"
+            fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <polyline points="116,120 127,158.5 138,190 149,165.5 160,148 171,137.5 182,134 193,137.5 204,148 215,165.5 226,190 237,158.5 248,120"
+            fill="none" stroke="#059669" stroke-width="2.6"/>
+  <circle cx="138" cy="190" r="4.5" fill="#047857"/>
+  <circle cx="226" cy="190" r="4.5" fill="#047857"/>
+  <text x="130" y="207" font-size="11" fill="#475569">−1</text>
+  <text x="228" y="207" font-size="11" fill="#475569">3</text>
+  <text x="182" y="125" text-anchor="middle" font-size="11" fill="#047857">尖點</text>
+  <text x="160" y="296" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">y = | f(x) |</text>
+  <text x="160" y="316" text-anchor="middle" font-size="12" fill="#475569">x 軸下方往上翻摺</text>
+  <text x="160" y="334" text-anchor="middle" font-size="12" fill="#475569">圖形恆在 x 軸上方，摺處有尖點</text>
+
+  <line x1="292" y1="95" x2="292" y2="270" stroke="#e2e8f0" stroke-width="1.4"/>
+
+  <!-- 右panel：y = f(|x|) -->
+  <line x1="322" y1="190" x2="522" y2="190" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="420" y1="265" x2="420" y2="105" stroke="#94a3b8" stroke-width="1.4"/>
+  <polyline points="376,120 387,158.5 398,190 409,214.5 420,232 431,242.5 442,246 453,242.5 464,232 475,214.5 486,190 497,158.5 508,120"
+            fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <polyline points="332,120 343,158.5 354,190 365,214.5 376,232 387,242.5 398,246 409,242.5 420,232 431,242.5 442,246 453,242.5 464,232 475,214.5 486,190 497,158.5 508,120"
+            fill="none" stroke="#059669" stroke-width="2.6"/>
+  <circle cx="420" cy="232" r="4.5" fill="#047857"/>
+  <text x="420" y="296" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">y = f( | x | )</text>
+  <text x="420" y="316" text-anchor="middle" font-size="12" fill="#475569">留下 x ≥ 0 的部分，對 y 軸鏡射</text>
+  <text x="420" y="334" text-anchor="middle" font-size="12" fill="#475569">結果一定是偶函數</text>
+</svg>

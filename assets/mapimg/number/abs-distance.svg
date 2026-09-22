@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">絕對值＝數線上的距離</text>
+
+  <!-- 上半：一般式 -->
+  <line x1="50" y1="125" x2="510" y2="125" stroke="#2563eb" stroke-width="2"/>
+  <polygon points="510,125 500,120 500,130" fill="#2563eb"/>
+  <line x1="180" y1="118" x2="180" y2="132" stroke="#2563eb" stroke-width="2"/>
+  <line x1="400" y1="118" x2="400" y2="132" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="180" cy="125" r="5" fill="#2563eb"/>
+  <circle cx="400" cy="125" r="5" fill="#2563eb"/>
+  <text x="180" y="150" text-anchor="middle" font-size="15" fill="#1f2937">a</text>
+  <text x="400" y="150" text-anchor="middle" font-size="15" fill="#1f2937">x</text>
+
+  <line x1="180" y1="95" x2="400" y2="95" stroke="#2563eb" stroke-width="1.6"/>
+  <polygon points="180,95 190,90 190,100" fill="#2563eb"/>
+  <polygon points="400,95 390,90 390,100" fill="#2563eb"/>
+  <text x="290" y="84" text-anchor="middle" font-size="15" fill="#1d4ed8">| x − a |</text>
+  <text x="455" y="150" font-size="12" fill="#64748b">係數要先提出來</text>
+  <text x="455" y="166" font-size="12" fill="#64748b">| 2x − 6 | = 2| x − 3 |</text>
+
+  <!-- 下半：具體例子 -->
+  <text x="50" y="205" font-size="14" fill="#1f2937">例：| x − 3 | ≤ 2 ⟺ 到 3 的距離不超過 2 ⟺ 1 ≤ x ≤ 5</text>
+
+  <line x1="60" y1="255" x2="500" y2="255" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="500,255 490,250 490,260" fill="#94a3b8"/>
+  <line x1="125" y1="255" x2="305" y2="255" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <g font-size="12" fill="#475569" text-anchor="middle">
+    <line x1="80" y1="250" x2="80" y2="260" stroke="#94a3b8"/><text x="80" y="276">0</text>
+    <line x1="125" y1="248" x2="125" y2="262" stroke="#2563eb"/><text x="125" y="276">1</text>
+    <line x1="170" y1="250" x2="170" y2="260" stroke="#94a3b8"/><text x="170" y="276">2</text>
+    <line x1="215" y1="248" x2="215" y2="262" stroke="#2563eb"/><text x="215" y="276">3</text>
+    <line x1="260" y1="250" x2="260" y2="260" stroke="#94a3b8"/><text x="260" y="276">4</text>
+    <line x1="305" y1="248" x2="305" y2="262" stroke="#2563eb"/><text x="305" y="276">5</text>
+    <line x1="350" y1="250" x2="350" y2="260" stroke="#94a3b8"/><text x="350" y="276">6</text>
+    <line x1="395" y1="250" x2="395" y2="260" stroke="#94a3b8"/><text x="395" y="276">7</text>
+  </g>
+  <circle cx="125" cy="255" r="5" fill="#2563eb"/>
+  <circle cx="305" cy="255" r="5" fill="#2563eb"/>
+  <circle cx="215" cy="255" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="215" y="232" text-anchor="middle" font-size="12" fill="#1d4ed8">中心 3</text>
+  <line x1="215" y1="300" x2="305" y2="300" stroke="#2563eb" stroke-width="1.4"/>
+  <polygon points="215,300 225,295 225,305" fill="#2563eb"/>
+  <polygon points="305,300 295,295 295,305" fill="#2563eb"/>
+  <text x="260" y="318" text-anchor="middle" font-size="12" fill="#1d4ed8">半徑 2</text>
+
+  <text x="380" y="305" font-size="12" fill="#64748b">先翻成距離，翻不動才分段討論</text>
+</svg>

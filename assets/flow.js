@@ -1,7 +1,10 @@
 /* 高中數學｜跨章決策流程圖引擎（由左至右的樹狀判斷圖）
  * node = { t:"文字", kind:"q"|"tool"|"warn", note:"補充/限制", on:"來自父節點的條件",
- *          children:[node...] }
+ *          ref:"領域id/主題id/工具名", children:[node...] }
  * 排版：層級往右展開、選項往下堆疊；同一層的節點左緣對齊成一欄。
+ *
+ * ref：指向工具地圖裡對應的工具。有 ref 的節點可以點（圖表模式點節點、清單模式點葉節點），
+ *      會呼叫 MathFlow.onPick(ref, 節點文字)；由頁面決定要做什麼（cross.html 打開工具抽屜）。
  */
 (function () {
   "use strict";
@@ -133,7 +136,7 @@
 
       // ── 節點 ──
       walk(root, function (n) {
-        var g = el("g", { class: "fl-node" });
+        var g = el("g", { class: "fl-node" + (n.ref ? " fl-hot" : "") });
         var fill, stroke, tcol;
         if (n.kind === "q") { fill = shade(color, 1.88); stroke = color; tcol = shade(color, .62); }
         else if (n.kind === "warn") { fill = "#fef2f2"; stroke = "#f0a3a3"; tcol = "#991b1b"; }
@@ -165,6 +168,18 @@
           });
           t.textContent = l; g.appendChild(t);
         });
+        // 有 ref 的節點可以點開工具抽屜（CSS 另給 hover 效果）
+        if (n.ref) {
+          g.setAttribute("style", "cursor:pointer");
+          var tip = el("title");
+          tip.textContent = "點一下看「" + String(n.t).replace(/\n/g, " ") + "」的工具細節";
+          g.appendChild(tip);
+          (function (ref, label) {
+            g.addEventListener("click", function () {
+              if (typeof Flow.onPick === "function") Flow.onPick(ref, label);
+            });
+          })(n.ref, String(n.t).replace(/\n/g, " "));
+        }
         svg.appendChild(g);
       });
 
@@ -209,7 +224,8 @@
           .replace(/\n/g, " ");
       }
       function leaf(c) {
-        return '<div class="fl-leaf' + (c.kind === "warn" ? " warn" : "") + '">' +
+        return '<div class="fl-leaf' + (c.kind === "warn" ? " warn" : "") + (c.ref ? " fl-hot" : "") + '"' +
+          (c.ref ? ' data-ref="' + esc(c.ref) + '" title="點一下看工具細節"' : "") + ">" +
           (c.on ? '<span class="fl-on" style="background:' + color + '">' + esc(c.on) + "</span>" : "") +
           "<b>" + esc(c.t) + "</b>" +
           (c.note ? '<span class="fl-note">' + esc(c.note) + "</span>" : "") + "</div>";
@@ -229,7 +245,18 @@
           }).join("");
       }
       mount.innerHTML = '<div class="fl-list">' + branch(root, 0) + "</div>";
-    }
+      // 葉節點若有 ref，點下去打開工具抽屜
+      mount.querySelectorAll("[data-ref]").forEach(function (node) {
+        node.addEventListener("click", function () {
+          if (typeof Flow.onPick !== "function") return;
+          var b = node.querySelector("b");
+          Flow.onPick(node.getAttribute("data-ref"), b ? b.textContent : "");
+        });
+      });
+    },
+
+    /* 由頁面覆寫：onPick(ref, 節點文字) —— 預設什麼都不做 */
+    onPick: null
   };
 
   window.MathFlow = Flow;

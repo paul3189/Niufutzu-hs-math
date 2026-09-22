@@ -204,7 +204,38 @@
       '<div class="' + (cls || "dw-txt") + '">' + html + "</div></div>";
   }
 
-  /* tool = {n,f,w,l,t,x,ref,refName}
+  /* 串聯路徑 "領域id/主題id[/工具名]" → 找到目標；找不到回傳 null */
+  function resolveSee(p) {
+    var parts = String(p).split("/");
+    var all = (window.TOOLMAP && TOOLMAP.domains) || [];
+    for (var i = 0; i < all.length; i++) if (all[i].id === parts[0]) {
+      var d = all[i], ts = d.topics || [];
+      for (var j = 0; j < ts.length; j++) if (ts[j].id === parts[1]) {
+        var t = ts[j];
+        if (parts.length < 3) return { dom: d, topic: t };
+        var xs = t.tools || [];
+        for (var k = 0; k < xs.length; k++) if (xs[k].n === parts[2]) return { dom: d, topic: t, tool: xs[k] };
+        return { dom: d, topic: t };
+      }
+      return null;
+    }
+    return null;
+  }
+  function seeHtml(list) {
+    if (!list || !list.length) return "";
+    return '<ul class="dw-see">' + list.map(function (p) {
+      var r = resolveSee(p);
+      if (!r) return "";
+      var label = r.dom.icon + " " + r.dom.n + " ▸ " + r.topic.n + (r.tool ? " ▸ " + r.tool.n : "");
+      return '<li><a href="#" data-see="' + esc(p) + '">' + esc(label) + "</a></li>";
+    }).join("") + "</ul>";
+  }
+  function cueHtml(list) {
+    if (!list || !list.length) return "";
+    return '<ul class="dw-cue">' + list.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>";
+  }
+
+  /* tool = {n,f,w,l,t,x,ref,refName, cue:[看到什麼就想到什麼], see:[串聯路徑], img, imgCap}
    * 所有欄位都要經過 esc()：數學敘述裡的 "<"（如 $0<a<1$）若直接塞進 innerHTML，
    * 會被瀏覽器當成 HTML 標籤起始而吃掉後面的內容。
    */
@@ -214,14 +245,28 @@
       esc(tool.n) + (path ? '<div class="h-p" style="font-weight:400">' + esc(path) + "</div>" : "");
     var html =
       sec("lab-f", "公式／敘述", tool.f ? "$$" + esc(tool.f) + "$$" : "", "dw-formula") +
+      (tool.img ? '<div class="dw-sec dw-img"><img src="' + esc(tool.img) + '" alt="' + esc(tool.imgCap || tool.n) + '">' +
+        (tool.imgCap ? '<div class="dw-cap">' + esc(tool.imgCap) + "</div>" : "") + "</div>" : "") +
       sec("lab-w", "什麼時候用", esc(tool.w)) +
+      sec("lab-c", "看到這句話就想到", cueHtml(tool.cue), "dw-txt") +
       sec("lab-l", "限制／前提", esc(tool.l)) +
       sec("lab-t", "常見錯誤", esc(tool.t)) +
       sec("lab-x", "延伸連結", esc(tool.x)) +
+      sec("lab-s", "串聯：同一件事在別的地方長什麼樣", seeHtml(tool.see), "dw-txt") +
       // 只發佈心智圖、沒有上傳章節頁時（data/site.js 的 chapters:false），這個連結會指向不存在的檔案，所以直接不顯示
       (tool.ref && hasChapters() ? '<div class="dw-sec dw-ref"><a href="' + tool.ref + '">📘 前往章節：' + esc(tool.refName || "詳細講解") + " →</a></div>" : "");
     var body = d.querySelector("#dwBody");
     body.innerHTML = html || '<p class="dw-txt">（此節點為分類，點它下面的葉節點看工具細節）</p>';
+    // 串聯連結：目標是工具就在抽屜裡直接換頁，是主題就跳到該領域的分支圖
+    body.querySelectorAll("a[data-see]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var r = resolveSee(a.getAttribute("data-see"));
+        if (!r) return;
+        if (r.tool) openTool(r.tool, r.dom.n + " ▸ " + r.topic.n);
+        else location.href = "branch.html#d=" + r.dom.id + "&t=" + r.topic.id;
+      });
+    });
     if (window.renderMathInElement) {
       renderMathInElement(body, {
         delimiters: [{ left: "$$", right: "$$", display: true }, { left: "$", right: "$", display: false }],
@@ -470,6 +515,7 @@
             n: node._t.n,
             w: (node._t.kw || []).map(function (k) { return "「" + k + "」"; }).join("、"),
             l: node._t.flow || "",
+            cue: node._t.cue, see: node._t.see, img: node._t.img, imgCap: node._t.imgCap,
             ref: node._t.ref, refName: node._t.refName
           }, dom.n);
         }
@@ -532,7 +578,7 @@
         var keys = q.split(/[\s,，、]+/).filter(Boolean);
         var hits = data.filter(function (r) {
           var hay = [r.tool.n, r.tool.w, r.tool.f, r.tool.l, r.tool.t, r.topic.n,
-            (r.topic.kw || []).join(" "), r.dom.n].join(" ");
+            (r.topic.kw || []).join(" "), (r.tool.cue || []).join(" "), (r.topic.cue || []).join(" "), r.dom.n].join(" ");
           return keys.every(function (k) { return hay.indexOf(k) > -1; });
         }).slice(0, 40);
         if (!hits.length) {

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">散布圖先看形狀，相關係數 r 只量「直線關聯」</text>
+
+  <!-- 左：r 接近 +1 -->
+  <line x1="40" y1="230" x2="180" y2="230" stroke="#555" stroke-width="1.4"/>
+  <line x1="40" y1="230" x2="40"  y2="90"  stroke="#555" stroke-width="1.4"/>
+  <circle cx="58"  cy="214" r="4" fill="#4f46e5"/>
+  <circle cx="74"  cy="206" r="4" fill="#4f46e5"/>
+  <circle cx="90"  cy="188" r="4" fill="#4f46e5"/>
+  <circle cx="104" cy="180" r="4" fill="#4f46e5"/>
+  <circle cx="120" cy="158" r="4" fill="#4f46e5"/>
+  <circle cx="136" cy="146" r="4" fill="#4f46e5"/>
+  <circle cx="152" cy="126" r="4" fill="#4f46e5"/>
+  <circle cx="166" cy="112" r="4" fill="#4f46e5"/>
+  <text x="110" y="256" text-anchor="middle" font-size="15" fill="#4f46e5">r ≈ +0.95</text>
+  <text x="110" y="276" text-anchor="middle" font-size="13" fill="#333">一起變大：正相關</text>
+
+  <!-- 中：r 接近 0 -->
+  <line x1="210" y1="230" x2="350" y2="230" stroke="#555" stroke-width="1.4"/>
+  <line x1="210" y1="230" x2="210" y2="90"  stroke="#555" stroke-width="1.4"/>
+  <circle cx="228" cy="196" r="4" fill="#4f46e5"/>
+  <circle cx="244" cy="134" r="4" fill="#4f46e5"/>
+  <circle cx="258" cy="212" r="4" fill="#4f46e5"/>
+  <circle cx="274" cy="152" r="4" fill="#4f46e5"/>
+  <circle cx="290" cy="184" r="4" fill="#4f46e5"/>
+  <circle cx="306" cy="118" r="4" fill="#4f46e5"/>
+  <circle cx="322" cy="168" r="4" fill="#4f46e5"/>
+  <circle cx="336" cy="206" r="4" fill="#4f46e5"/>
+  <text x="280" y="256" text-anchor="middle" font-size="15" fill="#4f46e5">r ≈ 0</text>
+  <text x="280" y="276" text-anchor="middle" font-size="13" fill="#333">沒有直線關聯</text>
+
+  <!-- 右：r 接近 −1 -->
+  <line x1="380" y1="230" x2="520" y2="230" stroke="#555" stroke-width="1.4"/>
+  <line x1="380" y1="230" x2="380" y2="90"  stroke="#555" stroke-width="1.4"/>
+  <circle cx="398" cy="110" r="4" fill="#4f46e5"/>
+  <circle cx="414" cy="124" r="4" fill="#4f46e5"/>
+  <circle cx="430" cy="140" r="4" fill="#4f46e5"/>
+  <circle cx="444" cy="156" r="4" fill="#4f46e5"/>
+  <circle cx="460" cy="172" r="4" fill="#4f46e5"/>
+  <circle cx="476" cy="186" r="4" fill="#4f46e5"/>
+  <circle cx="492" cy="204" r="4" fill="#4f46e5"/>
+  <circle cx="506" cy="214" r="4" fill="#4f46e5"/>
+  <text x="450" y="256" text-anchor="middle" font-size="15" fill="#4f46e5">r ≈ −0.95</text>
+  <text x="450" y="276" text-anchor="middle" font-size="13" fill="#333">一個大一個小：負相關</text>
+
+  <text x="280" y="310" text-anchor="middle" font-size="14" fill="#111">r 的正負 = 最適直線的斜率正負；|r| 越接近 1，點越貼近直線</text>
+  <text x="280" y="332" text-anchor="middle" font-size="14" fill="#333">r ≈ 0 不代表沒關係，可能是彎的（例如拋物線形狀）</text>
+</svg>

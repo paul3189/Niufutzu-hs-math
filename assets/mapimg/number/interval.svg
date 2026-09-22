@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">區間的四種寫法：實心＝含端點，空心＝不含</text>
+
+  <g font-size="14" fill="#1f2937">
+    <text x="36" y="92">[ a , b ]</text>
+    <text x="36" y="152">( a , b )</text>
+    <text x="36" y="212">[ a , b )</text>
+    <text x="36" y="272">[ a , ∞ )</text>
+  </g>
+  <g font-size="13" fill="#475569">
+    <text x="118" y="92">a ≤ x ≤ b</text>
+    <text x="118" y="152">a &lt; x &lt; b</text>
+    <text x="118" y="212">a ≤ x &lt; b</text>
+    <text x="118" y="272">x ≥ a</text>
+  </g>
+
+  <!-- 列 1 -->
+  <line x1="230" y1="87" x2="500" y2="87" stroke="#cbd5e1" stroke-width="1.4"/>
+  <line x1="280" y1="87" x2="430" y2="87" stroke="#2563eb" stroke-width="5"/>
+  <circle cx="280" cy="87" r="6" fill="#2563eb"/>
+  <circle cx="430" cy="87" r="6" fill="#2563eb"/>
+  <!-- 列 2 -->
+  <line x1="230" y1="147" x2="500" y2="147" stroke="#cbd5e1" stroke-width="1.4"/>
+  <line x1="280" y1="147" x2="430" y2="147" stroke="#2563eb" stroke-width="5"/>
+  <circle cx="280" cy="147" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <circle cx="430" cy="147" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <!-- 列 3 -->
+  <line x1="230" y1="207" x2="500" y2="207" stroke="#cbd5e1" stroke-width="1.4"/>
+  <line x1="280" y1="207" x2="430" y2="207" stroke="#2563eb" stroke-width="5"/>
+  <circle cx="280" cy="207" r="6" fill="#2563eb"/>
+  <circle cx="430" cy="207" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <!-- 列 4 -->
+  <line x1="230" y1="267" x2="500" y2="267" stroke="#cbd5e1" stroke-width="1.4"/>
+  <line x1="280" y1="267" x2="495" y2="267" stroke="#2563eb" stroke-width="5"/>
+  <polygon points="505,267 491,261 491,273" fill="#2563eb"/>
+  <circle cx="280" cy="267" r="6" fill="#2563eb"/>
+
+  <g font-size="12" fill="#64748b" text-anchor="middle">
+    <text x="280" y="304">a</text>
+    <text x="430" y="304">b</text>
+  </g>
+  <text x="280" y="330" text-anchor="middle" font-size="12" fill="#64748b">∞ 不是一個數，那一端永遠用空心（小括號）</text>
+</svg>

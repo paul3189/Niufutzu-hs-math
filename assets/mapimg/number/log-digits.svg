@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">整數部分決定「位數」，小數部分決定「首位數字」</text>
+  <text x="280" y="62" text-anchor="middle" font-size="14" fill="#475569">例：N = 2¹⁰⁰　⟹　log N = 100 × log 2 ≈ 30.10</text>
+
+  <!-- 第一條：整數部分 -->
+  <text x="300" y="100" text-anchor="middle" font-size="14" fill="#1d4ed8">[ log N ] = 30　⟹　N 是 30 + 1 = 31 位整數</text>
+  <line x1="80" y1="130" x2="480" y2="130" stroke="#94a3b8" stroke-width="1.6"/>
+  <line x1="80" y1="123" x2="80" y2="137" stroke="#94a3b8" stroke-width="1.6"/>
+  <line x1="480" y1="123" x2="480" y2="137" stroke="#94a3b8" stroke-width="1.6"/>
+  <line x1="120" y1="118" x2="120" y2="144" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="120" cy="130" r="5" fill="#2563eb"/>
+  <text x="80" y="158" text-anchor="middle" font-size="13" fill="#475569">30</text>
+  <text x="480" y="158" text-anchor="middle" font-size="13" fill="#475569">31</text>
+  <text x="128" y="176" font-size="13" fill="#1d4ed8">log N = 30.10</text>
+
+  <!-- 第二條：小數部分（尾數） -->
+  <text x="120" y="212" text-anchor="middle" font-size="13" fill="#1d4ed8">尾數 0.10</text>
+  <g font-size="12" fill="#475569" text-anchor="middle">
+    <text x="80" y="232">log 1</text>
+    <text x="200" y="232">log 2</text>
+    <text x="271" y="232">log 3</text>
+    <text x="360" y="232">log 5</text>
+    <text x="480" y="232">log 10</text>
+  </g>
+  <rect x="80" y="244" width="120" height="12" fill="#2563eb" opacity="0.16"/>
+  <line x1="80" y1="250" x2="480" y2="250" stroke="#94a3b8" stroke-width="1.6"/>
+  <g stroke="#94a3b8" stroke-width="1.4">
+    <line x1="80" y1="243" x2="80" y2="257"/>
+    <line x1="200" y1="243" x2="200" y2="257"/>
+    <line x1="271" y1="243" x2="271" y2="257"/>
+    <line x1="360" y1="243" x2="360" y2="257"/>
+    <line x1="480" y1="243" x2="480" y2="257"/>
+  </g>
+  <line x1="120" y1="238" x2="120" y2="264" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="120" cy="250" r="5" fill="#2563eb"/>
+  <g font-size="12" fill="#475569" text-anchor="middle">
+    <text x="80" y="278">0</text>
+    <text x="200" y="278">0.3010</text>
+    <text x="271" y="278">0.4771</text>
+    <text x="360" y="278">0.6990</text>
+    <text x="480" y="278">1</text>
+  </g>
+
+  <text x="280" y="312" text-anchor="middle" font-size="13" fill="#1f2937">0.10 落在 log 1 與 log 2 之間　⟹　10 ⁰·¹⁰ 落在 1 與 2 之間　⟹　首位數字 1</text>
+  <text x="280" y="332" text-anchor="middle" font-size="12" fill="#64748b">0 &lt; N &lt; 1 時 log N 為負，整數部分要往下取：[ −3.2 ] = −4</text>
+</svg>

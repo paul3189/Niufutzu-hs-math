@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="40" y="46" font-size="15" font-weight="bold" fill="#b45309">正餘弦的疊合：用點 (a, b) 記住一切</text>
+
+  <!-- 直角三角形 -->
+  <polygon points="70,265 250,265 250,140" fill="#fef3c7" fill-opacity="0.6" stroke="#d97706" stroke-width="2.2"/>
+  <!-- 直角記號 -->
+  <polyline points="238,265 238,253 250,253" fill="none" stroke="#d97706" stroke-width="1.4"/>
+  <!-- 角 φ -->
+  <path d="M 116 265 A 46 46 0 0 0 111.9 246.9" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <text x="96" y="256" font-size="14" fill="#b45309">φ</text>
+
+  <circle cx="250" cy="140" r="4.5" fill="#0891b2"/>
+  <text x="258" y="134" font-size="13" fill="#0e7490">(a, b)</text>
+
+  <text x="155" y="287" font-size="14" fill="#92400e">a</text>
+  <text x="258" y="208" font-size="14" fill="#92400e">b</text>
+  <text x="94" y="190" font-size="13" fill="#0e7490">√(a² + b²)</text>
+
+  <text x="40" y="312" font-size="12.5" fill="#4b5563">φ 的象限由點 (a, b) 決定，不能只按 tan⁻¹</text>
+
+  <!-- 右側 -->
+  <text x="300" y="86" font-size="14" fill="#1f2937">a · sin θ + b · cos θ</text>
+  <text x="318" y="114" font-size="14" fill="#b45309">= √(a² + b²) · sin(θ + φ)</text>
+  <text x="300" y="148" font-size="13" fill="#1f2937">其中　cos φ = a ÷ √(a² + b²)</text>
+  <text x="332" y="172" font-size="13" fill="#1f2937">sin φ = b ÷ √(a² + b²)</text>
+  <text x="332" y="196" font-size="13" fill="#1f2937">tan φ = b ÷ a</text>
+
+  <line x1="300" y1="214" x2="540" y2="214" stroke="#e5e7eb" stroke-width="1.2"/>
+
+  <text x="300" y="240" font-size="12.5" fill="#0e7490">最大值 √(a² + b²)、最小值 −√(a² + b²)</text>
+  <text x="300" y="264" font-size="12.5" fill="#4b5563">振幅不是 a + b</text>
+  <text x="300" y="290" font-size="12.5" fill="#4b5563">兩項的角必須相同才能疊合；</text>
+  <text x="300" y="310" font-size="12.5" fill="#4b5563">角不同要先用和差角化成同一個角</text>
+</svg>

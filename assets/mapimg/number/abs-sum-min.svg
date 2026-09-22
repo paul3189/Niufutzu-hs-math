@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">y = | x − 1 | + | x − 5 | 的圖形：谷底是一整段</text>
+
+  <!-- 坐標軸：原點 (110,300)，x 每單位 50px，y 每單位 22px -->
+  <line x1="60" y1="300" x2="530" y2="300" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="530,300 520,295 520,305" fill="#94a3b8"/>
+  <line x1="110" y1="315" x2="110" y2="60" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="110,60 105,70 115,70" fill="#94a3b8"/>
+  <text x="537" y="304" font-size="13" fill="#475569">x</text>
+  <text x="98" y="58" font-size="13" fill="#475569">y</text>
+
+  <!-- 折線圖形 -->
+  <polyline points="60,124 160,212 360,212 510,80" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round"/>
+  <line x1="160" y1="212" x2="360" y2="212" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="160" cy="212" r="5" fill="#1d4ed8"/>
+  <circle cx="360" cy="212" r="5" fill="#1d4ed8"/>
+
+  <!-- 刻度 -->
+  <g font-size="12" fill="#475569" text-anchor="middle">
+    <line x1="160" y1="295" x2="160" y2="305" stroke="#94a3b8"/><text x="160" y="320">1</text>
+    <line x1="260" y1="295" x2="260" y2="305" stroke="#94a3b8"/><text x="260" y="320">3</text>
+    <line x1="360" y1="295" x2="360" y2="305" stroke="#94a3b8"/><text x="360" y="320">5</text>
+    <line x1="460" y1="295" x2="460" y2="305" stroke="#94a3b8"/><text x="460" y="320">7</text>
+  </g>
+  <line x1="105" y1="212" x2="115" y2="212" stroke="#94a3b8"/>
+  <text x="100" y="217" font-size="12" fill="#475569" text-anchor="end">4</text>
+
+  <!-- 標註 -->
+  <line x1="160" y1="212" x2="160" y2="300" stroke="#93c5fd" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="360" y1="212" x2="360" y2="300" stroke="#93c5fd" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="110" y1="212" x2="160" y2="212" stroke="#93c5fd" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+  <text x="260" y="196" text-anchor="middle" font-size="14" fill="#1d4ed8">最小值 4 ＝ | 1 − 5 |</text>
+  <text x="260" y="248" text-anchor="middle" font-size="13" fill="#475569">1 ≤ x ≤ 5 整段都取到最小值</text>
+
+  <text x="280" y="100" text-anchor="middle" font-size="13" fill="#64748b">在兩點外側：每往外一步就多 2</text>
+  <text x="280" y="130" text-anchor="middle" font-size="13" fill="#64748b">三點以上 → 奇數個取中位數、偶數個取中間那一段</text>
+</svg>

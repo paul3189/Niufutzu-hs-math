@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <!-- 角 A 的兩邊 -->
+  <line x1="90" y1="250" x2="303" y2="101" stroke="#9ca3af" stroke-width="1.6"/>
+  <line x1="90" y1="250" x2="300" y2="250" stroke="#d97706" stroke-width="2.4"/>
+
+  <!-- 角弧 -->
+  <path d="M 138 250 A 48 48 0 0 0 129.3 222.5" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="112" y="238" font-size="14" fill="#b45309">A</text>
+
+  <!-- 以 B 為心、半徑 a 畫弧 -->
+  <path d="M 291.1 134.1 A 120 120 0 0 0 140.5 239.5" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-dasharray="6 4"/>
+
+  <!-- 半徑 a 的兩條 -->
+  <line x1="260" y1="250" x2="146.7" y2="210.3" stroke="#0891b2" stroke-width="2"/>
+  <line x1="260" y1="250" x2="261.4" y2="130" stroke="#0891b2" stroke-width="2"/>
+
+  <!-- 高 h -->
+  <line x1="260" y1="250" x2="204" y2="170.1" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="228" y="196" font-size="13" fill="#6d28d9">h</text>
+
+  <!-- 點 -->
+  <circle cx="90" cy="250" r="4" fill="#d97706"/>
+  <circle cx="260" cy="250" r="4" fill="#d97706"/>
+  <circle cx="146.7" cy="210.3" r="4" fill="#0891b2"/>
+  <circle cx="261.4" cy="130" r="4" fill="#0891b2"/>
+  <text x="78" y="272" font-size="14" fill="#b45309">A</text>
+  <text x="256" y="272" font-size="14" fill="#b45309">B</text>
+  <text x="120" y="206" font-size="13" fill="#0e7490">C₁</text>
+  <text x="268" y="122" font-size="13" fill="#0e7490">C₂</text>
+
+  <text x="170" y="272" font-size="14" fill="#92400e">c</text>
+  <text x="196" y="244" font-size="13" fill="#0e7490">a</text>
+  <text x="270" y="196" font-size="13" fill="#0e7490">a</text>
+
+  <text x="60" y="308" font-size="12.5" fill="#4b5563">已知 ∠A、邊 c＝AB、邊 a（A 的對邊）：以 B 為心、a 為半徑畫弧</text>
+
+  <!-- 右側分類 -->
+  <text x="352" y="72" font-size="15" font-weight="bold" fill="#0e7490">SSA 的四種結果</text>
+  <text x="352" y="100" font-size="12.5" fill="#4b5563">先算 h = c · sin A</text>
+  <text x="352" y="132" font-size="13" fill="#1f2937">a &lt; h　→　無解</text>
+  <text x="352" y="158" font-size="13" fill="#1f2937">a = h　→　一解（直角）</text>
+  <text x="352" y="184" font-size="13" fill="#b45309">h &lt; a &lt; c　→　兩解</text>
+  <text x="372" y="206" font-size="12.5" fill="#4b5563">（一銳角、一鈍角）</text>
+  <text x="352" y="232" font-size="13" fill="#1f2937">a ≥ c　→　一解</text>
+  <text x="352" y="268" font-size="12.5" fill="#4b5563">檢查法：把算出的角加回去，</text>
+  <text x="352" y="288" font-size="12.5" fill="#4b5563">三內角和必須小於 180°</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <!-- 坐標軸 -->
+  <line x1="80" y1="175" x2="335" y2="175" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="337,175 328,171 328,179" fill="#9ca3af"/>
+  <line x1="200" y1="300" x2="200" y2="62" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="200,60 196,69 204,69" fill="#9ca3af"/>
+  <text x="342" y="180" font-size="12" fill="#6b7280">x</text>
+  <text x="206" y="66" font-size="12" fill="#6b7280">y</text>
+
+  <!-- 單位圓 -->
+  <circle cx="200" cy="175" r="95" fill="none" stroke="#d97706" stroke-width="2"/>
+
+  <!-- 象限 -->
+  <text x="305" y="103" font-size="13" fill="#9ca3af">I</text>
+  <text x="100" y="103" font-size="13" fill="#9ca3af">II</text>
+  <text x="100" y="258" font-size="13" fill="#9ca3af">III</text>
+  <text x="305" y="258" font-size="13" fill="#9ca3af">IV</text>
+
+  <!-- 半徑與 P -->
+  <line x1="200" y1="175" x2="261.1" y2="102.2" stroke="#d97706" stroke-width="2"/>
+  <circle cx="261.1" cy="102.2" r="4" fill="#d97706"/>
+  <text x="268" y="97" font-size="14" fill="#b45309">P</text>
+  <text x="226" y="131" font-size="12.5" fill="#b45309">1</text>
+
+  <!-- 投影 -->
+  <line x1="261.1" y1="102.2" x2="261.1" y2="175" stroke="#0891b2" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="261.1" y1="102.2" x2="200" y2="102.2" stroke="#0891b2" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="200" y1="175" x2="261.1" y2="175" stroke="#0891b2" stroke-width="2.4"/>
+  <text x="230" y="195" font-size="13" fill="#0e7490" text-anchor="middle">cos θ</text>
+  <text x="268" y="146" font-size="13" fill="#0e7490">sin θ</text>
+
+  <!-- 角 -->
+  <path d="M 232 175 A 32 32 0 0 0 220.6 150.5" fill="none" stroke="#d97706" stroke-width="1.6"/>
+  <text x="212" y="170" font-size="14" fill="#b45309">θ</text>
+
+  <!-- 右側說明 -->
+  <text x="378" y="76" font-size="15" font-weight="bold" fill="#b45309">各象限的正負</text>
+  <text x="378" y="108" font-size="13" fill="#1f2937">I ： sin +　cos +　tan +</text>
+  <text x="378" y="136" font-size="13" fill="#1f2937">II ： 只有 sin 是正的</text>
+  <text x="378" y="164" font-size="13" fill="#1f2937">III ： 只有 tan 是正的</text>
+  <text x="378" y="192" font-size="13" fill="#1f2937">IV ： 只有 cos 是正的</text>
+  <text x="378" y="224" font-size="12.5" fill="#4b5563">口訣：全、S、T、C</text>
+  <text x="378" y="256" font-size="13" fill="#1f2937">tan θ = y ÷ x</text>
+  <text x="378" y="280" font-size="12.5" fill="#4b5563">x = 0 時 tan 無定義</text>
+
+  <!-- 底註 -->
+  <text x="46" y="322" font-size="12.5" fill="#4b5563">P 的坐標就是 (cos θ, sin θ)；θ 由 x 軸正向逆時針量起</text>
+</svg>

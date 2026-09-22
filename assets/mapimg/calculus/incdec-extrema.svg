@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="26" text-anchor="middle" font-size="17" fill="#111">增減表：f ′ 的正負決定「上坡還是下坡」</text>
+
+  <!-- 圖形 -->
+  <line x1="60" y1="210" x2="500" y2="210" stroke="#555" stroke-width="1.4"/>
+  <line x1="60" y1="210" x2="60"  y2="48"  stroke="#555" stroke-width="1.4"/>
+  <text x="504" y="215" font-size="13" fill="#555">x</text>
+
+  <path d="M85 190 C 130 100 170 70 210 88 C 250 106 260 178 300 186 C 340 194 370 140 420 72" fill="none" stroke="#65a30d" stroke-width="2.6"/>
+
+  <!-- 極大點 -->
+  <circle cx="210" cy="84" r="5.5" fill="#111"/>
+  <line x1="180" y1="84" x2="244" y2="84" stroke="#888" stroke-width="1.3"/>
+  <text x="196" y="68" font-size="13" fill="#111">極大</text>
+  <line x1="210" y1="84" x2="210" y2="210" stroke="#999" stroke-width="1"/>
+  <text x="210" y="228" text-anchor="middle" font-size="13" fill="#333">p</text>
+
+  <!-- 極小點 -->
+  <circle cx="300" cy="186" r="5.5" fill="#111"/>
+  <line x1="270" y1="186" x2="334" y2="186" stroke="#888" stroke-width="1.3"/>
+  <text x="286" y="206" font-size="13" fill="#111">極小</text>
+  <line x1="300" y1="186" x2="300" y2="210" stroke="#999" stroke-width="1"/>
+  <text x="302" y="228" text-anchor="middle" font-size="13" fill="#333">q</text>
+
+  <text x="116" y="180" font-size="13" fill="#65a30d">上坡</text>
+  <text x="244" y="112" font-size="13" fill="#65a30d">下坡</text>
+  <text x="386" y="178" font-size="13" fill="#65a30d">上坡</text>
+
+  <!-- 增減表 -->
+  <rect x="60" y="248" width="440" height="72" fill="none" stroke="#333" stroke-width="1.4"/>
+  <line x1="60"  y1="272" x2="500" y2="272" stroke="#333" stroke-width="1"/>
+  <line x1="60"  y1="296" x2="500" y2="296" stroke="#333" stroke-width="1"/>
+  <line x1="120" y1="248" x2="120" y2="320" stroke="#333" stroke-width="1.4"/>
+  <line x1="220" y1="248" x2="220" y2="320" stroke="#333" stroke-width="1"/>
+  <line x1="270" y1="248" x2="270" y2="320" stroke="#333" stroke-width="1"/>
+  <line x1="350" y1="248" x2="350" y2="320" stroke="#333" stroke-width="1"/>
+  <line x1="400" y1="248" x2="400" y2="320" stroke="#333" stroke-width="1"/>
+
+  <text x="90"  y="266" text-anchor="middle" font-size="14" fill="#111">x</text>
+  <text x="170" y="266" text-anchor="middle" font-size="13" fill="#333">x &lt; p</text>
+  <text x="245" y="266" text-anchor="middle" font-size="13" fill="#333">p</text>
+  <text x="310" y="266" text-anchor="middle" font-size="13" fill="#333">p &lt; x &lt; q</text>
+  <text x="375" y="266" text-anchor="middle" font-size="13" fill="#333">q</text>
+  <text x="450" y="266" text-anchor="middle" font-size="13" fill="#333">x &gt; q</text>
+
+  <text x="90"  y="290" text-anchor="middle" font-size="14" fill="#111">f ′</text>
+  <text x="170" y="290" text-anchor="middle" font-size="15" fill="#65a30d">+</text>
+  <text x="245" y="290" text-anchor="middle" font-size="15" fill="#65a30d">0</text>
+  <text x="310" y="290" text-anchor="middle" font-size="15" fill="#65a30d">−</text>
+  <text x="375" y="290" text-anchor="middle" font-size="15" fill="#65a30d">0</text>
+  <text x="450" y="290" text-anchor="middle" font-size="15" fill="#65a30d">+</text>
+
+  <text x="90"  y="314" text-anchor="middle" font-size="14" fill="#111">f</text>
+  <text x="170" y="314" text-anchor="middle" font-size="15" fill="#111">↗</text>
+  <text x="245" y="314" text-anchor="middle" font-size="13" fill="#111">極大</text>
+  <text x="310" y="314" text-anchor="middle" font-size="15" fill="#111">↘</text>
+  <text x="375" y="314" text-anchor="middle" font-size="13" fill="#111">極小</text>
+  <text x="450" y="314" text-anchor="middle" font-size="15" fill="#111">↗</text>
+
+  <text x="512" y="290" font-size="12" fill="#333">正負</text>
+  <text x="512" y="314" font-size="12" fill="#333">升降</text>
+</svg>

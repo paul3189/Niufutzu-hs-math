@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">餘式的次數一定比除式低一階：設幾個未知數就要找幾個條件</text>
+
+  <rect x="60" y="62" width="440" height="34" rx="6" fill="#2563eb" opacity="0.16"/>
+  <rect x="60" y="62" width="440" height="34" rx="6" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="280" y="85" text-anchor="middle" font-size="14" fill="#1e3a8a">f(x)</text>
+
+  <text x="280" y="120" text-anchor="middle" font-size="16" fill="#1f2937">=</text>
+
+  <rect x="60" y="132" width="370" height="34" rx="6" fill="#2563eb" opacity="0.10"/>
+  <rect x="60" y="132" width="370" height="34" rx="6" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="245" y="155" text-anchor="middle" font-size="14" fill="#1e3a8a">g(x) · q(x)</text>
+
+  <text x="436" y="155" font-size="16" fill="#1f2937">+</text>
+
+  <rect x="452" y="132" width="48" height="34" rx="6" fill="#dc2626" opacity="0.16"/>
+  <rect x="452" y="132" width="48" height="34" rx="6" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="476" y="155" text-anchor="middle" font-size="14" fill="#991b1b">r(x)</text>
+  <text x="476" y="186" text-anchor="middle" font-size="12" fill="#991b1b">次數比 g 低</text>
+
+  <line x1="60" y1="208" x2="500" y2="208" stroke="#e2e8f0" stroke-width="1.6"/>
+
+  <g font-size="13" font-weight="700" fill="#1f2937">
+    <text x="90" y="234">除式 g(x)</text>
+    <text x="250" y="234">餘式要怎麼設</text>
+    <text x="420" y="234">需要幾個條件</text>
+  </g>
+  <g font-size="13" fill="#475569">
+    <text x="90" y="264">一次式　x − a</text>
+    <text x="250" y="264">常數 r</text>
+    <text x="420" y="264">1</text>
+    <text x="90" y="290">二次式</text>
+    <text x="250" y="290">ax + b</text>
+    <text x="420" y="290">2</text>
+    <text x="90" y="316">三次式</text>
+    <text x="250" y="316">ax² + bx + c</text>
+    <text x="420" y="316">3</text>
+  </g>
+  <line x1="60" y1="244" x2="500" y2="244" stroke="#e2e8f0" stroke-width="1.2"/>
+
+  <text x="280" y="336" text-anchor="middle" font-size="12" fill="#64748b">條件不夠，通常是漏看了題目的某一句話</text>
+</svg>

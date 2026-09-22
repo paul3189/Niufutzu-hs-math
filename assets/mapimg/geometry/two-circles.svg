@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="44" font-size="15" font-weight="bold" fill="#0e7490" text-anchor="middle">兩圓的位置：比「圓心距 d」與「r₁ + r₂、|r₁ − r₂|」</text>
+
+  <!-- 1 外離 d=56 -->
+  <circle cx="34" cy="140" r="28" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <circle cx="90" cy="140" r="18" fill="none" stroke="#d97706" stroke-width="2"/>
+  <line x1="34" y1="140" x2="90" y2="140" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <circle cx="34" cy="140" r="2.5" fill="#0891b2"/><circle cx="90" cy="140" r="2.5" fill="#d97706"/>
+
+  <!-- 2 外切 d=46 -->
+  <circle cx="139" cy="140" r="28" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <circle cx="185" cy="140" r="18" fill="none" stroke="#d97706" stroke-width="2"/>
+  <line x1="139" y1="140" x2="185" y2="140" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <circle cx="139" cy="140" r="2.5" fill="#0891b2"/><circle cx="185" cy="140" r="2.5" fill="#d97706"/>
+
+  <!-- 3 相交 d=30 -->
+  <circle cx="247" cy="140" r="28" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <circle cx="277" cy="140" r="18" fill="none" stroke="#d97706" stroke-width="2"/>
+  <line x1="247" y1="140" x2="277" y2="140" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <circle cx="247" cy="140" r="2.5" fill="#0891b2"/><circle cx="277" cy="140" r="2.5" fill="#d97706"/>
+
+  <!-- 4 內切 d=10 -->
+  <circle cx="357" cy="140" r="28" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <circle cx="367" cy="140" r="18" fill="none" stroke="#d97706" stroke-width="2"/>
+  <line x1="357" y1="140" x2="367" y2="140" stroke="#7c3aed" stroke-width="1.4"/>
+  <circle cx="357" cy="140" r="2.5" fill="#0891b2"/><circle cx="367" cy="140" r="2.5" fill="#d97706"/>
+
+  <!-- 5 內含 d=4 -->
+  <circle cx="460" cy="140" r="28" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <circle cx="464" cy="140" r="18" fill="none" stroke="#d97706" stroke-width="2"/>
+  <circle cx="460" cy="140" r="2.5" fill="#0891b2"/><circle cx="464" cy="140" r="2.5" fill="#d97706"/>
+
+  <!-- 名稱 -->
+  <text x="62" y="196" font-size="13.5" fill="#1f2937" text-anchor="middle">外離</text>
+  <text x="162" y="196" font-size="13.5" fill="#1f2937" text-anchor="middle">外切</text>
+  <text x="262" y="196" font-size="13.5" fill="#1f2937" text-anchor="middle">相交</text>
+  <text x="362" y="196" font-size="13.5" fill="#1f2937" text-anchor="middle">內切</text>
+  <text x="470" y="196" font-size="13.5" fill="#1f2937" text-anchor="middle">內含</text>
+
+  <!-- 條件 -->
+  <text x="62" y="220" font-size="11" fill="#0e7490" text-anchor="middle">d &gt; r₁ + r₂</text>
+  <text x="162" y="220" font-size="11" fill="#0e7490" text-anchor="middle">d = r₁ + r₂</text>
+  <text x="262" y="220" font-size="11" fill="#0e7490" text-anchor="middle">|r₁ − r₂| &lt; d</text>
+  <text x="262" y="234" font-size="11" fill="#0e7490" text-anchor="middle">&lt; r₁ + r₂</text>
+  <text x="362" y="220" font-size="11" fill="#0e7490" text-anchor="middle">d = |r₁ − r₂|</text>
+  <text x="470" y="220" font-size="11" fill="#0e7490" text-anchor="middle">d &lt; |r₁ − r₂|</text>
+
+  <!-- 交點與公切線 -->
+  <text x="62" y="258" font-size="11.5" fill="#4b5563" text-anchor="middle">交點 0</text>
+  <text x="162" y="258" font-size="11.5" fill="#4b5563" text-anchor="middle">交點 1</text>
+  <text x="262" y="258" font-size="11.5" fill="#4b5563" text-anchor="middle">交點 2</text>
+  <text x="362" y="258" font-size="11.5" fill="#4b5563" text-anchor="middle">交點 1</text>
+  <text x="470" y="258" font-size="11.5" fill="#4b5563" text-anchor="middle">交點 0</text>
+
+  <text x="62" y="280" font-size="11.5" fill="#b45309" text-anchor="middle">公切線 4</text>
+  <text x="162" y="280" font-size="11.5" fill="#b45309" text-anchor="middle">公切線 3</text>
+  <text x="262" y="280" font-size="11.5" fill="#b45309" text-anchor="middle">公切線 2</text>
+  <text x="362" y="280" font-size="11.5" fill="#b45309" text-anchor="middle">公切線 1</text>
+  <text x="470" y="280" font-size="11.5" fill="#b45309" text-anchor="middle">公切線 0</text>
+
+  <text x="280" y="314" font-size="12" fill="#4b5563" text-anchor="middle">外切用「和」、內切用「差」；兩圓相交時把兩式相減就是公共弦所在的直線</text>
+</svg>

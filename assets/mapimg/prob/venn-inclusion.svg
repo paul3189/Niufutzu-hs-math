@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">取捨原理：重複算到的要扣回去</text>
+
+  <!-- 兩集合 -->
+  <rect x="30" y="52" width="245" height="200" fill="none" stroke="#999" stroke-width="1.2"/>
+  <text x="38" y="70" font-size="12" fill="#999">U</text>
+  <circle cx="122" cy="155" r="66" fill="#c7d2fe" fill-opacity="0.55" stroke="#4f46e5" stroke-width="1.8"/>
+  <circle cx="186" cy="155" r="66" fill="#c7d2fe" fill-opacity="0.55" stroke="#4f46e5" stroke-width="1.8"/>
+  <text x="78"  y="160" text-anchor="middle" font-size="16" fill="#111">A</text>
+  <text x="230" y="160" text-anchor="middle" font-size="16" fill="#111">B</text>
+  <text x="154" y="160" text-anchor="middle" font-size="13" fill="#4f46e5">A∩B</text>
+  <text x="154" y="182" text-anchor="middle" font-size="12" fill="#4f46e5">被算了兩次</text>
+  <text x="152" y="278" text-anchor="middle" font-size="15" fill="#111">|A∪B| = |A| + |B| − |A∩B|</text>
+
+  <!-- 三集合 -->
+  <rect x="300" y="52" width="230" height="200" fill="none" stroke="#999" stroke-width="1.2"/>
+  <text x="308" y="70" font-size="12" fill="#999">U</text>
+  <circle cx="380" cy="132" r="58" fill="#c7d2fe" fill-opacity="0.5" stroke="#4f46e5" stroke-width="1.8"/>
+  <circle cx="450" cy="132" r="58" fill="#c7d2fe" fill-opacity="0.5" stroke="#4f46e5" stroke-width="1.8"/>
+  <circle cx="415" cy="190" r="58" fill="#c7d2fe" fill-opacity="0.5" stroke="#4f46e5" stroke-width="1.8"/>
+  <text x="340" y="112" font-size="15" fill="#111">A</text>
+  <text x="487" y="112" font-size="15" fill="#111">B</text>
+  <text x="410" y="238" font-size="15" fill="#111">C</text>
+  <text x="415" y="152" text-anchor="middle" font-size="12" fill="#4f46e5">三重</text>
+
+  <text x="415" y="278" text-anchor="middle" font-size="12" fill="#111">|A∪B∪C| = 單個和 − 兩兩交集和 + 三重交集</text>
+
+  <text x="280" y="312" text-anchor="middle" font-size="14" fill="#333">口訣：加 − 減 − 加，符號交錯</text>
+  <text x="280" y="332" text-anchor="middle" font-size="14" fill="#333">三重交集被扣了三次，所以要「加」回來一次</text>
+</svg>

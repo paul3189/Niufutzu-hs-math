@@ -11,6 +11,14 @@
 <script defer src="assets/katex/katex.min.js"></script>
 <script defer src="assets/katex/auto-render.min.js"></script>
 <script defer src="assets/mathfit.js"></script>
+<style>
+/* 有 ref（可點開工具抽屜）的節點：圖表模式加深框線、清單模式加左側提示 */
+.fl-node.fl-hot > rect:first-of-type { stroke-width: 2.2; }
+.fl-node.fl-hot:hover > rect:first-of-type { fill: #f1f5f9; }
+.fl-leaf.fl-hot { cursor: pointer; }
+.fl-leaf.fl-hot:hover { background: #f1f5f9; }
+.fl-leaf.fl-hot > b::after { content: " ›"; opacity: .45; }
+</style>
 </head>
 <body>
 <div class="topbar"><div class="topbar-inner">
@@ -30,8 +38,8 @@
       <img class="hero-cow" src="assets/mascot/web/cow_question.png" alt="思考中的牛夫子">
       <div class="hero-text">
         <h1>🔀 跨章決策流程圖</h1>
-        <p>考試不按章節出題。這裡把散在各冊的工具，依<b>「題目在問什麼」</b>重新排成 10 張判斷圖：<br>
-        順著問題往下走，走到底就是該用的工具，旁邊灰字就是它的限制。</p>
+        <p>考試不按章節出題。這裡把散在各冊的工具，依<b>「題目在問什麼」</b>重新排成 13 張判斷圖：<br>
+        順著問題往下走，走到底就是該用的工具，旁邊灰字就是它的限制。<b>點一下工具框</b>，可以直接打開它在工具地圖裡的完整說明。</p>
       </div>
     </div>
   </div>
@@ -42,7 +50,7 @@
 
   <div class="mm-shell">
     <div class="mm-bar">
-      <span>➡️ 由左往右讀：<b>圓角框＝要問自己的問題</b>，白框＝可用的工具，紅框＝必須檢查的事</span>
+      <span>➡️ 由左往右讀：<b>圓角框＝要問自己的問題</b>，白框＝可用的工具，紅框＝必須檢查的事。<b>框線變深的可以點</b>，會打開工具地圖的說明。</span>
       <span class="sp"></span>
       <button id="viewToggle">☰ 改用清單模式</button>
       <button onclick="window.print()">🖨️ 列印</button>
@@ -62,9 +70,40 @@
 <script src="data/site.js"></script>
 <script src="data/scope.js"></script>
 <script src="data/crossmap.js"></script>
+<!-- 工具地圖資料：流程圖上有 ref 的節點要靠它打開工具抽屜（順序比照 branch.html） -->
+<script src="data/toolmap.js"></script>
+<script src="data/tm-1-number.js"></script>
+<script src="data/tm-2-equation.js"></script>
+<script src="data/tm-3-function.js"></script>
+<script src="data/tm-4-trig.js"></script>
+<script src="data/tm-5-geometry.js"></script>
+<script src="data/tm-6-vector.js"></script>
+<script src="data/tm-7-sequence.js"></script>
+<script src="data/tm-8-prob.js"></script>
+<script src="data/tm-9-calculus.js"></script>
 <script src="assets/flow.js"></script>
 <script src="assets/map.js"></script>
 <script>
+/* 流程圖節點 → 工具地圖抽屜
+ * 節點的 ref 是「領域id/主題id/工具名」；找得到工具就開抽屜，只指到主題就跳該主題的分支圖。
+ */
+MathFlow.onPick = function (ref) {
+  var parts = String(ref).split("/");
+  var all = (window.TOOLMAP && TOOLMAP.domains) || [];
+  var d = null, t = null, x = null, i;
+  for (i = 0; i < all.length; i++) if (all[i].id === parts[0]) d = all[i];
+  if (!d) return;
+  var ts = d.topics || [];
+  for (i = 0; i < ts.length; i++) if (ts[i].id === parts[1]) t = ts[i];
+  if (!t) return;
+  if (parts.length > 2) {
+    var xs = t.tools || [];
+    for (i = 0; i < xs.length; i++) if (xs[i].n === parts[2]) x = xs[i];
+  }
+  if (x) MathMap.openTool(x, d.n + " ▸ " + t.n);
+  else location.href = "branch.html#d=" + d.id + "&t=" + t.id;
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   var tabs = document.getElementById("cxTabs");
   var cur = 0;
@@ -94,8 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var p = MathFlow.prune(tree);
       tree = p.tree;
       note.innerHTML = p.removed.length
-        ? '<div class="ed-note">🎓 學測版：本圖已隱藏 ' + p.removed.length + ' 個高三選修的分支（' +
-          p.removed.join("、") + "）。切回「完整版」可看到全部。</div>"
+        ? '<div class="ed-note">🎓 學測版：本圖已隱藏 ' + p.removed.length + ' 個<b>不在學測範圍</b>的分支（高三選修或非 108 課綱內容）：' +
+          p.removed.join("、") + "。切回「完整版」可看到全部。</div>"
         : "";
     } else {
       note.innerHTML = "";

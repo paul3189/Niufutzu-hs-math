@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="30" text-anchor="middle" font-size="17" fill="#111">隔板法：7 顆相同的糖分給 3 個人，每人至少 1 顆</text>
+  <text x="280" y="56" text-anchor="middle" font-size="16" fill="#4f46e5">x₁ + x₂ + x₃ = 7 ，xᵢ ≥ 1</text>
+
+  <!-- 7 顆糖，6 個空隙 -->
+  <text x="60" y="100" font-size="14" fill="#333">7 顆糖排成一列，中間有 6 個空隙：</text>
+  <circle cx="110" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="165" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="220" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="275" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="330" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="385" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="440" cy="140" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+
+  <text x="137" y="175" text-anchor="middle" font-size="12" fill="#888">1</text>
+  <text x="192" y="175" text-anchor="middle" font-size="12" fill="#888">2</text>
+  <text x="247" y="175" text-anchor="middle" font-size="12" fill="#888">3</text>
+  <text x="302" y="175" text-anchor="middle" font-size="12" fill="#888">4</text>
+  <text x="357" y="175" text-anchor="middle" font-size="12" fill="#888">5</text>
+  <text x="412" y="175" text-anchor="middle" font-size="12" fill="#888">6</text>
+
+  <!-- 插入 2 塊隔板 -->
+  <text x="60" y="218" font-size="14" fill="#333">從 6 個空隙裡挑 2 個插入隔板：</text>
+  <circle cx="110" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="165" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <line x1="192" y1="232" x2="192" y2="280" stroke="#4f46e5" stroke-width="4"/>
+  <circle cx="220" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="275" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="330" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <line x1="357" y1="232" x2="357" y2="280" stroke="#4f46e5" stroke-width="4"/>
+  <circle cx="385" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="440" cy="256" r="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.6"/>
+
+  <text x="150" y="300" text-anchor="middle" font-size="13" fill="#333">x₁ = 2</text>
+  <text x="275" y="300" text-anchor="middle" font-size="13" fill="#333">x₂ = 3</text>
+  <text x="412" y="300" text-anchor="middle" font-size="13" fill="#333">x₃ = 2</text>
+
+  <text x="280" y="330" text-anchor="middle" font-size="16" fill="#4f46e5">答案 = 從 6 個空隙選 2 個 = C(6, 2) = 15</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="40" y="46" font-size="15" font-weight="bold" fill="#6d28d9">內積與正射影</text>
+
+  <!-- b -->
+  <line x1="60" y1="250" x2="250" y2="218" stroke="#9ca3af" stroke-width="2"/>
+  <polygon points="252,217.7 241.5,214.5 243,223" fill="#9ca3af"/>
+  <text x="256" y="216" font-size="14" fill="#6b7280">b</text>
+
+  <!-- a -->
+  <line x1="60" y1="250" x2="160" y2="120" stroke="#7c3aed" stroke-width="2.6"/>
+  <polygon points="161.5,118 151,122 158.5,128" fill="#7c3aed"/>
+  <text x="150" y="112" font-size="14" fill="#6d28d9">a</text>
+
+  <!-- 垂線與垂足 -->
+  <line x1="160" y1="120" x2="178.5" y2="230" stroke="#c4b5fd" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <circle cx="178.5" cy="230" r="4" fill="#d97706"/>
+  <polyline points="166.7,232.0 164.7,220.2 176.5,218.2" fill="none" stroke="#9ca3af" stroke-width="1.2"/>
+
+  <!-- 投影向量 -->
+  <line x1="60" y1="250" x2="178.5" y2="230" stroke="#d97706" stroke-width="4"/>
+  <polygon points="180.5,229.6 170,226.5 171.5,235" fill="#d97706"/>
+  <line x1="130" y1="266" x2="130" y2="242" stroke="#d97706" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="96" y="282" font-size="12.5" fill="#b45309">投影向量</text>
+
+  <!-- 角 -->
+  <path d="M 104.4 242.5 A 45 45 0 0 0 87.5 214.3" fill="none" stroke="#6d28d9" stroke-width="1.5"/>
+  <text x="106" y="226" font-size="13" fill="#6d28d9">θ</text>
+
+  <circle cx="60" cy="250" r="3.5" fill="#374151"/>
+  <text x="46" y="264" font-size="12" fill="#374151">O</text>
+
+  <text x="40" y="312" font-size="11.5" fill="#4b5563">θ 為鈍角時投影長是負的</text>
+
+  <!-- 右側 -->
+  <text x="298" y="78" font-size="14" font-weight="bold" fill="#6d28d9">內積的兩種算法</text>
+  <text x="298" y="106" font-size="13" fill="#1f2937">a · b = |a| |b| cos θ</text>
+  <text x="330" y="130" font-size="13" fill="#1f2937">= a₁b₁ + a₂b₂ (+ a₃b₃)</text>
+  <text x="298" y="154" font-size="11.5" fill="#4b5563">結果是純量，不是向量</text>
+
+  <text x="298" y="190" font-size="14" font-weight="bold" fill="#b45309">正射影</text>
+  <text x="298" y="216" font-size="12.5" fill="#1f2937">投影長 = (a · b) ÷ |b|</text>
+  <text x="298" y="240" font-size="12.5" fill="#1f2937">投影向量 = ((a · b) ÷ |b|²) · b</text>
+  <text x="298" y="262" font-size="11.5" fill="#4b5563">分母是 |b| 還是 |b|² 別搞混</text>
+
+  <text x="298" y="296" font-size="12.5" fill="#0e7490">a ⊥ b ⟺ a · b = 0</text>
+  <text x="298" y="318" font-size="11.5" fill="#4b5563">a · b &gt; 0 銳角、&lt; 0 鈍角（須非零向量）</text>
+</svg>

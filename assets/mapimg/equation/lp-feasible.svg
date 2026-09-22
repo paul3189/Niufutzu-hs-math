@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">線性規劃：畫可行域 → 平移目標函數 → 檢查頂點</text>
+
+  <!-- 坐標軸：原點 (90,275)，每單位 38px -->
+  <line x1="60" y1="275" x2="420" y2="275" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="420,275 410,270 410,280" fill="#94a3b8"/>
+  <line x1="90" y1="300" x2="90" y2="45" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="90,45 85,55 95,55" fill="#94a3b8"/>
+  <text x="427" y="279" font-size="13" fill="#475569">x</text>
+  <text x="78" y="43" font-size="13" fill="#475569">y</text>
+  <text x="80" y="292" font-size="12" fill="#475569">O</text>
+
+  <!-- 可行域 -->
+  <polygon points="90,275 242,275 166,123 90,47" fill="#dc2626" opacity="0.14"/>
+  <polyline points="90,275 242,275 166,123 90,47 90,275" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="140" y="225" font-size="14" font-weight="700" fill="#b91c1c">可行域</text>
+
+  <!-- 頂點 -->
+  <g fill="#b91c1c">
+    <circle cx="90" cy="275" r="5"/>
+    <circle cx="242" cy="275" r="5"/>
+    <circle cx="166" cy="123" r="5"/>
+    <circle cx="90" cy="47" r="5"/>
+  </g>
+  <text x="252" y="293" font-size="12" fill="#1f2937">(4, 0)</text>
+  <text x="176" y="118" font-size="12" fill="#1f2937">(2, 4)</text>
+  <text x="58" y="42" font-size="12" fill="#1f2937">(0, 6)</text>
+
+  <!-- 目標函數的等值線（斜率 −3/2） -->
+  <line x1="120" y1="54" x2="232" y2="222" stroke="#1d4ed8" stroke-width="1.8" stroke-dasharray="9 6"/>
+  <text x="236" y="234" font-size="12" fill="#1d4ed8">k = 14</text>
+
+  <!-- k 變大的方向 -->
+  <line x1="268" y1="232" x2="316" y2="200" stroke="#1d4ed8" stroke-width="2"/>
+  <polygon points="322,196 306,196 314,208" fill="#1d4ed8"/>
+  <text x="300" y="186" font-size="12" fill="#1d4ed8">k 變大</text>
+
+  <!-- 說明欄 -->
+  <text x="360" y="62" font-size="13" font-weight="700" fill="#1f2937">限制條件</text>
+  <g font-size="12" fill="#475569">
+    <text x="360" y="84">x ≥ 0，y ≥ 0</text>
+    <text x="360" y="104">x + y ≤ 6</text>
+    <text x="360" y="124">2x + y ≤ 8</text>
+  </g>
+  <text x="360" y="152" font-size="13" font-weight="700" fill="#1f2937">目標 k = 3x + 2y</text>
+  <g font-size="12" fill="#475569">
+    <text x="360" y="174">(0, 0) → 0</text>
+    <text x="360" y="194">(4, 0) → 12</text>
+    <text x="360" y="214">(0, 6) → 12</text>
+  </g>
+  <text x="360" y="234" font-size="12" font-weight="700" fill="#b91c1c">(2, 4) → 14 最大</text>
+
+  <text x="280" y="322" text-anchor="middle" font-size="12" fill="#64748b">實際問題常隱含 x ≥ 0、y ≥ 0 與整數限制；非整數的最佳頂點不可直接四捨五入</text>
+</svg>

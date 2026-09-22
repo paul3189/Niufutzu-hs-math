@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
           n: tp.n,
           w: (tp.kw || []).map(function (k) { return "「" + k + "」"; }).join("、"),
           l: tp.flow || "",
+          cue: tp.cue, see: tp.see, img: tp.img, imgCap: tp.imgCap,
           ref: tp.ref, refName: tp.refName
         }, dom.n);
       }

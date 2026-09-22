@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="60" y="46" font-size="16" font-weight="bold" fill="#b45309">y = A sin(Bx + C) + D</text>
+
+  <!-- 參考線 -->
+  <line x1="70" y1="120" x2="505" y2="120" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="70" y1="240" x2="505" y2="240" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="70" y1="180" x2="522" y2="180" stroke="#0891b2" stroke-width="1.3" stroke-dasharray="6 4"/>
+
+  <!-- 坐標軸 -->
+  <line x1="50" y1="296" x2="524" y2="296" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="526,296 517,292 517,300" fill="#9ca3af"/>
+  <line x1="70" y1="300" x2="70" y2="62" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="70,60 66,69 74,69" fill="#9ca3af"/>
+  <text x="530" y="301" font-size="12" fill="#6b7280">x</text>
+
+  <!-- 曲線 -->
+  <polyline fill="none" stroke="#d97706" stroke-width="2.4" points="70,239.7 75,237.7 80,233.7 85,227.9 90,220.4 95,211.6 100,201.7 105,191 110,180 115,169 120,158.3 125,148.4 130,139.6 135,132.1 140,126.3 145,122.3 150,120.3 155,120.3 160,122.3 165,126.3 170,132.1 175,139.6 180,148.4 185,158.3 190,169 195,180 200,191 205,201.7 210,211.6 215,220.4 220,227.9 225,233.7 230,237.7 235,239.7 240,239.7 245,237.7 250,233.7 255,227.9 260,220.4 265,211.6 270,201.7 275,191 280,180 285,169 290,158.3 295,148.4 300,139.6 305,132.1 310,126.3 315,122.3 320,120.3 325,120.3 330,122.3 335,126.3 340,132.1 345,139.6 350,148.4 355,158.3 360,169 365,180 370,191 375,201.7 380,211.6 385,220.4 390,227.9 395,233.7 400,237.7 405,239.7 410,239.7 415,237.7 420,233.7 425,227.9 430,220.4 435,211.6 440,201.7 445,191 450,180 455,169 460,158.3 465,148.4 470,139.6 475,132.1 480,126.3 485,122.3 490,120.3 495,120.3 500,122.3"/>
+
+  <!-- 振幅 -->
+  <line x1="92" y1="120" x2="92" y2="180" stroke="#7c3aed" stroke-width="1.6"/>
+  <polygon points="92,120 88,128 96,128" fill="#7c3aed"/>
+  <polygon points="92,180 88,172 96,172" fill="#7c3aed"/>
+  <text x="99" y="155" font-size="13" fill="#6d28d9">|A|</text>
+
+  <!-- D -->
+  <line x1="514" y1="180" x2="514" y2="296" stroke="#0891b2" stroke-width="1.6"/>
+  <polygon points="514,180 510,188 518,188" fill="#0891b2"/>
+  <polygon points="514,296 510,288 518,288" fill="#0891b2"/>
+  <text x="520" y="244" font-size="13" fill="#0e7490">D</text>
+
+  <text x="352" y="113" font-size="12" fill="#6b7280">最大 = D + |A|</text>
+  <text x="352" y="256" font-size="12" fill="#6b7280">最小 = D − |A|</text>
+  <text x="418" y="175" font-size="12" fill="#0e7490">中線 y = D</text>
+
+  <!-- 相位 -->
+  <line x1="70" y1="262" x2="110" y2="262" stroke="#7c3aed" stroke-width="1.6"/>
+  <polygon points="110,262 102,258 102,266" fill="#7c3aed"/>
+  <text x="66" y="256" font-size="11.5" fill="#6d28d9">相位 −C ÷ B</text>
+
+  <!-- 週期 -->
+  <line x1="110" y1="282" x2="280" y2="282" stroke="#b45309" stroke-width="1.4"/>
+  <line x1="110" y1="276" x2="110" y2="288" stroke="#b45309" stroke-width="1.4"/>
+  <line x1="280" y1="276" x2="280" y2="288" stroke="#b45309" stroke-width="1.4"/>
+  <text x="195" y="276" font-size="12" fill="#b45309" text-anchor="middle">週期 T = 2π ÷ |B|</text>
+
+  <text x="40" y="316" font-size="11.5" fill="#1f2937">|A| 振幅　　T = 2π ÷ |B| 週期　　D 中線（上下平移）　　−C ÷ B 相位（左右平移）</text>
+  <text x="40" y="333" font-size="11.5" fill="#4b5563">求平移量要先把 B 提出來：sin(2x + π/3) = sin 2(x + π/6)，是左移 π/6 而不是 π/3</text>
+</svg>

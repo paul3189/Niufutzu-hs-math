@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="40" y="44" font-size="15" font-weight="bold" fill="#6d28d9">二階行列式＝平行四邊形的面積</text>
+
+  <!-- 坐標軸 -->
+  <line x1="70" y1="260" x2="340" y2="260" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="342,260 333,256 333,264" fill="#9ca3af"/>
+  <line x1="110" y1="290" x2="110" y2="72" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="110,70 106,79 114,79" fill="#9ca3af"/>
+  <text x="346" y="265" font-size="12" fill="#6b7280">x</text>
+  <text x="116" y="76" font-size="12" fill="#6b7280">y</text>
+
+  <!-- 平行四邊形 -->
+  <polygon points="110,260 260,200 320,70 170,130" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/>
+
+  <line x1="110" y1="260" x2="260" y2="200" stroke="#7c3aed" stroke-width="2.8"/>
+  <polygon points="262,199.2 251.5,196.5 253,205" fill="#7c3aed"/>
+  <line x1="110" y1="260" x2="170" y2="130" stroke="#0891b2" stroke-width="2.8"/>
+  <polygon points="171.5,128 163,134.5 171,138" fill="#0891b2"/>
+
+  <text x="196" y="242" font-size="14" fill="#6d28d9">a = (a₁, a₂)</text>
+  <text x="128" y="112" font-size="14" fill="#0e7490">b = (b₁, b₂)</text>
+  <text x="228" y="160" font-size="13" fill="#b45309">面積 = |det|</text>
+  <circle cx="110" cy="260" r="3.5" fill="#374151"/>
+  <text x="94" y="276" font-size="12" fill="#374151">O</text>
+
+  <!-- 右側 -->
+  <text x="368" y="86" font-size="13.5" font-weight="bold" fill="#6d28d9">det = a₁b₂ − a₂b₁</text>
+  <text x="368" y="120" font-size="12.5" fill="#1f2937">|det| = 平行四邊形面積</text>
+  <text x="368" y="144" font-size="12.5" fill="#1f2937">|det| ÷ 2 = 三角形面積</text>
+
+  <line x1="368" y1="164" x2="536" y2="164" stroke="#e5e7eb" stroke-width="1.2"/>
+
+  <text x="368" y="190" font-size="12" fill="#4b5563">正負代表「定向」</text>
+  <text x="368" y="212" font-size="12" fill="#4b5563">det = 0 ⟺ 兩向量平行</text>
+  <text x="386" y="232" font-size="12" fill="#4b5563">（三點共線）</text>
+
+  <text x="368" y="266" font-size="12.5" fill="#b45309">三頂點給坐標時：</text>
+  <text x="368" y="288" font-size="12" fill="#4b5563">先各減去同一個基準點，</text>
+  <text x="368" y="308" font-size="12" fill="#4b5563">再取行列式的絕對值除以 2</text>
+
+  <text x="40" y="318" font-size="11.5" fill="#4b5563">空間中改用 |a × b| ÷ 2；三向量的行列式則是平行六面體的體積</text>
+</svg>

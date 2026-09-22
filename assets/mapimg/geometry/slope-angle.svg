@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <!-- 坐標軸 -->
+  <line x1="50" y1="270" x2="330" y2="270" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="332,270 323,266 323,274" fill="#9ca3af"/>
+  <line x1="90" y1="300" x2="90" y2="58" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="90,56 86,65 94,65" fill="#9ca3af"/>
+  <text x="336" y="275" font-size="12" fill="#6b7280">x</text>
+
+  <!-- 直線 -->
+  <line x1="110" y1="286.8" x2="310" y2="119" stroke="#0891b2" stroke-width="2.4"/>
+  <text x="316" y="114" font-size="14" fill="#0e7490">ℓ</text>
+
+  <!-- 斜角 -->
+  <path d="M 170 270 A 40 40 0 0 0 160.6 244.3" fill="none" stroke="#0891b2" stroke-width="1.6"/>
+  <text x="146" y="262" font-size="14" fill="#0e7490">θ</text>
+
+  <!-- 斜率三角形 -->
+  <line x1="180" y1="228" x2="280" y2="228" stroke="#d97706" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <line x1="280" y1="228" x2="280" y2="144.1" stroke="#d97706" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <circle cx="180" cy="228" r="4" fill="#0891b2"/>
+  <circle cx="280" cy="144.1" r="4" fill="#0891b2"/>
+  <text x="230" y="246" font-size="13" fill="#b45309" text-anchor="middle">Δx</text>
+  <text x="288" y="192" font-size="13" fill="#b45309">Δy</text>
+  <text x="140" y="224" font-size="12" fill="#0e7490">(x₁, y₁)</text>
+  <text x="288" y="126" font-size="12" fill="#0e7490">(x₂, y₂)</text>
+
+  <text x="40" y="314" font-size="13" fill="#1f2937">m = Δy ÷ Δx = (y₂ − y₁) ÷ (x₂ − x₁)</text>
+
+  <!-- 右側 -->
+  <text x="348" y="74" font-size="15" font-weight="bold" fill="#0e7490">斜率 m = tan θ</text>
+  <text x="348" y="104" font-size="12.5" fill="#4b5563">θ 叫「斜角」，0° ≤ θ &lt; 180°</text>
+  <text x="348" y="134" font-size="12.5" fill="#1f2937">θ = 0°　　　→ m = 0（水平線）</text>
+  <text x="348" y="158" font-size="12.5" fill="#1f2937">0° &lt; θ &lt; 90°　→ m &gt; 0</text>
+  <text x="348" y="182" font-size="12.5" fill="#b45309">θ = 90°　　→ 斜率不存在</text>
+  <text x="348" y="206" font-size="12.5" fill="#1f2937">90° &lt; θ &lt; 180° → m &lt; 0</text>
+
+  <line x1="348" y1="224" x2="540" y2="224" stroke="#e5e7eb" stroke-width="1.2"/>
+
+  <text x="348" y="250" font-size="13" fill="#1f2937">ℓ₁ ∥ ℓ₂ ⟺ m₁ = m₂</text>
+  <text x="348" y="276" font-size="13" fill="#1f2937">ℓ₁ ⊥ ℓ₂ ⟺ m₁ · m₂ = −1</text>
+  <text x="348" y="300" font-size="12" fill="#4b5563">其中一條是鉛直線時要另外判斷</text>
+</svg>

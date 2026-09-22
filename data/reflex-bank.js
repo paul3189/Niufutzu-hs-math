@@ -65,6 +65,12 @@
       desc: "看到這句話，手要自動往哪個方向動" },
     { id: "formula", name: "公式辨識",     icon: "🧩", timeMul: 1.05,
       desc: "看到這個結構，這是誰的公式" },
+    { id: "concept", name: "觀念判斷",     icon: "🧠", timeMul: 1.15,
+      desc: "一句話對不對？專挑最容易記反的地方" },
+    { id: "link",    name: "串聯反射",     icon: "🔗", timeMul: 1.15,
+      desc: "這一章的東西，在別章叫什麼名字" },
+    { id: "graph",   name: "圖形辨識",     icon: "📈", timeMul: 1.10,
+      desc: "只看圖，判斷這是誰、是哪一種情形" },
     { id: "quick",   name: "秒算直覺",     icon: "⚡", timeMul: 1.30,
       desc: "指對數、組合、行列式、內積的心算" }
   ];
@@ -563,7 +569,7 @@
     return mk("quick", "g10b-05", "$C^{" + n + "}_{" + r + "} = \\ ?$", String(c),
       [String(c * fact(r)), String(n * r), String(c + n)],
       "$C^{" + n + "}_{" + r + "}=\\dfrac{" + n + "!}{" + r + "!\\,(" + (n - r) + ")!}=" + c +
-      "；乘上 " + r + "! 才是排列數");
+      "$；乘上 " + r + "! 才是排列數");
   }
 
   function nz() { var v = ri(9) - 4; return v === 0 ? 3 : v; }
@@ -616,7 +622,7 @@
       (c < 0 ? "-" : "+") + " " + Math.abs(c) + " = 0$ 的實根情形？",
       ans, ["兩相異實根", "兩相等實根（重根）", "沒有實根"].filter(function (x) { return x !== ans; })
         .concat(["恰有一實根與一虛根"]),
-      "判別式 $D=" + b + "^2-4(" + a + ")(" + c + ")=" + D + "$ " + (D > 0 ? "> 0" : D === 0 ? "= 0" : "< 0"));
+      "判別式 $D=(" + b + ")^2-4(" + a + ")(" + c + ")=" + D + "$ " + (D > 0 ? "> 0" : D === 0 ? "= 0" : "< 0"));
   }
 
   function term(n, v) {
@@ -626,8 +632,9 @@
   function gCircleCenter() {
     var D = 2 * (Math.random() < 0.5 ? -(1 + ri(4)) : 1 + ri(4));
     var E = 2 * (Math.random() < 0.5 ? -(1 + ri(4)) : 1 + ri(4));
-    var F = ri(9) - 4;
     var cx = -D / 2, cy = -E / 2;
+    /* F 必須小於 cx²+cy²，否則 r²<0、根本不是圓（題幹卻寫「圓」） */
+    var F = cx * cx + cy * cy - (1 + ri(8));
     var s = function (x, y) { return "$(" + x + "," + y + ")$"; };
     var swap = (cx === cy) ? s(cx + 1, cy) : s(cy, cx);
     return mk("quick", "g10a-06", "圓 $x^2+y^2" + term(D, "x") + term(E, "y") + term(F, "") + "=0$ 的圓心？",
@@ -758,9 +765,9 @@
       var tot = r + w;
       return mk("quick", "g10b-06",
         "袋中 " + r + " 紅 " + w + " 白，一次取兩球都是紅球的機率 = ?",
-        "$\\dfrac{" + (r * (r - 1) / 2) + "}{" + (tot * (tot - 1) / 2) + "}$",
-        ["$\\dfrac{" + r + "}{" + tot + "}$", "$\\dfrac{" + (r * r) + "}{" + (tot * tot) + "}$",
-         "$\\dfrac{" + (r * (r - 1) / 2) + "}{" + (tot * tot) + "}$"],
+        "$" + frac(r * (r - 1) / 2, tot * (tot - 1) / 2) + "$",
+        ["$" + frac(r, tot) + "$", "$" + frac(r * r, tot * tot) + "$",
+         "$" + frac(r * (r - 1) / 2, tot * tot) + "$"],
         "分子 $C^{" + r + "}_2$、分母 $C^{" + tot + "}_2$（同時取出，不看順序）");
     }
     var p = pick([3, 4, 5]);          /* p=2 時 $\frac{1}{2p}$ 會等於正解 */
@@ -797,8 +804,8 @@
     var area = r * r * th / 2;
     return mk("quick", "g11a-01",
       "半徑 $" + r + "$、圓心角 $" + th + "$ 弧度的扇形面積 = ?",
-      area % 1 === 0 ? String(area) : "$\\dfrac{" + r * r * th + "}{2}$",
-      [String(r * th), String(r * r * th), "$\\dfrac{" + r * th + "}{2}$"],
+      area % 1 === 0 ? String(area) : "$" + frac(r * r * th, 2) + "$",
+      [String(r * th), String(r * r * th), "$" + frac(r * th, 2) + "$"],
       "扇形面積 $=\\dfrac{1}{2}r^2\\theta=\\dfrac{1}{2}\\times" + r * r + "\\times" + th + "$");
   }
 
@@ -864,10 +871,14 @@
     if (a === d) d = a + 1 + ri(3);        /* a=d 時正解是 1，會與誘答 d/a 重複 */
     if (ri(2)) {
       return mk("quick", "g12a-01",
-        "$\\displaystyle\\lim_{n\\to\\infty}\\dfrac{" + a + "n^2" + (b < 0 ? "-" : "+") + Math.abs(b) + "n}{" +
-        d + "n^2" + (e < 0 ? "-" : "+") + Math.abs(e) + "} = \\ ?$",
+        /* 係數 ±1 時不寫出 1；係數為 0 時整項不寫 */
+        "$\\displaystyle\\lim_{n\\to\\infty}\\dfrac{" + a + "n^2" +
+        (b === 0 ? "" : (b < 0 ? "-" : "+") + (Math.abs(b) === 1 ? "" : Math.abs(b)) + "n") + "}{" +
+        d + "n^2" + (e === 0 ? "" : (e < 0 ? "-" : "+") + Math.abs(e)) + "} = \\ ?$",
         "$" + frac(a, d) + "$",
-        ["$" + frac(d, a) + "$", "$0$", "$\\infty$", "$" + frac(a + b, d + e) + "$"],
+        /* d+e 可能為 0，frac 會生出 1/0；那時就別放這個誘答 */
+        ["$" + frac(d, a) + "$", "$0$", "$\\infty$"].concat(
+          d + e === 0 ? [] : ["$" + frac(a + b, d + e) + "$"]),
         "分子分母同除 $n^2$：只有最高次項會留下 → $\\dfrac{" + a + "}{" + d + "}$");
     }
     var r = pick([["\\dfrac{1}{2}", 2], ["\\dfrac{1}{3}", 3], ["\\dfrac{2}{3}", 3], ["-\\dfrac{1}{2}", 2]]);
@@ -1018,7 +1029,7 @@
       "全距與標準差都會被極端值拉走；盒狀圖抓離群值用 $1.5\\times IQR$"],
     ["g10b-09", "問「最適直線一定通過哪一點」", "$(\\bar{x},\\bar{y})$，兩組資料的平均點",
       ["原點", "$(0,\\bar{y})$", "資料中的最大值點"],
-      "回歸直線的斜率 $=r\\cdot\\dfrac{s_y}{s_x}$，與 r 同號"],
+      "最適直線的斜率 $=r\\cdot\\dfrac{s_y}{s_x}$，與 r 同號"],
     ["g11a-01", "弧長或扇形面積的公式", "角度一定要先換成<b>弧度</b>",
       ["用角度直接代", "先化成 360 分之幾", "先求圓周長"],
       "$s=r\\theta$、$A=\\dfrac{1}{2}r^2\\theta$ 只在弧度制成立"],
@@ -1070,7 +1081,7 @@
     ["g12b-06", "「正焦弦長」", "$y^2=4cx$ 的正焦弦長 $=|4c|$",
       ["$=c$", "$=2c$", "$=c^2$"],
       "過焦點垂直於軸的弦，是描圖時的關鍵寬度"],
-    ["g12b-07", "橢圓題目給「兩焦點距離和」", "那個和就是 $2a$（長軸長）",
+    ["g12b-07", "橢圓題目給「到兩焦點的距離和」", "那個和就是 $2a$（長軸長）",
       ["就是 $2b$", "就是 $2c$", "就是 $a+b$"],
       "再配合 $a^2=b^2+c^2$ 就能解出全部參數"],
     ["g12b-09", "線性規劃找最佳解", "把目標函數當一族平行線平移，看最後碰到哪個頂點",
@@ -1082,7 +1093,7 @@
     ["g10a-11", "$\\dfrac{a+b}{2}\\ge\\sqrt{ab}$（$a,b>0$）", "算幾不等式",
       ["柯西不等式", "三角不等式", "排序不等式"],
       "等號在 $a=b$ 時成立；和固定求積的最大值、積固定求和的最小值都靠它"],
-    ["g10a-01", "$|a+b|\\le|a|+|b|$", "三角不等式", ["柯西不等式", "算幾不等式", "絕對值的定義"],
+    ["g10a-02", "$|a+b|\\le|a|+|b|$", "三角不等式", ["柯西不等式", "算幾不等式", "絕對值的定義"],
       "等號成立在 a、b 同號（或有一個為 0）時"],
     ["g10a-03", "$a^{\\frac{m}{n}}$", "$\\sqrt[n]{a^m}$（n 次方根）", ["$a^m\\cdot a^n$", "$\\dfrac{a^m}{n}$", "$(a^m)^n$"],
       "分母管開根號、分子管次方；$a$ 必須 $>0$ 才保證有意義"],
@@ -1105,7 +1116,7 @@
       "互斥時 $P(A\\cap B)=0$，才能直接相加"],
     ["g10b-08", "$Z=\\dfrac{x-\\bar{x}}{s}$", "標準分數（Z 分數）", ["變異數", "相關係數", "四分位距"],
       "標準化後平均變 0、標準差變 1，不同單位才能比較"],
-    ["g10b-09", "$r\\cdot\\dfrac{s_y}{s_x}$", "最適直線（回歸直線）的斜率", ["相關係數", "共變異數", "標準分數"],
+    ["g10b-09", "$r\\cdot\\dfrac{s_y}{s_x}$", "最適直線的斜率", ["相關係數", "共變異數", "標準分數"],
       "所以斜率與 r 同號"],
     ["g11a-02", "$y=a\\sin(bx+c)+d$ 中的 $|a|$", "振幅", ["週期", "相位", "中心線"],
       "$d$ 是上下平移（中心線），$\\dfrac{2\\pi}{|b|}$ 才是週期"],
@@ -1128,7 +1139,7 @@
     ["g12a-05", "$\\displaystyle\\int_a^b f'(x)\\,dx=f(b)-f(a)$", "微積分基本定理",
       ["黎曼和的定義", "分部積分", "均值定理"],
       "把「累積變化量」和「原函數的差」連起來"],
-    ["g12b-02", "$np$ 與 $npq$", "二項分布的期望值與變異數", ["幾何分布的期望值", "平均數與中位數", "常態分布的參數"],
+    ["g12b-02", "$np$ 與 $npq$", "二項分布的期望值與變異數", ["幾何分布的期望值", "平均數與中位數", "樣本的平均數與標準差"],
       "$q=1-p$；標準差是 $\\sqrt{npq}$"],
     ["g12b-03", "$z\\bar{z}$", "$|z|^2$（一定是非負實數）", ["$z^2$", "$2\\mathrm{Re}(z)$", "$0$"],
       "複數相除就是靠這件事把分母變成實數"],
@@ -1358,9 +1369,10 @@
     var det = a * d - b * c;
     return mk("quick", "g11b-09",
       "$A=" + M(a, b, c, d) + "$ 有反方陣的條件是？",
-      "$\\det A \\ne 0$（此例 $\\det A=" + det + "$" + (det === 0 ? "，故無反方陣" : "") + "）",
+      "$\\det A \\ne 0$",
       ["$\\det A = 0$", "$A$ 的每個元素都不為 0", "$A$ 是對稱矩陣"],
-      "$A^{-1}=\\dfrac{1}{\\det A}\\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix}$，分母不能為 0");
+      "$A^{-1}=\\dfrac{1}{\\det A}\\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix}$，分母不能為 0；此例 $\\det A=" +
+      det + "$" + (det === 0 ? "，所以這個 $A$ 沒有反方陣" : "，所以這個 $A$ 有反方陣"));
   }
 
   /* 函數的極限（選修上 1-2） */
@@ -1661,7 +1673,19 @@
       { f: gRandVar,      w: 2, chs: ["g12b-01"] }
     ]
   };
-  var STATICS = { keyword: KEYWORD, formula: FORMULA };
+  /* concept（觀念判斷）與 link（串聯反射）的題目寫在 data/reflex-bank-2.js，
+   * 由 REFLEX_BANK.extend() 掛進這兩個陣列；graph（圖形辨識）掛進 GENS.graph。 */
+  var CONCEPT = [], LINK = [];
+  GENS.graph = [];
+  var STATICS = { keyword: KEYWORD, formula: FORMULA, concept: CONCEPT, link: LINK };
+
+  /* 靜態題的問句尾巴：每個題型問法不同 */
+  var TAIL = {
+    keyword: function () { return "，你的第一個動作是？"; },
+    formula: function (r) { return r[1].indexOf("$") >= 0 ? " 是誰的公式／代表什麼？" : "，代表什麼？"; },
+    concept: function () { return ""; },     /* 題幹本身就寫成完整的問句 */
+    link:    function () { return " ⟶ 它其實就是？"; }
+  };
 
   function inScope(ch, set) { return !set || set.has(ch); }
   function statRows(cat, set) {
@@ -1757,9 +1781,7 @@
         var rows = statRows(cat, set);
         if (!rows.length) return null;
         var r = rows[ri(rows.length)];
-        /* 公式辨識：整條是式子時問「這是誰的公式」，是敘述時問「代表什麼」 */
-        var tail = cat === "keyword" ? "，你的第一個動作是？"
-          : (r[1].indexOf("$") >= 0 ? " 是誰的公式／代表什麼？" : "，代表什麼？");
+        var tail = (TAIL[cat] || function () { return ""; })(r);
         return mk(cat, r[0], r[1] + tail, r[2], r[3], r[4]);
       }
       var gs = genList(cat, set);
@@ -1771,6 +1793,30 @@
       return null;
     },
 
-    size: { keyword: KEYWORD.length, formula: FORMULA.length }
+    size: { keyword: KEYWORD.length, formula: FORMULA.length,
+            concept: CONCEPT.length, link: LINK.length },
+
+    /* 給續篇題庫（data/reflex-bank-2.js）用的掛載口。
+     * 只是把題目接到既有的 CATS／STATICS／GENS 上，對外 API 完全不變。
+     * ext = { cats:[…], statics:{ 題型: [列…] }, gens:{ 題型: [{f,w,chs}…] } }
+     * 也回傳 mk 等小工具，讓續篇的產生器能用同一套組題／洗牌邏輯。 */
+    extend: function (ext) {
+      (ext.cats || []).forEach(function (c) {
+        if (!CATS.some(function (x) { return x.id === c.id; })) CATS.push(c);
+      });
+      Object.keys(ext.statics || {}).forEach(function (k) {
+        if (!STATICS[k]) STATICS[k] = [];
+        ext.statics[k].forEach(function (row) { STATICS[k].push(row); });
+      });
+      Object.keys(ext.gens || {}).forEach(function (k) {
+        if (!GENS[k]) GENS[k] = [];
+        ext.gens[k].forEach(function (g) { GENS[k].push(g); });
+      });
+      Object.keys(ext.tails || {}).forEach(function (k) { TAIL[k] = ext.tails[k]; });
+      var self = this;
+      Object.keys(STATICS).forEach(function (k) { self.size[k] = STATICS[k].length; });
+      return this;
+    },
+    util: { mk: mk, ri: ri, pick: pick, shuffle: shuffle, frac: frac, distract: distract }
   };
 })();
