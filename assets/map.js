@@ -235,6 +235,67 @@
     return '<ul class="dw-cue">' + list.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>";
   }
 
+  /* ── 考點代碼：把工具接到練習本與直覺道場（data/kp.js、kp-tools.js、kp-practice.js 有載入才會出現）──
+   * pathOf(tool)：用物件身分找回「領域/主題/工具名」；主題層抽屜（openTool 收到的是臨時物件）用 _path 帶進來 */
+  function pathOf(tool) {
+    if (tool._path) return tool._path;
+    var all = (window.TOOLMAP && TOOLMAP.domains) || [];
+    for (var i = 0; i < all.length; i++) {
+      var ts = all[i].topics || [];
+      for (var j = 0; j < ts.length; j++) {
+        var xs = ts[j].tools || [];
+        for (var k = 0; k < xs.length; k++) if (xs[k] === tool) return all[i].id + "/" + ts[j].id + "/" + xs[k].n;
+      }
+    }
+    return null;
+  }
+  function kpsOf(tool) {
+    var p = pathOf(tool); if (!p) return [];
+    var T = window.KP_TOOLS || {}, TT = window.KP_TOPICS || {};
+    return (T[p] || TT[p] || []).slice();
+  }
+  function chapterName(chId) {   // "g11a-ch01" → 「高二上 第一章 三角函數」（handouts 的章序與 curriculum.js 不同，優先用練習本自己的章名表）
+    var N = window.KP_PRACTICE_NAMES; if (N && N[chId]) return N[chId];
+    var C = window.CURRICULUM; if (!C) return chId;
+    var m = chId.match(/^(g\d\d[ab])-ch(\d+)$/); if (!m) return chId;
+    for (var i = 0; i < C.semesters.length; i++) if (C.semesters[i].id === m[1]) {
+      var ch = C.semesters[i].chapters[parseInt(m[2], 10) - 1];
+      return ch ? C.semesters[i].name + " " + ch.num + " " + ch.title : chId;
+    }
+    return chId;
+  }
+  function practiceBase() {
+    var s = window.SITE || {};
+    return s.handouts === false ? ((window.KP && KP.practiceSite) || "") : "";
+  }
+  function trainHtml(kps) {
+    if (!kps.length || !window.KP) return "";
+    var names = kps.map(function (k) { var c = KP.byId(k); return c ? k + " " + c.n : k; });
+    var html = '<div class="dw-kp">考點：' + esc(names.join("；")) + "</div>";
+    /* 練習本：找出掛了同一個考點的題型卡片，最多 6 個，L1/L2 的產生器卡片優先 */
+    var PR = window.KP_PRACTICE || {}, TI = window.KP_PRACTICE_TITLES || {}, hits = [];
+    Object.keys(PR).forEach(function (ch) {
+      Object.keys(PR[ch]).forEach(function (key) {
+        var list = PR[ch][key] || [];
+        for (var i = 0; i < kps.length; i++) if (list.indexOf(kps[i]) >= 0) {
+          hits.push({ ch: ch, key: key, primary: list[0] === kps[0], gen: /^L[0123]\./.test(key) });
+          break;
+        }
+      });
+    });
+    hits.sort(function (a, b) { return (b.primary - a.primary) || (b.gen - a.gen); });
+    var base = practiceBase();
+    var items = hits.slice(0, 6).map(function (h) {
+      var anchor = h.gen ? "#c-" + h.key : "#" + h.key;      // 產生器卡片 id="c-級.型"；固定題 id="L4-3"
+      var label = (TI[h.ch] && TI[h.ch][h.key]) || h.key;
+      return '<li><a href="' + esc(base + "handouts/" + h.ch + "/practice.html" + anchor) + '">📝 ' + esc(chapterName(h.ch)) + "・" + esc(label) + "</a></li>";
+    });
+    if (hits.length > 6) items.push('<li class="dw-more">…還有 ' + (hits.length - 6) + " 個題型</li>");
+    html += '<ul class="dw-train">' + items.join("") +
+      '<li><a href="reflex.html?kp=' + esc(kps.join(",")) + '">⚔️ 到直覺道場練這個考點的反射</a></li></ul>';
+    return html;
+  }
+
   /* tool = {n,f,w,l,t,x,ref,refName, cue:[看到什麼就想到什麼], see:[串聯路徑], img, imgCap}
    * 所有欄位都要經過 esc()：數學敘述裡的 "<"（如 $0<a<1$）若直接塞進 innerHTML，
    * 會被瀏覽器當成 HTML 標籤起始而吃掉後面的內容。
@@ -253,6 +314,7 @@
       sec("lab-t", "常見錯誤", esc(tool.t)) +
       sec("lab-x", "延伸連結", esc(tool.x)) +
       sec("lab-s", "串聯：同一件事在別的地方長什麼樣", seeHtml(tool.see), "dw-txt") +
+      sec("lab-p", "練這個", trainHtml(kpsOf(tool)), "dw-txt") +
       // 只發佈心智圖、沒有上傳章節頁時（data/site.js 的 chapters:false），這個連結會指向不存在的檔案，所以直接不顯示
       (tool.ref && hasChapters() ? '<div class="dw-sec dw-ref"><a href="' + tool.ref + '">📘 前往章節：' + esc(tool.refName || "詳細講解") + " →</a></div>" : "");
     var body = d.querySelector("#dwBody");
@@ -516,6 +578,7 @@
             w: (node._t.kw || []).map(function (k) { return "「" + k + "」"; }).join("、"),
             l: node._t.flow || "",
             cue: node._t.cue, see: node._t.see, img: node._t.img, imgCap: node._t.imgCap,
+            _path: dom.id + "/" + node._t.id,
             ref: node._t.ref, refName: node._t.refName
           }, dom.n);
         }

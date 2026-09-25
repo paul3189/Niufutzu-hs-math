@@ -6,6 +6,7 @@
  *        每支產生器都吃隨機參數，所以同一支每次畫出來的圖不一樣。
  * quick：補上等差等比的和、餘式定理、對數化簡、排列數、條件機率、標準差線性變換、
  *        複利、三角形面積、二項式係數、兩直線交點等心算題。
+ * 每個 mk() 的第 7 個參數是考點代碼（data/kp.js）；GENS 每筆的 kps 列出這支可能出的所有碼。
  */
 (function () {
   "use strict";
@@ -117,13 +118,13 @@
         "這條拋物線（圖中的點是頂點）對應的判別式是？" + g, ans,
         ["$b^2-4ac>0$", "$b^2-4ac=0$", "$b^2-4ac&lt;0$", "無法由圖形判斷"]
           .filter(function (x) { return x !== ans; }),
-        "判別式只管「和 x 軸碰幾次」：穿過兩次為正、相切為 0、不碰為負");
+        "判別式只管「和 x 軸碰幾次」：穿過兩次為正、相切為 0、不碰為負", "P-04");
     }
     return mk("graph", "g10a-09", "圖中拋物線的頂點座標是？" + g,
       "$(" + h + "," + ks + ")$",
       ["$(" + ks + "," + h + ")$", "$(" + (-h) + "," + ks + ")$",
        "$(" + h + "," + (-ks) + ")$", "$(0," + ks + ")$", "$(" + h + ",0)$"],
-      "頂點就是對稱軸與曲線的交點，也是極值發生的位置");
+      "頂點就是對稱軸與曲線的交點，也是極值發生的位置", "P-03");
   }
 
   /* ② 指數與對數函數（高二上 2-1／2-3） */
@@ -141,7 +142,7 @@
     return mk("graph", ch, "圖中的曲線是哪一個函數（圖上的點是它必過的點）？" + g, ans,
       ["$y=2^{x}$", "$y=\\left(\\dfrac12\\right)^{x}$", "$y=\\log_{2}x$", "$y=\\log_{\\frac12}x$"]
         .filter(function (x) { return x !== ans; }),
-      "指數函數過 $(0,1)$、定義域是全體實數；對數函數過 $(1,0)$、只長在 $x>0$。底數大於 1 遞增、小於 1 遞減");
+      "指數函數過 $(0,1)$、定義域是全體實數；對數函數過 $(1,0)$、只長在 $x>0$。底數大於 1 遞增、小於 1 遞減", kind < 2 ? "E-03" : "E-05");
   }
 
   /* ③ 三角函數圖形（高二上 1-2） */
@@ -169,12 +170,12 @@
     if (ri(3) === 0) {
       return mk("graph", "g11a-02", "圖中函數的週期是多少？" + g, "$2\\pi$",
         ["$\\pi$", "$\\dfrac{\\pi}{2}$", "$4\\pi$"],
-        "圖形在 $0$ 到 $2\\pi$ 之間剛好走完一個完整的波");
+        "圖形在 $0$ 到 $2\\pi$ 之間剛好走完一個完整的波", "T-06");
     }
     return mk("graph", "g11a-02", "圖中畫的是哪一個函數（$0\\le x\\le2\\pi$）？" + g,
       fns[kind][1], fns.map(function (r) { return r[1]; })
         .filter(function (x) { return x !== fns[kind][1]; }),
-      "從 $x=0$ 的值下手：$\\sin$ 由 0 往上、$\\cos$ 由 1 往下，加負號就上下翻轉");
+      "從 $x=0$ 的值下手：$\\sin$ 由 0 往上、$\\cos$ 由 1 往下，加負號就上下翻轉", "T-06");
   }
 
   /* ④ 兩圓的位置關係（高一上 2-3） */
@@ -196,7 +197,7 @@
     return mk("graph", "g10a-07", "圖中兩圓的位置關係是？" + g, ans,
       names.filter(function (n) { return n !== ans; }),
       "只看圓心距 $d$ 與 $r_1+r_2$、$|r_1-r_2|$ 的大小：$d>r_1+r_2$ 外離、$=$ 外切、" +
-      "夾在中間相交、$d=|r_1-r_2|$ 內切、更小則內離");
+      "夾在中間相交、$d=|r_1-r_2|$ 內切、更小則內離", "G-02");
   }
 
   /* ⑤ 直線與圓的關係（高一上 2-3） */
@@ -216,7 +217,7 @@
       poly([[cx, cy], [fx, fy]]) + '</g>');
     return mk("graph", "g10a-07", "圖中直線與圓的關係是？" + g, ans,
       names.filter(function (n) { return n !== ans; }),
-      "比較圓心到直線的距離 $d$（圖中的虛線）與半徑 $r$：$d>r$ 相離、$d=r$ 相切、$d&lt;r$ 相交");
+      "比較圓心到直線的距離 $d$（圖中的虛線）與半徑 $r$：$d>r$ 相離、$d=r$ 相切、$d&lt;r$ 相交", "G-02");
   }
 
   /* ⑥ 散布圖與相關係數（高一下 4-2） */
@@ -239,7 +240,7 @@
       '<path d="M22 148H250"/><path d="M22 12V148"/></g>' + pts);
     return mk("graph", "g10b-09", "圖中這組資料的相關係數 $r$ 最接近？" + g, ans,
       names.filter(function (x2) { return x2 !== ans; }),
-      "往右上走是正、右下走是負；愈貼近一條直線 $|r|$ 愈接近 1，散成一團則接近 0");
+      "往右上走是正、右下走是負；愈貼近一條直線 $|r|$ 愈接近 1，散成一團則接近 0", "D-13");
   }
 
   /* ⑦ 三次函數與實根個數（高一上 3-3） */
@@ -256,7 +257,7 @@
     return mk("graph", "g10a-10", "圖中三次函數 $y=f(x)$，方程式 $f(x)=0$ 有幾個<b>相異</b>實根？" + g,
       ans, ["1 個", "2 個（其中一個是重根）", "3 個", "0 個"]
         .filter(function (x) { return x !== ans; }),
-      "實根個數就是圖形與 $x$ 軸的交點個數；碰到就彈回去的那個交點是重根");
+      "實根個數就是圖形與 $x$ 軸的交點個數；碰到就彈回去的那個交點是重根", "P-05");
   }
 
   /* ⑧ 兩向量的夾角與內積正負（高二上 3-2） */
@@ -281,7 +282,7 @@
       ["銳角（內積 $>0$）", "鈍角（內積 $&lt;0$）", "直角（內積 $=0$）", "平角（兩向量反向）"]
         .filter(function (x) { return x !== ans; }),
       "$\\vec u\\cdot\\vec v=" + u[0] + "\\times" + v[0] + "+" + u[1] + "\\times" + v[1] + "=" + d +
-      "$：內積的正負就是夾角 $\\cos$ 的正負");
+      "$：內積的正負就是夾角 $\\cos$ 的正負", "G-05");
   }
 
   /* ⑨ 由圖讀直線斜率（高一上 2-1） */
@@ -304,7 +305,7 @@
     return mk("graph", "g10a-05", "圖中直線通過標出的 A、B 兩點，它的斜率是？" + g,
       String(m), [String(-m), String(m + 1), String(m - 1), String(2 * m)],
       "斜率 $=\\dfrac{\\Delta y}{\\Delta x}=\\dfrac{" + (y2 - y1) + "}{" + (x2 - x1) + "}=" + m +
-      "$：向右一格往上幾格就是幾");
+      "$：向右一格往上幾格就是幾", "G-01");
   }
 
   /* ⑩ 盒狀圖（高一下 4-1） */
@@ -335,11 +336,11 @@
     if (ri(2)) {
       return mk("graph", "g10b-08", "圖中盒狀圖的<b>四分位距</b>（IQR）是多少？" + g,
         String(q3 - q1), [String(hi - lo), String(md), String(q3 - md), String(md - q1)],
-        "$\\mathrm{IQR}=Q_3-Q_1=" + q3 + "-" + q1 + "$：就是盒子的長度，不是整條鬍鬚的長度");
+        "$\\mathrm{IQR}=Q_3-Q_1=" + q3 + "-" + q1 + "$：就是盒子的長度，不是整條鬍鬚的長度", "D-12");
     }
     return mk("graph", "g10b-08", "圖中盒狀圖的<b>中位數</b>是多少？" + g,
       String(md), [String(q1), String(q3), String((lo + hi) / 2), String(hi - lo)],
-      "盒子中間那條線就是中位數；盒子的兩端是 $Q_1$ 與 $Q_3$");
+      "盒子中間那條線就是中位數；盒子的兩端是 $Q_1$ 與 $Q_3$", "D-12");
   }
 
   /* ⑪ 平移後的拋物線（高二上 1-2 的平移直覺，掛在高一上 3-2） */
@@ -357,7 +358,7 @@
     return mk("graph", "g10a-09",
       "虛線是 $y=x^2$，實線是它平移後的結果。實線的方程式是？" + g,
       eq(h, k), [eq(-h, k), eq(h, -k), eq(-h, -k), eq(k, h)],
-      "括號裡是 $x-h$ 就往<b>右</b>移 $h$（$h$ 為負就往左）；外面加 $k$ 就往上移 $k$");
+      "括號裡是 $x-h$ 就往<b>右</b>移 $h$（$h$ 為負就往左）；外面加 $k$ 就往上移 $k$", "P-03");
   }
 
   /* ══════════════ 二、秒算直覺追加產生器 ══════════════ */
@@ -372,7 +373,7 @@
         String(S),
         [String(n * (2 * a1 + n * d) / 2), String(a1 + (n - 1) * d), String(n * a1)],
         "$S_n=\\dfrac{n\\left[2a_1+(n-1)d\\right]}{2}=\\dfrac{" + n + "(" + (2 * a1) + "+" +
-        ((n - 1) * d) + ")}{2}=" + S + "$");
+        ((n - 1) * d) + ")}{2}=" + S + "$", "D-01");
     }
     var b1 = pick([1, 2, 3]), r = pick([2, 3]), m = 4 + ri(4);
     var G = b1 * (Math.pow(r, m) - 1) / (r - 1);
@@ -381,7 +382,7 @@
       String(G),
       [String(b1 * Math.pow(r, m - 1)), String(b1 * Math.pow(r, m)), String(G * r)],
       "$S_n=\\dfrac{a_1(r^n-1)}{r-1}=\\dfrac{" + b1 + "(" + Math.pow(r, m) + "-1)}{" + (r - 1) +
-      "}=" + G + "$；$r=1$ 時要另外討論");
+      "}=" + G + "$；$r=1$ 時要另外討論", "D-02");
   }
 
   /* 餘式定理：代值（高一上 3-1） */
@@ -397,7 +398,7 @@
       "$f(x)=" + body + "$ 除以 $x" + (k < 0 ? "+" + (-k) : "-" + k) + "$ 的餘式 = ?",
       String(val),
       [String(d), String(1 + b + c + d), String(-k * k * k + b * k * k - c * k + d), String(val + k)],
-      "餘式定理：除以一次式時餘式是常數，直接代 $f(" + k + ")=" + val + "$，不必做長除法");
+      "餘式定理：除以一次式時餘式是常數，直接代 $f(" + k + ")=" + val + "$，不必做長除法", "P-01");
   }
 
   /* 對數化簡（高二上 2-2） */
@@ -420,7 +421,7 @@
     var v = r[1];
     return mk("quick", "g11a-07", "$" + r[0] + " = \\ ?$", String(v),
       [String(v + 1), String(v - 1), String(v * 2)],
-      "先用對數律併成一個 $\\log$：" + r[2] + "，答案 " + v);
+      "先用對數律併成一個 $\\log$：" + r[2] + "，答案 " + v, "E-04");
   }
 
   /* 排列數：重複與相鄰（高一下 2-2） */
@@ -433,14 +434,14 @@
       return mk("quick", "g10b-04",
         "$" + n + "$ 個字母排成一列，其中有 $" + p + "$ 個完全相同，共有幾種排法？",
         String(ans), [String(fact(n)), String(fact(n) / p), String(fact(n - p))],
-        "$\\dfrac{" + n + "!}{" + p + "!}=" + ans + "$：相同的東西互換看起來一樣，要把重複除掉");
+        "$\\dfrac{" + n + "!}{" + p + "!}=" + ans + "$：相同的東西互換看起來一樣，要把重複除掉", "D-06");
     }
     var m = 4 + ri(3);
     var v = fact(m - 1) * 2;
     return mk("quick", "g10b-04",
       "$" + m + "$ 人排成一列，其中甲乙<b>必須相鄰</b>，共有幾種排法？",
       String(v), [String(fact(m)), String(fact(m - 1)), String(fact(m) - v)],
-      "捆綁法：甲乙綁成一綑 → $" + (m - 1) + "!\\times2!=" + v + "$（最後那個誘答是「不相鄰」的答案）");
+      "捆綁法：甲乙綁成一綑 → $" + (m - 1) + "!\\times2!=" + v + "$（最後那個誘答是「不相鄰」的答案）", "D-06");
   }
 
   /* 條件機率（高二下 4-1） */
@@ -460,7 +461,7 @@
       "已知 $P(A\\cap B)=" + r[0] + "$、$P(B)=" + r[1] + "$，則 $P(A|B) = \\ ?$",
       r[2], r[3],
       "$P(A|B)=\\dfrac{P(A\\cap B)}{P(B)}=\\dfrac{" + r[0] + "}{" + r[1] + "}=" + r[2] +
-      "$：分母換成已知事件的機率");
+      "$：分母換成已知事件的機率", "D-11");
   }
 
   /* 標準差的線性變換（高一下 4-1） */
@@ -473,17 +474,17 @@
     if (mode === 0) {
       return mk("quick", "g10b-08", head + "新的平均數 = ?", String(a * m + b),
         [String(m + b), String(a * m), String(m), String(a * (m + b))],
-        "平均數跟著整組一起變：$" + a + "\\times" + m + (b < 0 ? "-" + (-b) : "+" + b) + "=" + (a * m + b) + "$");
+        "平均數跟著整組一起變：$" + a + "\\times" + m + (b < 0 ? "-" + (-b) : "+" + b) + "=" + (a * m + b) + "$", "D-12");
     }
     if (mode === 1) {
       return mk("quick", "g10b-08", head + "新的標準差 = ?", String(a * s),
         [String(a * s + b), String(s), String(s + b), String(a * s * a)],
-        "平移不影響分散程度，只有伸縮才會：標準差 $\\times" + a + "$，常數 $" + b + "$ 沒有作用");
+        "平移不影響分散程度，只有伸縮才會：標準差 $\\times" + a + "$，常數 $" + b + "$ 沒有作用", "D-12");
     }
     return mk("quick", "g10b-08", head + "新的變異數 = ?", String(a * a * s * s),
       [String(a * s * s), String(s * s), String(a * s), String(a * a * s * s + b)],
       "變異數是標準差的平方 → $\\times" + a + "^2=" + (a * a) + "$：$" + (s * s) + "\\times" +
-      (a * a) + "=" + (a * a * s * s) + "$");
+      (a * a) + "=" + (a * a * s * s) + "$", "D-12");
   }
 
   /* 複利（高二上 2-1） */
@@ -500,7 +501,7 @@
       "本金 $" + P0 + "$ 元，年利率 $" + pct + "\\%$、每年複利一次，$" + n + "$ 年後的本利和 = ?",
       String(A), [String(simple), String(P0 * (100 + pct) / 100), String(A + P0)],
       "$" + P0 + "\\times\\left(1+" + (pct / 100) + "\\right)^{" + n + "}=" + A +
-      "$（誘答 " + simple + " 是單利的算法）");
+      "$（誘答 " + simple + " 是單利的算法）", "E-03");
   }
 
   /* 三角形面積 ½ab sin C（高一下 5-3） */
@@ -524,7 +525,7 @@
       ans, Object.keys(forms).filter(function (k) { return k !== key; })
         .map(function (k) { return forms[k]; }),
       "$\\dfrac12ab\\sin C=\\dfrac12\\times" + a + "\\times" + b + "\\times" + sinTex +
-      "$；鈍角的 $\\sin$ 與其補角相同");
+      "$；鈍角的 $\\sin$ 與其補角相同", "T-03");
   }
 
   /* 二項式展開的係數（高一下 2-3） */
@@ -538,7 +539,7 @@
       [String(comb(n, k)), String(Math.pow(c, n - k)), String(comb(n, k) * Math.pow(c, k)),
        String(coef + c)],
       "通項 $C^{" + n + "}_{" + k + "}x^{" + k + "}\\cdot" + c + "^{" + (n - k) + "}=" +
-      comb(n, k) + "\\times" + Math.pow(c, n - k) + "=" + coef + "$");
+      comb(n, k) + "\\times" + Math.pow(c, n - k) + "=" + coef + "$", "D-15");
   }
 
   /* 兩直線的交點（高一上 2-1） */
@@ -556,7 +557,7 @@
     return mk("quick", "g10a-05",
       "直線 " + line(m1) + " 與 " + line(m2) + " 的交點座標？",
       pt(p, q), [pt(q, p), pt(-p, q), pt(p, -q), pt(p + 1, q), pt(p, q + 1)],
-      "兩式相減消去 $y$：解出 $x=" + p + "$ 再代回得 $y=" + q + "$");
+      "兩式相減消去 $y$：解出 $x=" + p + "$ 再代回得 $y=" + q + "$", "G-01");
   }
 
   /* 向量垂直求未知數（高二上 3-2） */
@@ -567,7 +568,7 @@
     return mk("quick", "g11a-10",
       "$\\vec{u}=(" + a + "," + b + ")$ 與 $\\vec{v}=(" + c + ",k)$ 互相垂直，$k = \\ ?$",
       String(k), [String(-k), String(a * b), String(a + b), String(c)],
-      "垂直 ⟹ 內積為 0：$(" + a + ")(" + c + ")+(" + b + ")k=0$ → $k=" + k + "$");
+      "垂直 ⟹ 內積為 0：$(" + a + ")(" + c + ")+(" + b + ")k=0$ → $k=" + k + "$", "G-05");
   }
 
   /* 平均數與中位數（高一下 4-1） */
@@ -583,7 +584,7 @@
       return mk("quick", "g10b-08",
         "資料 $" + v.join(",\\ ") + "$ 的<b>平均數</b> = ?", String(mean),
         [String(sorted0[2]), String(sorted0[4] - sorted0[0]), String(mean + 1), String(s)],
-        "總和 $" + s + "\\div5=" + mean + "$；誘答 " + sorted0[2] + " 是中位數");
+        "總和 $" + s + "\\div5=" + mean + "$；誘答 " + sorted0[2] + " 是中位數", "D-12");
     }
     var sorted = v.slice().sort(function (x, y) { return x - y; });
     var med = sorted[2], sum = v.reduce(function (x, y) { return x + y; }, 0);
@@ -591,37 +592,37 @@
       "資料 $" + v.join(",\\ ") + "$ 的<b>中位數</b> = ?", String(med),
       [String(Math.round(sum / 5)), String(sorted[0]), String(sorted[4]),
        String(sorted[4] - sorted[0])],
-      "先排序：$" + sorted.join(",\\ ") + "$，取正中間那一個 → " + med);
+      "先排序：$" + sorted.join(",\\ ") + "$，取正中間那一個 → " + med, "D-12");
   }
 
   RB.extend({
     gens: {
       graph: [
-        { f: gGraphParabola,  w: 3, chs: ["g10a-09"] },
-        { f: gGraphShift,     w: 2, chs: ["g10a-09"] },
-        { f: gGraphExpLog,    w: 3, chs: ["g11a-06", "g11a-08"] },
-        { f: gGraphSinCos,    w: 3, chs: ["g11a-02"] },
-        { f: gGraphTwoCircles,w: 2, chs: ["g10a-07"] },
-        { f: gGraphLineCircle,w: 2, chs: ["g10a-07"] },
-        { f: gGraphScatter,   w: 2, chs: ["g10b-09"] },
-        { f: gGraphCubic,     w: 2, chs: ["g10a-10"] },
-        { f: gGraphVector,    w: 3, chs: ["g11a-10"] },
-        { f: gGraphLineSlope, w: 2, chs: ["g10a-05"] },
-        { f: gGraphBox,       w: 2, chs: ["g10b-08"] }
+        { f: gGraphParabola,  w: 3, chs: ["g10a-09"], kps: ["P-04", "P-03"] },
+        { f: gGraphShift,     w: 2, chs: ["g10a-09"], kps: ["P-03"] },
+        { f: gGraphExpLog,    w: 3, chs: ["g11a-06", "g11a-08"], kps: ["E-03", "E-05"] },
+        { f: gGraphSinCos,    w: 3, chs: ["g11a-02"], kps: ["T-06"] },
+        { f: gGraphTwoCircles,w: 2, chs: ["g10a-07"], kps: ["G-02"] },
+        { f: gGraphLineCircle,w: 2, chs: ["g10a-07"], kps: ["G-02"] },
+        { f: gGraphScatter,   w: 2, chs: ["g10b-09"], kps: ["D-13"] },
+        { f: gGraphCubic,     w: 2, chs: ["g10a-10"], kps: ["P-05"] },
+        { f: gGraphVector,    w: 3, chs: ["g11a-10"], kps: ["G-05"] },
+        { f: gGraphLineSlope, w: 2, chs: ["g10a-05"], kps: ["G-01"] },
+        { f: gGraphBox,       w: 2, chs: ["g10b-08"], kps: ["D-12"] }
       ],
       quick: [
-        { f: gSeqSum,     w: 2, chs: ["g10b-02"] },
-        { f: gRemainder,  w: 2, chs: ["g10a-08"] },
-        { f: gLogSimp,    w: 2, chs: ["g11a-07"] },
-        { f: gArrange,    w: 2, chs: ["g10b-04"] },
-        { f: gCondProb,   w: 2, chs: ["g11b-11"] },
-        { f: gStdLinear,  w: 2, chs: ["g10b-08"] },
-        { f: gCompound,   w: 2, chs: ["g11a-06"] },
-        { f: gTriArea,    w: 2, chs: ["g10b-12"] },
-        { f: gBinomTerm,  w: 2, chs: ["g10b-05"] },
-        { f: gLineCross,  w: 2, chs: ["g10a-05"] },
-        { f: gPerpK,      w: 2, chs: ["g11a-10"] },
-        { f: gCenterStat, w: 2, chs: ["g10b-08"] }
+        { f: gSeqSum,     w: 2, chs: ["g10b-02"], kps: ["D-01", "D-02"] },
+        { f: gRemainder,  w: 2, chs: ["g10a-08"], kps: ["P-01"] },
+        { f: gLogSimp,    w: 2, chs: ["g11a-07"], kps: ["E-04"] },
+        { f: gArrange,    w: 2, chs: ["g10b-04"], kps: ["D-06"] },
+        { f: gCondProb,   w: 2, chs: ["g11b-11"], kps: ["D-11"] },
+        { f: gStdLinear,  w: 2, chs: ["g10b-08"], kps: ["D-12"] },
+        { f: gCompound,   w: 2, chs: ["g11a-06"], kps: ["E-03"] },
+        { f: gTriArea,    w: 2, chs: ["g10b-12"], kps: ["T-03"] },
+        { f: gBinomTerm,  w: 2, chs: ["g10b-05"], kps: ["D-15"] },
+        { f: gLineCross,  w: 2, chs: ["g10a-05"], kps: ["G-01"] },
+        { f: gPerpK,      w: 2, chs: ["g11a-10"], kps: ["G-05"] },
+        { f: gCenterStat, w: 2, chs: ["g10b-08"], kps: ["D-12"] }
       ]
     }
   });

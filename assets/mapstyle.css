@@ -86,6 +86,13 @@ table.tools td .katex-display > .katex { text-align: left; }
 .dw-see a { color: #3730a3; font-weight: 700; text-decoration: none; }
 .dw-see a::before { content: "⇄ "; }
 .dw-see a:hover { text-decoration: underline; }
+.lab-p { background: #ecfeff; color: #155e75; }          /* 練這個：練習本＋道場 */
+.dw-kp { font-size: .82rem; color: #6b7280; margin-bottom: 4px; }
+.dw-train { margin: 0; padding-left: 0; list-style: none; }
+.dw-train li { padding: 3px 0; font-size: .93rem; }
+.dw-train a { color: #155e75; font-weight: 700; text-decoration: none; }
+.dw-train a:hover { text-decoration: underline; }
+.dw-train .dw-more { color: #6b7280; font-size: .85rem; }
 .dw-img { text-align: center; }
 .dw-img img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 6px; }
 .dw-cap { font-size: .82rem; color: #6b7280; margin-top: 4px; }

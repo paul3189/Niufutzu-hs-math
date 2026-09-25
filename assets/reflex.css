@@ -400,3 +400,94 @@ table.rx-rec td.rec-scope { font-size: .82rem; color: var(--ink-soft); }
   .ps-name { display: inline-block; }
   .ps-chip { font-size: .78rem; padding: 3px 9px; }
 }
+
+/* ══════════ 雲端：帳號與排行榜（移植國中版） ══════════ */
+.rx-cloud{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:6px}
+.rx-cloud.end{margin:10px 0 4px;font-size:.95rem;line-height:1.8;background:var(--purple-soft)}
+.rx-cloud.end b{color:var(--cow-wine,#5c222b)}
+.cl-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.cl-row label{font-weight:700;color:var(--ink-soft)}
+.cl-row input{flex:1 1 220px;min-width:0;padding:8px 11px;border:1.5px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem}
+.cl-row input:focus{outline:none;border-color:var(--cow-pink,#f7a8b8)}
+.cl-row button{padding:8px 14px;border-radius:10px;border:1.5px solid var(--cow-wine,#5c222b);background:var(--cow-wine,#5c222b);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.cl-row button:disabled{opacity:.5;cursor:default}
+.cl-row button.cl-out{background:#fff;color:var(--ink-soft);border-color:var(--line);font-weight:400}
+.cl-who{flex:1 1 auto;font-weight:700}
+.cl-mail{font-weight:400;color:var(--ink-soft);word-break:break-all}
+.cl-note{font-size:.85rem;color:var(--ink-soft);line-height:1.6}
+.bd-tabs{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:10px}
+.bd-kind,.bd-diff{display:flex;flex-wrap:wrap;gap:6px}
+.bd-tabs button{padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:inherit;font-size:.88rem;cursor:pointer;color:var(--ink)}
+.bd-tabs button small{display:block;font-size:.68rem;color:var(--ink-soft);line-height:1.1}
+.bd-kind button.on{background:var(--cow-wine,#5c222b);border-color:var(--cow-wine,#5c222b);color:#fff}
+.bd-diff button.on{background:var(--purple-soft);border-color:var(--purple);color:var(--purple)}
+.bd-diff button.on small{color:var(--purple)}
+.bd-body{overflow-x:auto}
+.bd-tbl{width:100%;border-collapse:collapse;font-size:.92rem}
+.bd-tbl th{text-align:left;font-size:.78rem;color:var(--ink-soft);font-weight:700;padding:4px 8px;border-bottom:1.5px solid var(--line)}
+.bd-tbl td{padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.bd-tbl td:first-child{width:2.6em;font-weight:800;text-align:center}
+.bd-tbl .bd-s{font-family:Consolas,monospace;font-weight:800;color:var(--rx-dark)}
+.bd-tbl .bd-sc{color:var(--ink-soft);font-size:.82rem;white-space:normal}
+.bd-tbl tr.me td{background:var(--purple-soft)}
+.bd-me{margin-left:6px;font-size:.72rem;background:var(--purple);color:#fff;border-radius:999px;padding:1px 7px;vertical-align:middle}
+.bd-new{margin-left:8px;font-size:.8rem;color:#fff;background:var(--rx-hp);border-radius:999px;padding:1px 8px;vertical-align:middle}
+.bd-diff button.sum{border-style:dashed}
+.bd-diff button.on.sum{border-style:solid}
+/* 手機：隱藏「連擊」與「範圍」，留下名次／暱稱／分數／正確率／場次 */
+@media (max-width:560px){
+  .bd-tbl:not(.sum) th:nth-child(5),.bd-tbl:not(.sum) td:nth-child(5),
+  .bd-tbl:not(.sum) th:nth-child(7),.bd-tbl:not(.sum) td:nth-child(7){display:none}
+}
+
+/* ══════════ 今日複習（選單頂端） ══════════ */
+.rx-rv{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:14px 0 4px;padding:12px 16px;
+  background:#fff;border:2px solid var(--line);border-radius:14px}
+.rx-rv.due{border-color:var(--cow-wine,#5c222b);background:var(--cow-pink-soft,#fdebef)}
+.rx-rv.empty{border-style:dashed}
+.rv-main{flex:1 1 260px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.rv-main b{font-size:1.08rem}
+.rx-rv.due .rv-main b{color:var(--cow-wine,#5c222b);font-size:1.18rem}
+.rv-main span{font-size:.86rem;color:var(--ink-soft);line-height:1.55}
+.rv-main .rv-sync{font-size:.8rem}
+#btnReview{flex:none;padding:10px 20px;border-radius:12px;border:none;background:var(--cow-wine,#5c222b);color:#fff;
+  font:inherit;font-weight:800;font-size:1rem;cursor:pointer;line-height:1.2}
+#btnReview small{display:block;font-weight:400;font-size:.72rem;opacity:.85}
+#btnReview:hover{filter:brightness(1.12)}
+
+/* 複習場：不打怪、不上榜、不扣心 → 藏起怪物、生命、連擊、分數 */
+.rx-arena.rx-review #monBox,.rx-arena.rx-review #hudHp,.rx-arena.rx-review .rx-hud .box{display:none}
+.q-tag{margin-left:8px;font-size:.75rem;font-weight:800;padding:1px 8px;border-radius:999px;
+  background:var(--cow-pink-soft,#fdebef);color:var(--cow-wine,#5c222b);border:1px solid var(--cow-pink-line,#f6d2da);vertical-align:middle}
+.rv-reset{opacity:.85;font-size:.85rem}
+.end-score.rv-score{font-size:1.9rem}
+.rx-rvlist{display:grid;gap:6px;margin:12px 0 4px}
+.rvi{display:flex;gap:10px;align-items:center;padding:7px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:.9rem}
+.rvi.ok{border-left:4px solid var(--rx-ok)}
+.rvi.no{border-left:4px solid var(--rx-hp)}
+.rvi-n{flex:1 1 auto;min-width:0}
+.rvi-v{color:var(--ink-soft);font-size:.82rem;white-space:nowrap}
+.wr-tag{margin-left:6px;font-size:.72rem;padding:0 7px;border-radius:999px;background:var(--purple-soft);color:var(--purple)}
+.rx-wbnote{font-size:.88rem;color:var(--ink-soft);margin:0 0 8px}
+
+/* ══════════ 考點處方（結算頁） ══════════ */
+.rx-h3 small{font-weight:400;font-size:.8rem;color:var(--ink-soft);margin-left:6px}
+.rx-rx{display:grid;gap:10px}
+.rxp{background:#fff;border:1px solid var(--line);border-left:4px solid var(--cow-wine,#5c222b);border-radius:12px;padding:10px 14px}
+.rxp-h{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin-bottom:6px}
+.rxp-code{font-family:Consolas,monospace;font-weight:800;font-size:.85rem;padding:1px 7px;border-radius:6px;
+  background:var(--purple-soft);color:var(--purple)}
+.rxp-n{font-weight:800;font-size:.95rem;flex:1 1 200px;min-width:0}
+.rxp-v{font-size:.82rem;font-weight:700;color:var(--red,#b03a55);white-space:nowrap}
+.rxp-row{display:flex;gap:8px;align-items:flex-start;margin-top:5px}
+.rxp-l{flex:none;width:6.2em;font-size:.82rem;color:var(--ink-soft);padding-top:3px}
+.rxp-links{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+a.rxp-a{font-size:.84rem;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--cow-cream,#fbf6f0);
+  color:var(--blue);text-decoration:none;line-height:1.5}
+a.rxp-a:hover{border-color:var(--blue)}
+a.rxp-a.go{background:var(--cow-wine,#5c222b);border-color:var(--cow-wine,#5c222b);color:#fff;font-weight:700}
+.rx-kpok{margin-top:8px;font-size:.84rem;color:var(--ink-soft);line-height:1.7}
+@media (max-width:560px){
+  .rxp-row{flex-direction:column;gap:3px}
+  .rxp-l{width:auto;padding-top:0}
+}

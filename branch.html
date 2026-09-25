@@ -6,7 +6,7 @@
 <title>分支圖｜數學工具地圖</title>
 <link rel="stylesheet" href="assets/katex/katex.min.css">
 <link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="assets/mapstyle.css">
+<link rel="stylesheet" href="assets/mapstyle.css?v=20260924">
 <link rel="stylesheet" href="assets/theme-cow.css">
 <script defer src="assets/katex/katex.min.js"></script>
 <script defer src="assets/katex/auto-render.min.js"></script>
@@ -67,7 +67,11 @@
 <script src="data/tm-7-sequence.js"></script>
 <script src="data/tm-8-prob.js"></script>
 <script src="data/tm-9-calculus.js"></script>
-<script src="assets/map.js"></script>
+<script src="data/curriculum.js"></script>
+<script src="data/kp.js"></script>
+<script src="data/kp-tools.js"></script>
+<script src="data/kp-practice.js"></script>
+<script src="assets/map.js?v=20260924"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   MathMap.mountEditionSwitch("edSwitch");
@@ -100,16 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
   a.textContent = nxt.icon + " " + nxt.n + " →";
   a.onclick = function (e) { e.preventDefault(); location.href = a.href; location.reload(); };
 
-  // 若帶 &t=主題，直接開該主題的說明
-  var t = MathMap.param("t");
+  // 若帶 &t=主題，直接開該主題的說明；再帶 &x=工具名 就直接開那個工具（道場結算頁、練習本的處方連結用）
+  var t = MathMap.param("t"), xn = MathMap.param("x");
   if (t) {
     (dom.topics || []).forEach(function (tp) {
+      if (tp.id !== t) return;
+      if (xn) {
+        var tool = (tp.tools || []).filter(function (x) { return x.n === xn; })[0];
+        if (tool) { MathMap.openTool(tool, dom.n + " ▸ " + tp.n); return; }
+      }
       if (tp.id === t) {
         MathMap.openTool({
           n: tp.n,
           w: (tp.kw || []).map(function (k) { return "「" + k + "」"; }).join("、"),
           l: tp.flow || "",
           cue: tp.cue, see: tp.see, img: tp.img, imgCap: tp.imgCap,
+          _path: dom.id + "/" + tp.id,
           ref: tp.ref, refName: tp.refName
         }, dom.n);
       }

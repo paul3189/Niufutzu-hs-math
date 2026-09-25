@@ -6,7 +6,7 @@
 <title>牛夫子直覺道場｜限時反射訓練</title>
 <link rel="stylesheet" href="assets/katex/katex.min.css">
 <link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="assets/reflex.css">
+<link rel="stylesheet" href="assets/reflex.css?v=20260924">
 <link rel="stylesheet" href="assets/theme-cow.css">
 <script defer src="assets/katex/katex.min.js"></script>
 <script defer src="assets/katex/auto-render.min.js"></script>
@@ -38,6 +38,8 @@
     </div>
   </div>
 
+  <div id="reviewBox"></div>
+
   <div class="rx-sec">① 選難度 <small>秒數＝你必須做出反應的時間；秒數愈短分數倍率愈高</small></div>
   <div id="diffCards"></div>
 
@@ -55,7 +57,10 @@
   <div class="rx-sec">👾 怪物陣容 <small>三隻輪流出場，打完一輪血量再往上加</small></div>
   <div id="lineup" class="rx-lineup"></div>
 
-  <div class="rx-sec">🏆 個人最佳紀錄</div>
+  <div id="cloudAccount"></div>
+  <div id="cloudBoard"></div>
+
+  <div class="rx-sec">🏆 個人最佳紀錄 <small>存在這台裝置的瀏覽器裡</small></div>
   <div id="records"></div>
   <div id="lifetime"></div>
 
@@ -66,7 +71,8 @@
       <li>答對＝對怪物造成傷害；<b>答得愈快傷害愈高</b>，連擊愈長加成愈多。</li>
       <li>答錯或超時扣一顆心，並立刻顯示正解與破題理由——<b>那句理由才是這個遊戲的重點</b>。</li>
       <li>打倒一隻怪就換下一隻，愈後面的怪血量愈厚。</li>
-      <li>結束後會給你<b>題型診斷＋章節診斷</b>：哪一章答錯了，就直接附上那一章的複習連結。</li>
+      <li>結束後會給你<b>題型診斷＋考點處方＋章節診斷</b>：錯在哪個考點，就附上工具地圖、練習本與道場考點練習的連結。</li>
+      <li>答錯或超時的題會自動收進<b>錯題本</b>，隔天起出現在最上面的「今日複習」：<b>原題＋同考點類似題都對才算過關</b>，間隔依 1 → 3 → 7 → 14 天拉長，四次過關就畢業；複習不打怪、不上榜、不扣心。</li>
       <li>題型共 <b>8 種</b>：特殊角三角值、角度變換、關鍵字反射、公式辨識、<b>觀念判斷</b>、<b>串聯反射</b>、<b>圖形辨識</b>、秒算直覺。</li>
       <li>讀題比較久的題型會自動多給秒數：<b>秒算 ×1.3</b>、<b>關鍵字 ×1.2</b>、<b>觀念判斷與串聯反射 ×1.15</b>、<b>圖形辨識 ×1.1</b>、<b>公式辨識 ×1.05</b>；三角值與角度變換不加成。</li>
     </ul>
@@ -135,11 +141,16 @@
 
 <script src="data/site.js"></script>
 <script src="data/curriculum.js"></script>
+<script src="data/kp.js"></script>
 <script src="data/reflex-bank.js"></script>
 <script src="data/reflex-bank-2.js"></script>
 <script src="data/reflex-bank-3.js"></script>
 <script src="data/reflex-bank-4.js"></script>
-<script src="assets/reflex.js"></script>
+<script src="data/kp-tools.js"></script>
+<script src="data/kp-practice.js"></script>
+<script src="assets/firebase-config.js"></script>
+<script src="assets/reflex-cloud.js"></script>
+<script src="assets/reflex.js?v=20260924"></script>
 <div class="wrap"><div class="cow-credit">
   <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
   <div><b>牛夫子</b>　圖／楊安琪　・　本頁沿用《國中數學工具地圖》的牛夫子主題，色票取自角色本身：斑塊的深酒紅、數學課本的粉紅、圓框眼鏡的黑、紙張的米白。</div>
