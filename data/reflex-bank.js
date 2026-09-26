@@ -1364,13 +1364,16 @@
     };
     if (mode === 0) {
       var p = a * e + b * g, q = a * f + b * h, r = c * e + d * g, s = c * f + d * h;
-      return mk("quick", "g11b-09",
-        "$" + M(a, b, c, d) + M(e, f, g, h) + " = \\ ?$",
-        "$" + M(p, q, r, s) + "$",
-        ["$" + M(a * e, b * f, c * g, d * h) + "$",
+      var ans = "$" + M(p, q, r, s) + "$";
+      var wrong = ["$" + M(a * e, b * f, c * g, d * h) + "$",
          "$" + M(p, r, q, s) + "$",
          "$" + M(a + e, b + f, c + g, d + h) + "$",
-         "$" + M(p + 1, q, r, s) + "$"],
+         "$" + M(p + 1, q, r, s) + "$"];
+      /* 誘答撞到正解或彼此相同（例如 q=r、零元素多）就重抽 */
+      if (new Set([ans].concat(wrong)).size < 5) return gMatrix();
+      return mk("quick", "g11b-09",
+        "$" + M(a, b, c, d) + M(e, f, g, h) + " = \\ ?$",
+        ans, wrong,
         "矩陣乘法是「列 × 行」：左邊<b>橫著</b>取、右邊<b>直著</b>取再相加", "G-09");
     }
     var det = a * d - b * c;
