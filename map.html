@@ -15,9 +15,9 @@
 <body>
 <div class="topbar"><div class="topbar-inner">
   <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
-  <a href="index.html">🏠 首頁</a>
-  <a href="map.html">🗺️ 工具地圖</a>
-  <a href="cross.html">🔀 跨章流程圖</a>
+  <a href="index.html">課程總覽</a>
+  <a href="map.html">工具地圖</a>
+  <a href="cross.html">跨章流程圖</a>
   <span class="crumb">全景心智圖</span>
   <span class="spacer"></span>
   <span id="edSwitch"></span>
@@ -29,8 +29,8 @@
     <div class="hero-row">
       <img class="hero-cow" src="assets/mascot/web/cow_scholar.png" alt="翻著書的牛夫子">
       <div class="hero-text">
-        <h1>🗺️ 數學工具地圖</h1>
-        <p>把整個高中數學攤開成一張圖：<b>問什麼 → 出現什麼關鍵字 → 可以動用哪些工具 → 這些工具有什麼限制</b><br>
+        <h1>數學工具地圖</h1>
+        <p>把整個高中數學攤開成一張圖：<b>題目在問什麼、出現了哪些關鍵字、可以用哪些工具、這些工具有什麼限制</b>。<br>
         面對陌生題目時，你需要的不是「想起某一題」，而是「知道自己有哪些武器」。</p>
       </div>
     </div>
@@ -39,7 +39,7 @@
   <div id="edBanner"></div>
 
   <!-- ── 關鍵字搜尋 ── -->
-  <h2 class="sec"><span class="tag tag-keyword">🔍</span>關鍵字 → 工具｜直接搜</h2>
+  <h2 class="sec">用關鍵字找工具</h2>
   <div class="kw-search">
     <input id="kwInput" type="text" placeholder="輸入題目裡的字，例如：最大值、垂直、至少、相切、恆成立、餘數、期望值…">
   </div>
@@ -47,7 +47,7 @@
   <div id="kwHits" class="hit-list"></div>
 
   <!-- ── 破題流程 ── -->
-  <h2 class="sec"><span class="tag tag-concept">🧭</span>拆解問題的四個提問</h2>
+  <h2 class="sec">拆解問題的四個提問</h2>
   <div class="flow-grid">
     <div class="flow-card">
       <h4>① 這題「問什麼」？</h4>
@@ -55,7 +55,7 @@
         <li>求<b>一個值</b> → 解方程式／代公式</li>
         <li>求<b>範圍</b> → 不等式、判別式、值域</li>
         <li>求<b>個數</b> → 計數、判別式、圖形交點</li>
-        <li>求<b>最大最小</b> → 最值策略表（7 條路）</li>
+        <li>求<b>最大最小</b> → 最值策略表（7 種做法）</li>
         <li>求<b>位置關係</b> → 距離 vs 半徑、向量、行列式</li>
         <li>要<b>證明</b> → 從定義出發、歸納法、反證</li>
       </ul>
@@ -74,7 +74,7 @@
     <div class="flow-card">
       <h4>③ 我有「哪些工具」？</h4>
       <ul>
-        <li>同一件事常有 <b>代數解</b> 與 <b>幾何解</b> 兩條路</li>
+        <li>同一件事常有 <b>代數解</b> 與 <b>幾何解</b> 兩種做法</li>
         <li>算不出來時，換一個表示法：<br>坐標 ↔ 向量 ↔ 三角 ↔ 複數</li>
         <li>式子太複雜 → <b>換元</b>（記得換範圍）</li>
         <li>正面難算 → <b>補集</b>、<b>反證</b></li>
@@ -95,19 +95,19 @@
   </div>
 
   <!-- ── 跨章流程圖入口 ── -->
-  <h2 class="sec"><span class="tag tag-example">🔀</span>跨章決策流程圖（10 張）</h2>
-  <p class="kw-hint">課本按章編排，考試從不按章出題。這 10 張圖依「<b>題目在問什麼</b>」把散在各冊的工具重新排隊，順著問題往下走就找得到該用的工具。</p>
+  <h2 class="sec">跨章決策流程圖（13 張）</h2>
+  <p class="kw-hint">課本按章編排，考試不按章出題。這 13 張圖依「<b>題目在問什麼</b>」把散在各冊的工具重新排隊，順著問題往下走就找得到該用的工具。</p>
   <div class="dom-grid" id="crossCards"></div>
 
   <!-- ── 總圖 ── -->
-  <h2 class="sec"><span class="tag tag-concept">🌳</span>全景圖：九大領域</h2>
+  <h2 class="sec">全景圖：九大領域</h2>
   <p class="kw-hint">點<b>領域</b>或<b>主題</b>可展開該分支的細部心智圖（每個領域有自己一張圖）。圖太寬可左右捲動。</p>
   <div class="mm-shell">
     <div class="mm-bar">
-      <span>🖱️ 點節點進入分支圖</span>
+      <span>點節點進入分支圖</span>
       <span class="sp"></span>
-      <button id="viewToggle">☰ 改用清單模式</button>
-      <button onclick="window.print()">🖨️ 列印</button>
+      <button id="viewToggle">改用清單模式</button>
+      <button onclick="window.print()">列印</button>
     </div>
     <div class="mm-scroll" id="masterMap"></div>
   </div>
@@ -119,15 +119,15 @@
   </div>
 
   <!-- ── 領域卡 ── -->
-  <h2 class="sec"><span class="tag tag-example">📚</span>九大領域各自負責什麼</h2>
+  <h2 class="sec">九大領域各自負責什麼</h2>
   <div id="domCards"></div>
 
   <!-- ── 使用建議 ── -->
-  <h2 class="sec"><span class="tag tag-check">💡</span>怎麼用這張圖</h2>
+  <h2 class="sec">怎麼用這張圖</h2>
   <div class="card concept">
-    <p><b>平常讀書時：</b>每讀完一章，回到這張圖找到它的位置，問自己「它跟旁邊的主題有什麼關係？」——
+    <p><b>平常讀書時：</b>每讀完一章，回到這張圖找到它的位置，問自己「它跟旁邊的主題有什麼關係？」。
     孤立記住的公式最容易忘，長在樹上的公式才叫理解。</p>
-    <p><b>寫題目卡住時：</b>不要馬上翻解答。先問「這題屬於哪個領域？」→ 進入該分支圖 →
+    <p><b>寫題目卡住時：</b>不要馬上翻解答。先問「這題屬於哪個領域？」，進入該分支圖，
     掃過那個主題的所有工具 → 逐一問「這個工具的觸發條件，題目有沒有給？」</p>
     <p><b>訂正錯題時：</b>錯的往往不是計算，而是「限制沒檢查」。到工具的<span style="color:var(--red);font-weight:700">限制／前提</span>欄
     找到你踩的那個坑，把它抄進錯題本。</p>
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     a.href = "cross.html#c=" + c.id;
     a.style.borderLeftColor = c.color;
     a.innerHTML = '<span class="dc-t" style="color:' + c.color + '">' + c.icon + " " + c.n + "</span>" +
-      '<span class="dc-k">🔑 ' + c.when.join("・") + "</span>";
+      '<span class="dc-k">關鍵字：' + c.when.join("・") + "</span>";
     cc.appendChild(a);
   });
 });

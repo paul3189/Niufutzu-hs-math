@@ -23,9 +23,9 @@
 <body>
 <div class="topbar"><div class="topbar-inner">
   <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
-  <a href="index.html">🏠 首頁</a>
-  <a href="map.html">🗺️ 工具地圖</a>
-  <a href="cross.html">🔀 跨章流程圖</a>
+  <a href="index.html">課程總覽</a>
+  <a href="map.html">工具地圖</a>
+  <a href="cross.html">跨章流程圖</a>
   <span class="crumb" id="crumb">跨章決策流程圖</span>
   <span class="spacer"></span>
   <span id="edSwitch"></span>
@@ -37,7 +37,7 @@
     <div class="hero-row">
       <img class="hero-cow" src="assets/mascot/web/cow_question.png" alt="思考中的牛夫子">
       <div class="hero-text">
-        <h1>🔀 跨章決策流程圖</h1>
+        <h1>跨章決策流程圖</h1>
         <p>考試不按章節出題。這裡把散在各冊的工具，依<b>「題目在問什麼」</b>重新排成 13 張判斷圖：<br>
         順著問題往下走，走到底就是該用的工具，旁邊灰字就是它的限制。<b>點一下工具框</b>，可以直接打開它在工具地圖裡的完整說明。</p>
       </div>
@@ -50,10 +50,10 @@
 
   <div class="mm-shell">
     <div class="mm-bar">
-      <span>➡️ 由左往右讀：<b>圓角框＝要問自己的問題</b>，白框＝可用的工具，紅框＝必須檢查的事。<b>框線變深的可以點</b>，會打開工具地圖的說明。</span>
+      <span>由左往右讀：<b>圓角框＝要問自己的問題</b>，白框＝可用的工具，紅框＝必須檢查的事。<b>框線變深的可以點</b>，會打開工具地圖的說明。</span>
       <span class="sp"></span>
-      <button id="viewToggle">☰ 改用清單模式</button>
-      <button onclick="window.print()">🖨️ 列印</button>
+      <button id="viewToggle">改用清單模式</button>
+      <button onclick="window.print()">列印</button>
     </div>
     <div class="mm-scroll" id="flowMap"></div>
   </div>
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var p = MathFlow.prune(tree);
       tree = p.tree;
       note.innerHTML = p.removed.length
-        ? '<div class="ed-note">🎓 學測版：本圖已隱藏 ' + p.removed.length + ' 個<b>不在學測範圍</b>的分支（高三選修或非 108 課綱內容）：' +
+        ? '<div class="ed-note">學測版：本圖已隱藏 ' + p.removed.length + ' 個<b>不在學測範圍</b>的分支（高三選修或非 108 課綱內容）：' +
           p.removed.join("、") + "。切回「完整版」可看到全部。</div>"
         : "";
     } else {

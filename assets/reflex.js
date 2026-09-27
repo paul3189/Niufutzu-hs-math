@@ -21,7 +21,7 @@
     { id: "s5",  sec: 5,  name: "高手", mul: 2.2, tagline: "只夠做一個動作",
       note: "沒空推導，只能直接取用記住的結果。" },
     { id: "s3",  sec: 3,  name: "大師", mul: 2.8, tagline: "只能靠反射",
-      note: "來不及思考，答案必須自己浮出來。" }
+      note: "來不及思考，看到題目就要知道答案。" }
   ];
 
   var MONSTERS = {
@@ -37,7 +37,7 @@
   var SCOPES = [
     { id: "all",     name: "高中全範圍", desc: "必修＋選修甲，六個學期全開" },
     { id: "gsat",    name: "學測範圍",   desc: "只考必修：高一上下＋高二上下數A" },
-    { id: "chapter", name: "指定章節",   desc: "單一章節猛練，適合段考前" }
+    { id: "chapter", name: "指定章節",   desc: "只練指定的章節，適合段考前" }
   ];
 
   /* 網址 ?kp=T-03,G-05 → 依考點出題（別的頁面錯題導過來用）。
@@ -443,8 +443,8 @@
     if (wbSyncMsg) sync = wbSyncMsg;
     if (!all.length) {
       box.innerHTML = '<div class="rx-rv empty"><div class="rv-main"><b>📓 錯題本還是空的</b>' +
-        '<span>答錯或超時的題會自動收進來，隔天起出現在「今日複習」：原題＋同考點類似題都對才算過關，' +
-        '再依 1 → 3 → 7 → 14 天拉長間隔，四次過關就畢業。</span></div></div>';
+        '<span>答錯或超時的題會自動收進來，隔天起出現在「今日複習」。原題和一題同考點的類似題都答對，才算過關；' +
+        '之後間隔依 1、3、7、14 天拉長，過關四次就畢業。</span></div></div>';
       return;
     }
     var next = live.filter(function (w) { return !isDue(w, now); })
@@ -485,7 +485,7 @@
         '<div class="cl-row"><input type="email" id="clEmail" placeholder="你的 Email" value="' + esc(remembered) + '" autocomplete="email">' +
         '<button type="button" id="clSend">寄登入連結給我</button>' +
         (C.mode() === "mock" ? '<button type="button" id="clMock">（測試）直接登入</button>' : "") + '</div>' +
-        '<div class="cl-note" id="clMsg">不用設密碼：輸入 Email 會收到一封信，點信裡的連結就登入了（用同一台裝置開信最順）。<b>只要收這一次信</b>——之後在這台裝置、這個瀏覽器會一直保持登入。</div></div>';
+        '<div class="cl-note" id="clMsg">不用設密碼：輸入 Email 會收到一封信，點信裡的連結就登入了（用同一台裝置開信最順）。<b>只要收這一次信</b>，之後在這台裝置、這個瀏覽器會一直保持登入。</div></div>';
       box.innerHTML = html;
       $("clSend").addEventListener("click", sendLink);
       $("clEmail").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); sendLink(); } });
@@ -576,7 +576,7 @@
     var head = sum
       ? '<tr><th>名次</th><th>暱稱</th><th>總分</th><th>' + playLabel + '</th><th>上榜難度</th></tr>'
       : '<tr><th>名次</th><th>暱稱</th><th>分數</th><th>正確率</th><th>連擊</th><th>' + playLabel + '</th><th>範圍</th></tr>';
-    var html = !rows.length ? '<div class="rx-none">這個榜還沒有人上榜——打一場就是第一名！</div>' :
+    var html = !rows.length ? '<div class="rx-none">這個榜還沒有人上榜，打一場就是第一名。</div>' :
       '<table class="bd-tbl' + (sum ? " sum" : "") + '">' + head +
       rows.map(function (x, i) {
         var medal = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : (i + 1);
@@ -589,7 +589,7 @@
         return '<tr' + (x.uid === me ? ' class="me"' : "") + '>' + who + rest + '</tr>';
       }).join("") + '</table>' +
       (sum ? '<div class="cl-note">綜合榜＝五個難度各自的最佳分數相加，所以每個難度都練過的人分數會比較高。</div>' : "");
-    if (me && r.me && !inTop) html += '<div class="cl-note">你在這個榜的最佳是 <b>' + r.me.score + '</b> 分，還沒進前 ' + rows.length + ' 名，再衝！</div>';
+    if (me && r.me && !inTop) html += '<div class="cl-note">你在這個榜的最佳是 <b>' + r.me.score + '</b> 分，還沒進前 ' + rows.length + ' 名，再多練幾場。</div>';
     if (!me) html += '<div class="cl-note">登入並設定暱稱後，你的成績也會出現在這裡。</div>';
     if ($("bdBody")) $("bdBody").innerHTML = html;
   }
@@ -607,7 +607,7 @@
         var where = x.rank ? "第 <b>" + x.rank + "</b> 名" : "前 100 名之外";
         var plays = x.plays ? "　累計 " + x.plays + " 場" : "";
         return "<div>" + name + "：" + where +
-          (x.improved ? '<span class="bd-new">刷新個人最佳！</span>' : "（個人最佳 " + x.best + " 分）") + plays + "</div>";
+          (x.improved ? '<span class="bd-new">刷新個人最佳</span>' : "（個人最佳 " + x.best + " 分）") + plays + "</div>";
       }
       return '<div class="rx-cloud end"><b>☁️ 成績已上傳</b>' + line("本週榜", r.week) + line("總榜", r.all) + '</div>';
     }).catch(function (e) {
@@ -738,8 +738,8 @@
     var rx = prescriptionHtml(perKp);
     var good = Object.keys(perKp || {}).filter(function (k) { return perKp[k].ok >= perKp[k].n; }).sort();
     if (!rx && !good.length) return "";
-    return '<h3 class="rx-h3">💊 考點處方 <small>錯在哪個考點，就去哪裡補</small></h3>' +
-      (rx ? '<div class="rx-rx">' + rx + '</div>' : '<div class="rx-none">這一場碰到的考點全部答對 🎉</div>') +
+    return '<h3 class="rx-h3">💊 考點處方 <small>這一場答錯的考點，照下面的連結回去補</small></h3>' +
+      (rx ? '<div class="rx-rx">' + rx + '</div>' : '<div class="rx-none">這一場出現的考點全部答對。</div>') +
       (good.length ? '<div class="rx-kpok">✔ 全對的考點：' + good.map(function (k) {
         return '<span title="' + esc(kpName(k)) + '">' + esc(k) + (kpName(k) ? " " + esc(kpName(k)) : "") + '</span>';
       }).join("、") + '</div>' : "");
@@ -750,7 +750,7 @@
       return (perCh[x].ok / perCh[x].n) - (perCh[y].ok / perCh[y].n);
     });
     return !weak.length
-      ? '<div class="rx-none">這一場涵蓋的章節全部答對，沒有需要回頭補的地方 🎉</div>'
+      ? '<div class="rx-none">這一場出現的章節都答對了，不用回頭補。</div>'
       : weak.map(function (id) {
         var s = perCh[id];
         var page = REFLEX_BANK.pageOf(id);
@@ -973,7 +973,7 @@
       $("monImg").classList.add("hit");
       setTimeout(function () { $("monImg").classList.remove("hit"); }, 380);
       paintMonHp();
-      var extra = speed > 0.7 ? '<span class="fb-bonus">⚡ 反射級！速度加成 +' + Math.round(12 * speed) + '</span>' : "";
+      var extra = speed > 0.7 ? '<span class="fb-bonus">⚡ 反應很快，速度加成 +' + Math.round(12 * speed) + '</span>' : "";
       $("fb").className = "rx-fb ok show";
       $("fb").innerHTML = '<div class="fb-h">✔ 正解　<span class="fb-t">' + (used / 1000).toFixed(2) + ' 秒</span>' + extra + '</div>' +
         (it.tip ? '<div class="fb-tip">' + it.tip + '</div>' : "");
@@ -1021,7 +1021,7 @@
     G.score += bonus;
     SFX.kill();
     $("monImg").classList.add("dead");
-    floatDmg("擊倒！+" + bonus, "kill");
+    floatDmg("擊倒 +" + bonus, "kill");
     paintMonHp();
     paintHud();
     setTimeout(function () {
@@ -1066,11 +1066,11 @@
     save(db);
 
     var rank, cow, word;
-    if (G.hp <= 0) { rank = "被打倒了"; cow = "cow_zzz.png"; word = "血量歸零。先把難度調低一級，把「想得出來」練成「不用想」。"; }
-    else if (acc >= 90 && G.d.sec <= 3) { rank = "反射大師"; cow = "cow_scholar.png"; word = "3 秒內 9 成正確——這些觀念已經內化成本能了。"; }
-    else if (acc >= 90) { rank = "身手俐落"; cow = "cow_scholar.png"; word = "正確率很漂亮，下一步是把難度往上推一級，逼出真正的反射。"; }
-    else if (acc >= 70) { rank = "漸入佳境"; cow = "cow_teach.png"; word = "會的部分已經穩了，弱點就在下面那張表——針對它練最省時間。"; }
-    else { rank = "還在思考"; cow = "cow_question.png"; word = "現在多半是「算得出來但來不及」，那代表還在推導、還沒變成記憶。"; }
+    if (G.hp <= 0) { rank = "被打倒了"; cow = "cow_zzz.png"; word = "血量歸零了。先把難度調低一級，練到這些題不用多想就答得出來，再往上調。"; }
+    else if (acc >= 90 && G.d.sec <= 3) { rank = "反射大師"; cow = "cow_scholar.png"; word = "3 秒內答對 9 成，這些觀念你已經很熟了。"; }
+    else if (acc >= 90) { rank = "身手俐落"; cow = "cow_scholar.png"; word = "正確率很高。下一場把難度調高一級，看看時間更短時還答不答得對。"; }
+    else if (acc >= 70) { rank = "漸入佳境"; cow = "cow_teach.png"; word = "會的部分已經穩了。看下面的題型診斷，先練正確率低的那幾種，最省時間。"; }
+    else { rank = "還在思考"; cow = "cow_question.png"; word = "錯的題多半是「算得出來但來不及」，表示你還要一步一步推，還沒記熟。先把每題的解說看懂，再練一場。"; }
 
     /* 題型診斷 */
     var diag = REFLEX_BANK.cats.filter(function (c) { return G.per[c.id] && G.per[c.id].n > 0; })
@@ -1086,7 +1086,7 @@
       }).join("");
 
     var wbNote = G.wrongs.length
-      ? '<div class="rx-wbnote">📓 這一場的 ' + G.wrongs.length + ' 題錯題已收進錯題本，明天起出現在選單最上面的「今日複習」。</div>'
+      ? '<div class="rx-wbnote">📓 這一場答錯的 ' + G.wrongs.length + ' 題已經收進錯題本，明天起會出現在選單最上面的「今日複習」。</div>'
       : "";
 
     $("endBody").innerHTML =
@@ -1108,7 +1108,7 @@
       kpSectionHtml(G.perKp) +
       '<h3 class="rx-h3">📚 該回去補的章節</h3><div class="rx-chdiag">' + chDiagHtml(G.perCh) + '</div>' +
       '<h3 class="rx-h3">📓 錯題回顧</h3>' + wbNote +
-      '<div class="rx-wrongs">' + wrongListHtml(G.wrongs, "這一場全對，沒有錯題可以檢討 🎉") + '</div>';
+      '<div class="rx-wrongs">' + wrongListHtml(G.wrongs, "這一場全對，沒有錯題。") + '</div>';
 
     rm($("endBody"));
     $("btnAgain").textContent = "🔁 再來一場";
@@ -1221,7 +1221,7 @@
         var sim = makeSimilar(G.cur);
         if (sim) {
           G.phase = "sim"; G.simItem = sim;
-          head = "✔ 原題答對！下一題是同考點的類似題，也對才算過關";
+          head = "✔ 原題答對。下一題是同考點的類似題，也答對才算過關";
         } else {
           reviewFinish(true);
           head = "✔ 過關（這個考點道場暫時出不了類似題，原題答對就算）";
@@ -1229,7 +1229,7 @@
       } else {
         reviewFinish(true);
         var w = G.results[G.results.length - 1].w;
-        head = w.done ? "🎓 過關，而且這題畢業了！" : "✔ 過關！下次 " + fmtDay(w.due) + " 再見";
+        head = w.done ? "🎓 過關，這題畢業了" : "✔ 過關，下次 " + fmtDay(w.due) + " 再複習";
       }
       $("fb").className = "rx-fb ok show";
       $("fb").innerHTML = '<div class="fb-h">' + head + '　<span class="fb-t">' + (used / 1000).toFixed(2) + ' 秒</span></div>' + tipHtml;
@@ -1267,8 +1267,8 @@
     var acc = Math.round(100 * G.ok / n);
     var cow = G.fail === 0 && G.pass ? "cow_scholar.png" : G.pass >= G.fail ? "cow_teach.png" : "cow_question.png";
     var word = !G.pass && !G.fail ? "這次還沒做完任何一題，錯題都還留在今日複習裡。"
-      : G.fail === 0 ? "全部過關！記憶是靠「快忘記時再想起來一次」變牢的，間隔到了它們會再回來。"
-      : "沒過的題明天會再出現。先看下面的處方，把那個考點補起來再回來。";
+      : G.fail === 0 ? "全部過關。快忘記的時候再想起來一次，記得最牢，所以間隔到了，這些題還會再出現。"
+      : "沒過的題明天會再出現。先照下面的處方把那個考點補好，再回來複習。";
 
     $("endBody").innerHTML =
       '<div class="rx-end-head">' +
@@ -1292,7 +1292,7 @@
       kpSectionHtml(G.perKp) +
       (Object.keys(G.perCh).length ? '<h3 class="rx-h3">📚 該回去補的章節</h3><div class="rx-chdiag">' + chDiagHtml(G.perCh) + '</div>' : "") +
       '<h3 class="rx-h3">📓 這次複習答錯的題</h3>' +
-      '<div class="rx-wrongs">' + wrongListHtml(G.wrongs, "這次複習沒有答錯的題 🎉") + '</div>';
+      '<div class="rx-wrongs">' + wrongListHtml(G.wrongs, "這次複習沒有答錯的題。") + '</div>';
 
     rm($("endBody"));
     $("btnAgain").textContent = left ? "🔁 繼續複習（還有 " + left + " 題）" : "⚔️ 開一場一般訓練";

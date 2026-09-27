@@ -16,6 +16,10 @@
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;").replace(/\n/g, " ");
   }
+  /* 說明文字用：先 esc() 再把資料裡的 **粗體** 轉成 <b>（只轉這個標記，內容已跳脫，不會有 XSS） */
+  function rich(s) {
+    return esc(s).replace(/\*\*([^*]+?)\*\*/g, "<b>$1</b>");
+  }
   function viewPref() {
     try { return localStorage.getItem(VIEW_KEY) || "auto"; } catch (e) { return "auto"; }
   }
@@ -232,7 +236,7 @@
   }
   function cueHtml(list) {
     if (!list || !list.length) return "";
-    return '<ul class="dw-cue">' + list.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>";
+    return '<ul class="dw-cue">' + list.map(function (c) { return "<li>" + rich(c) + "</li>"; }).join("") + "</ul>";
   }
 
   /* ── 考點代碼：把工具接到練習本與直覺道場（data/kp.js、kp-tools.js、kp-practice.js 有載入才會出現）──
@@ -292,7 +296,7 @@
     });
     if (hits.length > 6) items.push('<li class="dw-more">…還有 ' + (hits.length - 6) + " 個題型</li>");
     html += '<ul class="dw-train">' + items.join("") +
-      '<li><a href="reflex.html?kp=' + esc(kps.join(",")) + '">⚔️ 到直覺道場練這個考點的反射</a></li></ul>';
+      '<li><a href="reflex.html?kp=' + esc(kps.join(",")) + '">到直覺道場練這個考點</a></li></ul>';
     return html;
   }
 
@@ -308,15 +312,15 @@
       sec("lab-f", "公式／敘述", tool.f ? "$$" + esc(tool.f) + "$$" : "", "dw-formula") +
       (tool.img ? '<div class="dw-sec dw-img"><img src="' + esc(tool.img) + '" alt="' + esc(tool.imgCap || tool.n) + '">' +
         (tool.imgCap ? '<div class="dw-cap">' + esc(tool.imgCap) + "</div>" : "") + "</div>" : "") +
-      sec("lab-w", "什麼時候用", esc(tool.w)) +
+      sec("lab-w", "什麼時候用", rich(tool.w)) +
       sec("lab-c", "看到這句話就想到", cueHtml(tool.cue), "dw-txt") +
-      sec("lab-l", "限制／前提", esc(tool.l)) +
-      sec("lab-t", "常見錯誤", esc(tool.t)) +
-      sec("lab-x", "延伸連結", esc(tool.x)) +
+      sec("lab-l", "限制／前提", rich(tool.l)) +
+      sec("lab-t", "常見錯誤", rich(tool.t)) +
+      sec("lab-x", "延伸連結", rich(tool.x)) +
       sec("lab-s", "串聯：同一件事在別的地方長什麼樣", seeHtml(tool.see), "dw-txt") +
       sec("lab-p", "練這個", trainHtml(kpsOf(tool)), "dw-txt") +
       // 只發佈心智圖、沒有上傳章節頁時（data/site.js 的 chapters:false），這個連結會指向不存在的檔案，所以直接不顯示
-      (tool.ref && hasChapters() ? '<div class="dw-sec dw-ref"><a href="' + tool.ref + '">📘 前往章節：' + esc(tool.refName || "詳細講解") + " →</a></div>" : "");
+      (tool.ref && hasChapters() ? '<div class="dw-sec dw-ref"><a href="' + tool.ref + '">前往章節：' + esc(tool.refName || "詳細講解") + " →</a></div>" : "");
     var body = d.querySelector("#dwBody");
     body.innerHTML = html || '<p class="dw-txt">（此節點為分類，點它下面的葉節點看工具細節）</p>';
     // 串聯連結：目標是工具就在抽屜裡直接換頁，是主題就跳到該領域的分支圖
@@ -490,14 +494,14 @@
       var unc = ((window.SCOPE || {}).uncertain) || [];
       var cfm = ((window.SCOPE || {}).confirmed) || [];
       mount.innerHTML = '<div class="ed-banner">' +
-        '<div class="ed-title">🎓 目前是「學測版」：只顯示 108 課綱<b>必修數學</b>（高一上下＋高二上下數A）的內容</div>' +
+        '<div class="ed-title">目前是「學測版」：只顯示 108 課綱<b>必修數學</b>（高一上下＋高二上下數A）的內容</div>' +
         "<details><summary>已隱藏 " + items.length + " 項高三選修內容（點開看完整清單）</summary><ul>" +
         items.map(function (x) {
           return "<li><b>" + esc(x.label) + "</b><br><span>" + esc(x.why) + "</span></li>";
         }).join("") + "</ul>" +
-        (unc.length ? "<p class='ed-unc'>⚠️ 我不確定、<b>預設保留</b>的項目：" +
+        (unc.length ? "<p class='ed-unc'>範圍有爭議、<b>預設保留</b>的項目：" +
           unc.map(function (u) { return "<br>・<b>" + esc(u.what) + "</b>　" + esc(u.note); }).join("") + "</p>" : "") +
-        (cfm.length ? "<p class='ed-unc'>✅ 已依 108 課綱條文<b>確認保留</b>的項目：" +
+        (cfm.length ? "<p class='ed-unc'>已依 108 課綱條文<b>確認保留</b>的項目：" +
           cfm.map(function (u) { return "<br>・<b>" + esc(u.what) + "</b>　" + esc(u.note); }).join("") + "</p>" : "") +
         "<p class='ed-unc'>範圍認定可在 <code>data/scope.js</code> 調整，改完兩個版本都會立刻反映。</p>" +
         "</details></div>";
@@ -516,7 +520,7 @@
         last = m;
         render(m);
         var b = document.getElementById(btnId);
-        if (b) b.textContent = m === "map" ? "☰ 改用清單模式" : "🌳 改用圖表模式";
+        if (b) b.textContent = m === "map" ? "改用清單模式" : "改用圖表模式";
       }
       var b = document.getElementById(btnId);
       if (b) b.addEventListener("click", function () {
@@ -614,11 +618,11 @@
           '<summary><span style="color:' + dom.color + '">▍' + esc(t.n) + "</span>" +
           '<span class="lv-n">' + t.tools.length + " 個工具</span></summary>" +
           '<div class="lv-body">' +
-          (t.flow ? '<p class="lv-ask">💡 ' + esc(t.flow) + "</p>" : "") +
+          (t.flow ? '<p class="lv-ask"><b>思路：</b>' + esc(t.flow) + "</p>" : "") +
           t.tools.map(function (tool, xi) {
             return '<button class="lv-tool" data-t="' + ti + '" data-x="' + xi + '">' +
               "<b>" + esc(tool.n) + "</b>" +
-              (tool.w ? "<span>👉 " + esc(tool.w) + "</span>" : "") + "</button>";
+              (tool.w ? "<span>" + rich(tool.w) + "</span>" : "") + "</button>";
           }).join("") + "</div></details>";
       }).join("") + "</div>";
       mount.querySelectorAll(".lv-tool").forEach(function (b) {
@@ -654,10 +658,16 @@
           div.style.borderLeftColor = r.dom.color;
           div.innerHTML = '<div class="h-t">' + esc(r.tool.n) + "</div>" +
             '<div class="h-p">' + esc(r.dom.icon + " " + r.dom.n + " ▸ " + r.topic.n) + "</div>" +
-            (r.tool.w ? '<div class="h-w">👉 ' + esc(r.tool.w) + "</div>" : "");
+            (r.tool.w ? '<div class="h-w">' + rich(r.tool.w) + "</div>" : "");
           div.addEventListener("click", function () { openTool(r.tool, r.dom.n + " ▸ " + r.topic.n); });
           list.appendChild(div);
         });
+        if (window.renderMathInElement) {
+          renderMathInElement(list, {
+            delimiters: [{ left: "$$", right: "$$", display: true }, { left: "$", right: "$", display: false }],
+            throwOnError: false
+          });
+        }
       }
       inp.addEventListener("input", run);
       run();
@@ -676,7 +686,7 @@
         a.style.borderLeftColor = d.color;
         a.innerHTML = '<span class="dc-t" style="color:' + d.color + '">' + esc(d.icon + " " + d.n) + "</span>" +
           '<span class="dc-a">' + esc(d.ask) + "</span>" +
-          '<span class="dc-k">🔑 ' + esc((d.topics || []).map(function (t) { return t.n; }).join("・")) + "</span>";
+          '<span class="dc-k">主題：' + esc((d.topics || []).map(function (t) { return t.n; }).join("・")) + "</span>";
         grid.appendChild(a);
       });
       mount.appendChild(grid);
@@ -691,7 +701,7 @@
         h.className = "topic-h";
         h.innerHTML = '<span style="color:' + dom.color + '">▍' + esc(t.n) + "</span>" +
           '<span class="th-kw">關鍵字：' + esc((t.kw || []).join("、")) + "</span>" +
-          (t.ref && hasChapters() ? ' <a class="th-kw" href="' + t.ref + '" style="color:var(--blue)">📘 章節</a>' : "");
+          (t.ref && hasChapters() ? ' <a class="th-kw" href="' + t.ref + '" style="color:var(--blue)">章節</a>' : "");
         mount.appendChild(h);
         if (t.flow) {
           var p = document.createElement("div");
@@ -704,9 +714,9 @@
         var rows = (t.tools || []).map(function (x) {
           return "<tr><td class='t-n' data-l='工具'>" + esc(x.n) +
             "</td><td data-l='公式'>" + (x.f ? "$" + esc(x.f) + "$" : "—") +
-            "</td><td data-l='什麼時候用'>" + (esc(x.w) || "—") +
-            "</td><td class='t-l' data-l='限制／前提'>" + (esc(x.l) || "—") +
-            "</td><td data-l='常見錯誤'>" + (esc(x.t) || "—") + "</td></tr>";
+            "</td><td data-l='什麼時候用'>" + (rich(x.w) || "—") +
+            "</td><td class='t-l' data-l='限制／前提'>" + (rich(x.l) || "—") +
+            "</td><td data-l='常見錯誤'>" + (rich(x.t) || "—") + "</td></tr>";
         }).join("");
         wrap.innerHTML = "<table class='tools'><thead><tr><th>工具</th><th>公式</th><th>什麼時候用</th>" +
           "<th>限制／前提</th><th>常見錯誤</th></tr></thead><tbody>" + rows + "</tbody></table>";

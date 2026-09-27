@@ -30,11 +30,11 @@
 
   <!-- 右側 -->
   <text x="348" y="74" font-size="15" font-weight="bold" fill="#0e7490">斜率 m = tan θ</text>
-  <text x="348" y="104" font-size="12.5" fill="#4b5563">θ 叫「斜角」，0° ≤ θ &lt; 180°</text>
+  <text x="348" y="104" font-size="12.5" fill="#4b5563">θ 叫「斜角」，−90° &lt; θ ≤ 90°</text>
   <text x="348" y="134" font-size="12.5" fill="#1f2937">θ = 0°　　　→ m = 0（水平線）</text>
   <text x="348" y="158" font-size="12.5" fill="#1f2937">0° &lt; θ &lt; 90°　→ m &gt; 0</text>
   <text x="348" y="182" font-size="12.5" fill="#b45309">θ = 90°　　→ 斜率不存在</text>
-  <text x="348" y="206" font-size="12.5" fill="#1f2937">90° &lt; θ &lt; 180° → m &lt; 0</text>
+  <text x="348" y="206" font-size="12.5" fill="#1f2937">−90° &lt; θ &lt; 0° → m &lt; 0</text>
 
   <line x1="348" y1="224" x2="540" y2="224" stroke="#e5e7eb" stroke-width="1.2"/>
 
