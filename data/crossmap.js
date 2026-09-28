@@ -330,7 +330,7 @@ CROSSMAP.push({
           { on: "由結果反推原因", t: "貝氏定理", note: "分母是全機率：所有原因要列全且互斥，畫樹狀圖最不會漏", ref: "prob/probability/貝氏定理" },
           { on: "重複 n 次，恰好成功 k 次", t: "用組合硬乘 C(n,k)pᵏ(1−p)ⁿ⁻ᵏ", note: "C(n,k) 就是「哪幾次成功」的選法；必修範圍用這個寫法就夠", ref: "prob/comb/組合數" },
           { on: "同上，但要用分布的語言", t: "二項分布", note: "次數固定、每次獨立、機率相同，缺一不可", adv: true, ref: "prob/rv/二項分布" },
-          { on: "第幾次才第一次成功", t: "幾何分布", note: "P = (1−p)^(k−1)·p，期望值 1/p", adv: true, ref: "prob/rv/幾何分布" },
+          { on: "第幾次才第一次成功", t: "幾何分布", note: "P = (1−p)ᵏ⁻¹·p，期望值 1/p", adv: true, ref: "prob/rv/幾何分布" },
           { on: "依序抽出不放回", t: "樹狀圖沿路徑相乘", note: "每一步的分母要隨抽走而減少", ref: "prob/probability/樹狀圖與分段乘法" },
           { on: "由實際數據估出來的", t: "客觀機率（相對次數）", note: "次數 ÷ 總次數；與主觀機率的差別在「有沒有數據撐著」", ref: "prob/probability/客觀機率 vs 主觀機率" },
           { on: "其他等機率情形", t: "古典機率 n(A) ÷ n(S)", note: "分子分母的計數方式必須一致", ref: "prob/probability/古典機率" }

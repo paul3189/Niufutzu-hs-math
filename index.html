@@ -48,10 +48,10 @@
   <div class="entry-grid">
     <a class="entry" href="map.html">
       <span class="e-t">🗺️ 高中知識體系心智圖</span>
-      <span class="e-d">把整個高中數學攤開成一張圖：<b>9 大領域、51 個主題、314 個工具</b>。
+      <span class="e-d">把整個高中數學攤開成一張圖：<b>9 大領域、<span id="stat-topics">51</span> 個主題、<span id="stat-tools-full">343</span> 個工具</b>。
       每個工具都寫清楚四件事——公式是什麼、<b>什麼時候用</b>、<b>有什麼限制</b>、<b>最常錯在哪</b>。
       最上面有關鍵字搜尋，直接輸入題目裡的字（「最大值」「至少」「相切」）就會列出所有可能用得上的工具。
-      另外附 <b>10 張跨章決策流程圖</b>，依「題目在問什麼」重排，順著走就找得到方法。</span>
+      另外附 <b><span id="stat-flows">13</span> 張跨章決策流程圖</b>，依「題目在問什麼」重排，順著走就找得到方法。</span>
       <span class="e-go">打開心智圖 →</span>
     </a>
 
@@ -77,7 +77,7 @@
 
   <div class="callout tip">
     <div class="co-title">🎓 高三的先切「學測版」</div>
-    心智圖右上角可以切換<b>完整版（314 個工具）</b>與<b>學測版（259 個工具）</b>。
+    心智圖右上角可以切換<b>完整版（<span id="stat-tools-full2">343</span> 個工具）</b>與<b>學測版（<span id="stat-tools-gsat">281</span> 個工具）</b>。
     切到學測版之後，高三選修（微積分、複數平面、圓錐曲線、極限、線性規劃等）會自動隱藏，
     上方也會列出被隱藏了哪些東西。選擇記在你自己的瀏覽器裡，每個人可以各自設定。
   </div>
@@ -93,5 +93,57 @@
   <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
   <div><b>牛夫子</b>　圖／楊安琪</div>
 </div></div>
+
+<!-- 首頁上「幾個主題／幾個工具／幾張流程圖」直接從資料算，不用手動對數字。
+     算不出來（資料還沒載入完）就保留上面寫死的數字當備援。 -->
+<script src="data/toolmap.js?v=20260928"></script>
+<script src="data/tm-1-number.js?v=20260928"></script>
+<script src="data/tm-2-equation.js?v=20260928"></script>
+<script src="data/tm-3-function.js?v=20260928"></script>
+<script src="data/tm-4-trig.js?v=20260928"></script>
+<script src="data/tm-5-geometry.js?v=20260928"></script>
+<script src="data/tm-6-vector.js?v=20260928"></script>
+<script src="data/tm-7-sequence.js?v=20260928"></script>
+<script src="data/tm-8-prob.js?v=20260928"></script>
+<script src="data/tm-9-calculus.js?v=20260928"></script>
+<script src="data/scope.js?v=20260928"></script>
+<script src="data/crossmap.js?v=20260928"></script>
+<script>
+(function () {
+  try {
+    var D = (window.TOOLMAP && TOOLMAP.domains) || [];
+    var S = window.SCOPE || {};
+    var totalTopics = 0, totalTools = 0;
+    D.forEach(function (d) {
+      (d.topics || []).forEach(function (t) {
+        totalTopics++;
+        totalTools += (t.tools || []).length;
+      });
+    });
+    var exD = ((S.domains || [])).map(function (x) { return x.id; });
+    var exT = ((S.topics || [])).map(function (x) { return x.id; });
+    var exX = ((S.tools || [])).map(function (x) { return x.id; });
+    var gsatTools = 0;
+    D.forEach(function (d) {
+      if (exD.indexOf(d.id) > -1) return;
+      (d.topics || []).forEach(function (t) {
+        if (exT.indexOf(d.id + "/" + t.id) > -1) return;
+        (t.tools || []).forEach(function (x) {
+          if (exX.indexOf(d.id + "/" + t.id + "/" + x.n) > -1) return;
+          gsatTools++;
+        });
+      });
+    });
+    var flows = Array.isArray(window.CROSSMAP) ? window.CROSSMAP.length
+      : (window.CROSSMAP && Array.isArray(window.CROSSMAP.flows) ? window.CROSSMAP.flows.length : null);
+
+    function setText(id, v) { var el = document.getElementById(id); if (el && v != null) el.textContent = v; }
+    if (totalTopics) { setText("stat-topics", totalTopics); }
+    if (totalTools) { setText("stat-tools-full", totalTools); setText("stat-tools-full2", totalTools); }
+    if (gsatTools) { setText("stat-tools-gsat", gsatTools); }
+    if (flows) { setText("stat-flows", flows); }
+  } catch (e) { /* 資料載入失敗就靜靜保留寫死的備援數字 */ }
+})();
+</script>
 </body>
 </html>

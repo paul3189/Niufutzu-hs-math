@@ -631,6 +631,13 @@
           openTool(t.tools[+b.dataset.x], dom.n + " ▸ " + t.n);
         });
       });
+      // 清單模式（手機寬度預設）的「什麼時候用」與「思路」也含 $…$，要跑 KaTeX，不然手機上會看到原始的 $ 與 \指令（2026-09-28 修）
+      if (window.renderMathInElement) {
+        renderMathInElement(mount, {
+          delimiters: [{ left: "$$", right: "$$", display: true }, { left: "$", right: "$", display: false }],
+          throwOnError: false
+        });
+      }
     },
 
     /* 全域關鍵字搜尋 */

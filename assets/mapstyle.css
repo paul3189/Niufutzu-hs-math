@@ -233,8 +233,8 @@ table.tools td.t-l { color: #b91c1c; }
   cursor: pointer; font-family: inherit; font-size: .95rem; color: var(--ink);
 }
 .lv-tool:hover { background: #f8fafc; }
-.lv-tool b { display: block; }
-.lv-tool span { display: block; font-size: .84rem; color: #92400e; margin-top: 2px; }
+.lv-tool > b { display: block; }
+.lv-tool > span { display: block; font-size: .84rem; color: #92400e; margin-top: 2px; }
 
 .fl-list { padding: 14px; }
 .fl-q { border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 14px; font-weight: 800; margin: 0 0 10px; }
