@@ -1600,9 +1600,6 @@
     ["g11b-01", "一直線垂直於平面上兩條<b>相交</b>直線", "此直線垂直於該平面",
       ["此直線平行於該平面", "此直線在平面上", "無法判斷"],
       "要垂直於平面上「兩條相交」的直線才行，只垂直於一條不夠", "G-06"],
-    ["g11b-02", "$(x-a)^2+(y-b)^2+(z-c)^2=r^2$", "球面方程式",
-      ["平面方程式", "空間直線", "圓柱面"],
-      "和圓的標準式同一個模式，多了一個 z", "G-07"],
     ["g11b-03", "$\\vec{u}=k\\vec{v}$（k 為實數）", "兩向量互相平行",
       ["兩向量互相垂直", "兩向量等長", "兩向量共起點"],
       "垂直是內積為 0，別記反了", "G-07"],
@@ -1814,6 +1811,42 @@
         if (inScope(it.ch, set, it.kp)) return it;
       }
       return null;
+    },
+
+    /* 同一場不重複出題：used 是這一場已出過的 key（cat + "|" + 題幹，與 mk() 相同）。
+     * 先在選定的題型裡找沒出過的（手寫題直接濾掉用過的；產生器最多抽 80 次換數字），
+     * 選定題型都用完了才借範圍內其他題型，全部用完才允許重複（題源極少的範圍才會發生）。
+     * lastCat：上一題的題型，75% 機率排到最後，避免連續同題型。 */
+    pick: function (cats, set, used, lastCat) {
+      used = used || {};
+      function fresh(cat) {
+        if (STATICS[cat]) {
+          var tail = TAIL[cat] || function () { return ""; };
+          var rows = statRows(cat, set).filter(function (r) { return !used[cat + "|" + r[1] + tail(r)]; });
+          if (!rows.length) return null;
+          var r = rows[ri(rows.length)];
+          return mk(cat, r[0], r[1] + tail(r), r[2], r[3], r[4], r[5]);
+        }
+        var gs = genList(cat, set);
+        for (var i = 0; gs.length && i < 80; i++) {
+          var it = pickW(gs).f();
+          if (inScope(it.ch, set, it.kp) && !used[it.key]) return it;
+        }
+        return null;
+      }
+      function from(list) {
+        list = shuffle(list);
+        if (list.length > 1 && lastCat) {
+          var k = list.indexOf(lastCat);
+          if (k > -1 && Math.random() < 0.75) list.push(list.splice(k, 1)[0]);
+        }
+        for (var i = 0; i < list.length; i++) { var it = fresh(list[i]); if (it) return it; }
+        return null;
+      }
+      var it = from(cats.slice());
+      if (!it) it = from(this.availableCats(set).filter(function (c) { return cats.indexOf(c) < 0; }));
+      for (var j = 0; !it && j < cats.length * 3; j++) it = this.make(cats[ri(cats.length)], set);
+      return it;
     },
 
     /* 每個考點代碼有幾題靜態題（rows，byCat 分題型）、幾支產生器（gens，登記在 kps 裡的）。

@@ -840,26 +840,11 @@
   }
 
   /* ══════════ 出題 ══════════ */
+  /* 同一場不重複：交給題庫的 pick（範圍內還有沒出過的題就不重複，也盡量不連續同題型） */
   function pickItem() {
-    var order = G.cats.slice();
-    /* 盡量不要連續兩題同題型 */
-    if (order.length > 1) {
-      order = order.filter(function (c) { return c !== G.lastCat; });
-      if (Math.random() < 0.25) order = G.cats.slice();
-    }
-    for (var attempt = 0; attempt < order.length + 2; attempt++) {
-      var c = order[Math.floor(Math.random() * order.length)];
-      var it = null;
-      for (var t = 0; t < 18; t++) {
-        it = REFLEX_BANK.make(c, G.set);
-        if (!it) break;
-        if (!G.used[it.key]) break;
-      }
-      if (it) { G.lastCat = c; G.used[it.key] = 1; return it; }
-      order = order.filter(function (x) { return x !== c; });
-      if (!order.length) order = G.cats.slice();
-    }
-    return null;
+    var it = REFLEX_BANK.pick(G.cats, G.set, G.used, G.lastCat);
+    if (it) { G.lastCat = it.cat; G.used[it.key] = 1; }
+    return it;
   }
 
   function nextQuestion() {
