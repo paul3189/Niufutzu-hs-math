@@ -239,7 +239,7 @@ TM({
             "看到「小數部分」→ $x-[x]$，範圍一定在 $[0,1)$",
             "看到負數取整 → 往數線左邊取，$[-2.3]=-3$"
           ],
-          see: ["number/log/位數判定", "number/log/小數位判定"]
+          see: ["number/log/位數判定", "number/log/小數位判定", "sequence/limit/函數極限與連續", "sequence/limit/夾擠定理"]
         },
         {
           n: "稠密性（估算夾擠）",
@@ -697,7 +697,7 @@ TM({
             "看到「證明在 $(a,b)$ 之間有根」→ 檢查 $f(a)f(b)<0$",
             "看到「求根的整數部分」→ 一格一格代整數，看符號在哪裡變號"
           ],
-          see: ["function/polyf/三次方程式實根個數", "calculus/analysis/一階導數與增減"]
+          see: ["function/polyf/三次方程式實根個數", "calculus/analysis/一階導數與增減", "sequence/limit/介值定理"]
         },
         {
           n: "多項式相等（比較係數）",

@@ -130,6 +130,7 @@ window.KP_TOOLS = {
   "function/fbasic/合成函數": ["P-08"],
   "function/fbasic/反函數": ["P-08","E-05"],
   "function/fbasic/奇函數與偶函數": ["P-05","T-06"],
+  "function/fbasic/凹凸的意義（割線在上或在下）": ["C-03"],
   // function/quadf 一次與二次函數
   "function/quadf/標準式（頂點式）": ["P-03"],
   "function/quadf/一般式與頂點公式": ["P-03"],
@@ -323,6 +324,8 @@ window.KP_TOOLS = {
   "sequence/limit/分式極限（同除最高次）": ["D-04"],
   "sequence/limit/無窮等比級數": ["D-04"],
   "sequence/limit/夾擠定理": ["D-04"],
+  "sequence/limit/遞迴數列的極限（若極限存在）": ["D-04"],
+  "sequence/limit/牛頓求根法": ["D-04","P-02"],
   "sequence/limit/函數極限與連續": ["C-01"],
   "sequence/limit/介值定理": ["C-01","P-02"],
   "sequence/limit/漸近線（補充）": ["C-01"],
