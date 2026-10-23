@@ -403,6 +403,7 @@ window.KP_TOOLS = {
   "calculus/analysis/二階導數與凹凸": ["C-03"],
   "calculus/analysis/反曲點": ["C-03","P-05"],
   "calculus/analysis/增減凹凸表": ["C-03"],
+  "calculus/analysis/由 f′ 的圖判讀 f": ["C-03"],
   "calculus/analysis/用單調性證不等式": ["C-03"],
   "calculus/analysis/最佳化應用": ["C-03"],
   // calculus/integ 積分
