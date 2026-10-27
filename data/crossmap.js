@@ -342,7 +342,7 @@ CROSSMAP.push({
           { on: "平均可得多少", t: "E(X) = Σ x·p", note: "遊戲公平 ⟺ 淨得失的期望值為 0", ref: "prob/rv/期望值" },
           { on: "變數很複雜", t: "拆解：E(X+Y)=E(X)+E(Y)", note: "和的期望值不需要獨立，非常好用", ref: "prob/rv/期望值的線性" },
           { on: "該不該玩、該選哪個方案", t: "比較各方案的期望值", note: "先把「淨」得失算清楚，別把成本漏掉", ref: "prob/rv/期望值的決策應用" },
-          { on: "風險或離散程度", t: "V(X) = E(X²) − [E(X)]²", note: "V(aX+b) = a²V(X)，平移不影響", adv: true, ref: "prob/rv/變異數與標準差" }
+          { on: "風險或離散程度", t: "Var(X) = E(X²) − [E(X)]²", note: "Var(aX+b) = a²Var(X)，平移不影響；X、Y 獨立時 Var(X+Y) = Var(X) + Var(Y)", adv: true, ref: "prob/rv/變異數與標準差" }
         ]
       }
     ]
