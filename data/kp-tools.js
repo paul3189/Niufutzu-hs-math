@@ -80,6 +80,11 @@ window.KP_TOOLS = {
   "number/complex/極式與棣美弗定理": ["N-03"],
   "number/complex/n 次方根（等分圓周）": ["N-03"],
   "number/complex/複數平面的幾何意義": ["N-03"],
+  "number/complex/複數的平方根與複係數二次方程式": ["N-03","P-02"],   // 2026-10-28 g12b-ch02 1-4
+  "number/complex/繞任一點旋轉（正三角形、正方形）": ["N-03"],        // 3-3
+  "number/complex/用商看夾角、共線與垂直": ["N-03"],                  // 3-4
+  "number/complex/1 的 n 次方根與 ω": ["N-03"],                       // 4-3、4-4
+  "number/complex/代數基本定理（根的個數）": ["N-03","P-02"],          // 5-1、5-3
 
   /* ── equation 方程式與不等式 ── */
   // equation/quad 二次方程式與判別式

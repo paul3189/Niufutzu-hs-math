@@ -155,7 +155,7 @@ CROSSMAP.push({
       },
       { on: "圓上的角", t: "圓周角 ＝ 圓心角 ÷ 2", note: "國中舊識：同弧所對的圓周角相等；直徑所對為直角" },
       { on: "旋轉（坐標平面）", t: "旋轉矩陣", note: "逆時針轉 θ：(x cosθ − y sinθ, x sinθ + y cosθ)", ref: "vector/matrix/旋轉矩陣" },
-      { on: "旋轉（複數平面）", t: "極式：幅角相加", note: "乘 i 等於逆時針轉 90°；連續旋轉＝幅角相加", adv: true, ref: "number/complex/極式與棣美弗定理" }
+      { on: "旋轉（複數平面）", t: "極式：輻角相加", note: "乘 i 等於逆時針轉 90°；連續旋轉＝輻角相加", adv: true, ref: "number/complex/極式與棣美弗定理" }
     ]
   },
   notes: [
@@ -627,7 +627,7 @@ CROSSMAP.push({
         on: "方程式", t: "式子裡出現什麼？", kind: "q",
         children: [
           { on: "二次多項式", t: "因式分解或公式解", note: "先試十字交乘；試不出來再用公式解", ref: "equation/quad/公式解" },
-          { on: "三次以上多項式", t: "猜一個根再綜合除法降次", note: "先試 f(1)、f(−1)，再試常數項的因數；降到二次就收工", ref: "equation/solve/有理根＋綜合除法降次" },
+          { on: "三次以上多項式", t: "猜一個根再綜合除法降次", note: "先試 f(1)、f(−1)，或用題目給的根；降到二次就收工", ref: "equation/solve/有理根＋綜合除法降次" },
           { on: "有分母", t: "先寫分母 ≠ 0 再去分母", note: "最後把違反限制的根捨去", ref: "equation/solve/分式方程式" },
           { on: "有根號", t: "移項後平方", note: "平方是單向推論，一定要驗根；另一邊還須 ≥ 0", ref: "equation/solve/根式方程式" },
           { on: "有絕對值", t: "分段脫殼", note: "每一段解完都要確認解落在該段區間內", ref: "number/abs/含絕對值的方程式" },
