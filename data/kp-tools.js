@@ -225,6 +225,7 @@ window.KP_TOOLS = {
   "geometry/line/兩直線的夾角": ["G-01","T-04"],
   "geometry/line/角平分線": ["G-01"],
   "geometry/line/三角形的心": ["G-04"],
+  "geometry/line/二元一次不等式的區域": ["G-03","G-01"],
   // geometry/circle 圓
   "geometry/circle/標準式與一般式": ["G-02"],
   "geometry/circle/圓與直線的關係": ["G-02"],
