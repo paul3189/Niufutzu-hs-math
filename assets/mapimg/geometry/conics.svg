@@ -54,5 +54,5 @@
   <text x="265" y="311" font-size="11.5" fill="#0e7490" text-anchor="middle">c² = a² − b²（a 最大）</text>
   <text x="450" y="311" font-size="11.5" fill="#0e7490" text-anchor="middle">c² = a² + b²（c 最大）</text>
 
-  <text x="280" y="332" font-size="11.5" fill="#4b5563" text-anchor="middle">離心率 e = c ÷ a：橢圓 0 &lt; e &lt; 1、拋物線 e = 1、雙曲線 e &gt; 1；漸近線 y = ±(b ÷ a)x</text>
+  <text x="280" y="332" font-size="11.5" fill="#4b5563" text-anchor="middle">焦點：橢圓在分母大的軸、雙曲線在正號那一項的軸；漸近線 y = ±(b ÷ a)x（右邊的 1 換成 0）</text>
 </svg>

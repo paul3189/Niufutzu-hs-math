@@ -239,6 +239,12 @@ window.KP_TOOLS = {
   "geometry/conic/正焦弦與離心率": ["G-11"],
   "geometry/conic/光學（反射）性質": ["G-11"],
   "geometry/conic/平移後的圓錐曲線": ["G-11"],
+  "geometry/conic/焦半徑與焦點三角形": ["G-11"],
+  "geometry/conic/漸近線、共軛與等軸雙曲線": ["G-11"],
+  "geometry/conic/圓伸縮成橢圓（面積 πab）": ["G-11"],
+  "geometry/conic/圓與橢圓的參數式": ["G-11"],
+  "geometry/conic/把橢圓旋轉成斜的（含 xy 項）": ["G-11"],
+  "geometry/conic/沒有 xy 項的二元二次方程式（圖形與退化）": ["G-11"],
   // geometry/locus 軌跡與對稱
   "geometry/locus/軌跡三步驟": ["G-02","G-01"],
   "geometry/locus/常見軌跡對照": ["G-01","G-02"],
