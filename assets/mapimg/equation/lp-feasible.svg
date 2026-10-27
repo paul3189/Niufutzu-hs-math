@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
   <rect width="560" height="340" fill="#ffffff"/>
-  <text x="280" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">線性規劃：畫可行域 → 平移目標函數 → 檢查頂點</text>
+  <text x="280" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">線性規劃：畫可行解區域 → 平移等值線 → 檢查頂點</text>
 
   <!-- 坐標軸：原點 (90,275)，每單位 38px -->
   <line x1="60" y1="275" x2="420" y2="275" stroke="#94a3b8" stroke-width="1.6"/>
@@ -11,10 +11,10 @@
   <text x="78" y="43" font-size="13" fill="#475569">y</text>
   <text x="80" y="292" font-size="12" fill="#475569">O</text>
 
-  <!-- 可行域 -->
+  <!-- 可行解區域 -->
   <polygon points="90,275 242,275 166,123 90,47" fill="#dc2626" opacity="0.14"/>
   <polyline points="90,275 242,275 166,123 90,47 90,275" fill="none" stroke="#dc2626" stroke-width="2.2"/>
-  <text x="140" y="225" font-size="14" font-weight="700" fill="#b91c1c">可行域</text>
+  <text x="118" y="225" font-size="14" font-weight="700" fill="#b91c1c">可行解區域</text>
 
   <!-- 頂點 -->
   <g fill="#b91c1c">
@@ -51,5 +51,5 @@
   </g>
   <text x="360" y="234" font-size="12" font-weight="700" fill="#b91c1c">(2, 4) → 14 最大</text>
 
-  <text x="280" y="322" text-anchor="middle" font-size="12" fill="#64748b">實際問題常隱含 x ≥ 0、y ≥ 0 與整數限制；非整數的最佳頂點不可直接四捨五入</text>
+  <text x="280" y="322" text-anchor="middle" font-size="12" fill="#64748b">實際問題常隱含 x ≥ 0、y ≥ 0 與整數限制；最佳頂點不是格子點時不可直接四捨五入</text>
 </svg>

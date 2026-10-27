@@ -126,6 +126,9 @@ window.KP_TOOLS = {
   "equation/lp/頂點檢驗法": ["G-12"],
   "equation/lp/平移法（斜率比較）": ["G-12"],
   "equation/lp/整數規劃的處理": ["G-12"],
+  "equation/lp/無界區域與多組最佳解": ["G-12"],
+  "equation/lp/應用題列式（設變數、限制、非負、目標）": ["G-12"],
+  "equation/lp/距離平方與連線斜率（補充）": ["G-12"],
 
   /* ── function 函數與圖形 ── */
   // function/fbasic 函數的基本概念
