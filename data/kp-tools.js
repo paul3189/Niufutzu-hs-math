@@ -409,16 +409,20 @@ window.KP_TOOLS = {
   // calculus/integ 積分
   "calculus/integ/不定積分（反導數）": ["C-04"],
   "calculus/integ/微積分基本定理": ["C-04"],
+  "calculus/integ/積分方程": ["C-04"],
   "calculus/integ/定積分的性質": ["C-04"],
+  "calculus/integ/上和與下和": ["C-04"],
   "calculus/integ/黎曼和": ["C-04"],
   "calculus/integ/變數代換（補充）": ["C-04"],
   "calculus/integ/奇偶函數的定積分": ["C-04"],
   // calculus/integapp 積分的應用
   "calculus/integapp/兩曲線間的面積": ["C-05"],
+  "calculus/integapp/用圓面積算半圓的積分": ["C-05","C-04"],
   "calculus/integapp/旋轉體體積（圓盤法）": ["C-05"],
   "calculus/integapp/切片積分法": ["C-05"],
   "calculus/integapp/位移與總路程": ["C-05","C-04"],
-  "calculus/integapp/平均值": ["C-05"]
+  "calculus/integapp/平均值": ["C-05"],
+  "calculus/integapp/消費者剩餘與生產者剩餘（數乙）": ["C-05"]
 };
 
 /* 主題層（給「主題→考點」查詢用） */

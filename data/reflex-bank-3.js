@@ -350,7 +350,7 @@
       "把極大值與極小值算出來，$k$ 落在兩者之間就是三根", "C-03"],
     ["g12a-05", "定積分的上下限對調", "值變號：$\\int_a^b=-\\int_b^a$",
       ["值不變：$\\int_a^b=\\int_b^a$", "值取絕對值：$\\int_a^b=\\left|\\int_b^a\\right|$", "值變成倒數：$\\int_a^b=\\dfrac{1}{\\int_b^a}$"],
-      "這是定積分的基本性質，換元時特別容易用到", "C-04"],
+      "這是定積分的約定；有了它，區間可加性 $\\int_a^c+\\int_c^b=\\int_a^b$ 不論 $a$、$b$、$c$ 的大小順序都成立", "C-04"],
     ["g12a-06", "求旋轉體體積（繞 $x$ 軸）", "$\\pi\\displaystyle\\int_a^b [f(x)]^2dx$",
       ["$\\pi\\displaystyle\\int_a^b f(x)dx$", "$2\\pi\\displaystyle\\int_a^b f(x)dx$", "$\\pi\\left[\\displaystyle\\int_a^b f(x)dx\\right]^2$"],
       "每一片都是圓盤，面積是 $\\pi r^2$，$r$ 就是 $f(x)$", "C-05"],
