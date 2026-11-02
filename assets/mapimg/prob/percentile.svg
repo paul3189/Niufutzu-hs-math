@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">百分位數：先排序，再看「排在前面的佔幾成」</text>
+
+  <!-- 排序後的資料條 -->
+  <text x="50" y="66" font-size="14" fill="#333">把 100 筆資料由小排到大：</text>
+  <rect x="50" y="80" width="460" height="38" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+  <line x1="165" y1="80" x2="165" y2="118" stroke="#4f46e5" stroke-width="2"/>
+  <line x1="280" y1="80" x2="280" y2="118" stroke="#4f46e5" stroke-width="2.6"/>
+  <line x1="395" y1="80" x2="395" y2="118" stroke="#4f46e5" stroke-width="2"/>
+
+  <text x="50"  y="136" text-anchor="middle" font-size="12" fill="#555">最小</text>
+  <text x="165" y="136" text-anchor="middle" font-size="13" fill="#4f46e5">P₂₅ = Q₁</text>
+  <text x="280" y="136" text-anchor="middle" font-size="13" fill="#4f46e5">P₅₀ = Q₂ = 中位數</text>
+  <text x="395" y="136" text-anchor="middle" font-size="13" fill="#4f46e5">P₇₅ = Q₃</text>
+  <text x="510" y="136" text-anchor="middle" font-size="12" fill="#555">最大</text>
+
+  <text x="107" y="106" text-anchor="middle" font-size="12" fill="#333">25%</text>
+  <text x="222" y="106" text-anchor="middle" font-size="12" fill="#333">25%</text>
+  <text x="337" y="106" text-anchor="middle" font-size="12" fill="#333">25%</text>
+  <text x="452" y="106" text-anchor="middle" font-size="12" fill="#333">25%</text>
+
+  <!-- 盒狀圖 -->
+  <text x="50" y="180" font-size="14" fill="#333">畫成盒狀圖（國中舊識，高中只要看得懂）：</text>
+  <line x1="50"  y1="225" x2="165" y2="225" stroke="#4f46e5" stroke-width="1.6"/>
+  <line x1="395" y1="225" x2="510" y2="225" stroke="#4f46e5" stroke-width="1.6"/>
+  <line x1="50"  y1="210" x2="50"  y2="240" stroke="#4f46e5" stroke-width="1.6"/>
+  <line x1="510" y1="210" x2="510" y2="240" stroke="#4f46e5" stroke-width="1.6"/>
+  <rect x="165" y="202" width="230" height="46" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.8"/>
+  <line x1="280" y1="202" x2="280" y2="248" stroke="#4f46e5" stroke-width="2.6"/>
+  <text x="280" y="270" text-anchor="middle" font-size="13" fill="#4f46e5">盒子的寬度 = Q₃ − Q₁（四分位距），代表「中間一半」有多分散</text>
+
+  <text x="50" y="304" font-size="14" fill="#111">「贏過全班八成」＝ 我的分數落在 P₈₀ 附近，和分數本身多高無關</text>
+  <text x="50" y="328" font-size="14" fill="#333">百分位數看的是「名次的位置」，平均數與標準差看的是「數值的大小」</text>
+</svg>

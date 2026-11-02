@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="26" text-anchor="middle" font-size="17" fill="#111">黎曼和：把區間切細，用長方形把面積「堆」出來</text>
+
+  <line x1="60" y1="260" x2="520" y2="260" stroke="#555" stroke-width="1.5"/>
+  <line x1="80" y1="260" x2="80"  y2="55"  stroke="#555" stroke-width="1.5"/>
+  <text x="524" y="265" font-size="13" fill="#555">x</text>
+
+  <!-- 長方形（8 等分，高度取右端點） -->
+  <rect x="100" y="238" width="40" height="22"  fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="140" y="223" width="40" height="37"  fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="180" y="205" width="40" height="55"  fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="220" y="185" width="40" height="75"  fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="260" y="163" width="40" height="97"  fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="300" y="139" width="40" height="121" fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="340" y="113" width="40" height="147" fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+  <rect x="380" y="85"  width="40" height="175" fill="#65a30d" fill-opacity="0.18" stroke="#65a30d" stroke-width="1.2"/>
+
+  <!-- 曲線 -->
+  <path d="M100 252 C 180 240 260 200 340 140 C 380 112 400 98 420 85" fill="none" stroke="#65a30d" stroke-width="2.6"/>
+  <text x="426" y="80" font-size="14" fill="#65a30d">y = f(x)</text>
+
+  <!-- 一條長方形的標註 -->
+  <line x1="300" y1="276" x2="340" y2="276" stroke="#333" stroke-width="1.4"/>
+  <line x1="300" y1="270" x2="300" y2="282" stroke="#333" stroke-width="1.4"/>
+  <line x1="340" y1="270" x2="340" y2="282" stroke="#333" stroke-width="1.4"/>
+  <text x="320" y="298" text-anchor="middle" font-size="13" fill="#333">Δx = (b − a) / n</text>
+  <text x="140" y="174" font-size="13" fill="#333">高 = f(xₖ)</text>
+  <line x1="205" y1="178" x2="238" y2="186" stroke="#888" stroke-width="1.1"/>
+
+  <text x="100" y="276" text-anchor="middle" font-size="13" fill="#333">a</text>
+  <text x="420" y="276" text-anchor="middle" font-size="13" fill="#333">b</text>
+
+  <text x="60" y="314" font-size="15" fill="#111">所有長方形面積相加 ＝ Σ f(xₖ)·Δx　→　n 越大越細 →　定積分</text>
+  <text x="60" y="333" font-size="13" fill="#333">反過來用：看到 (1/n)·Σ f(k/n) 這種極限，就把 k/n 當 x、1/n 當 dx</text>
+</svg>

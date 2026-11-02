@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">實根的分布：兩根都大於 k（a &gt; 0）要三個條件</text>
+
+  <!-- 左側條件清單 -->
+  <g font-size="13" fill="#1f2937">
+    <text x="32" y="130">① D ≥ 0</text>
+    <text x="46" y="150" font-size="12" fill="#475569">真的有實根</text>
+    <text x="32" y="188">② a · f(k) &gt; 0</text>
+    <text x="46" y="208" font-size="12" fill="#475569">k 在兩根的外側</text>
+    <text x="32" y="246">③ −b/2a &gt; k</text>
+    <text x="46" y="266" font-size="12" fill="#475569">對稱軸在 k 右邊</text>
+  </g>
+  <line x1="222" y1="105" x2="222" y2="285" stroke="#e2e8f0" stroke-width="1.4"/>
+
+  <!-- 右側圖形 -->
+  <line x1="240" y1="250" x2="530" y2="250" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="530,250 520,245 520,255" fill="#94a3b8"/>
+  <text x="537" y="254" font-size="12" fill="#475569">x</text>
+  <path d="M250,132 Q360,468 470,132" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+
+  <!-- 對稱軸 -->
+  <line x1="360" y1="120" x2="360" y2="300" stroke="#fca5a5" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="360" y="316" text-anchor="middle" font-size="12" fill="#b91c1c">對稱軸</text>
+
+  <!-- k 與 f(k) -->
+  <line x1="270" y1="187" x2="270" y2="250" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <circle cx="270" cy="187" r="4.5" fill="#dc2626"/>
+  <line x1="270" y1="245" x2="270" y2="255" stroke="#1f2937" stroke-width="2"/>
+  <text x="266" y="272" text-anchor="middle" font-size="13" fill="#1f2937">k</text>
+  <text x="248" y="176" font-size="12" fill="#b91c1c">f(k) &gt; 0</text>
+
+  <!-- 兩根 -->
+  <circle cx="300" cy="250" r="5" fill="#dc2626"/>
+  <circle cx="420" cy="250" r="5" fill="#dc2626"/>
+  <text x="302" y="272" text-anchor="middle" font-size="13" fill="#1f2937">α</text>
+  <text x="420" y="272" text-anchor="middle" font-size="13" fill="#1f2937">β</text>
+
+  <text x="388" y="72" text-anchor="middle" font-size="12" fill="#64748b">一根大於 k、一根小於 k：</text>
+  <text x="388" y="90" text-anchor="middle" font-size="12" fill="#64748b">只要 a · f(k) &lt; 0（此時自動 D &gt; 0）</text>
+</svg>

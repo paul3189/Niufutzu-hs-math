@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="40" y="44" font-size="15" font-weight="bold" fill="#6d28d9">旋轉矩陣：把點繞原點逆時針轉 θ</text>
+
+  <!-- 坐標軸 -->
+  <line x1="80" y1="230" x2="330" y2="230" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="332,230 323,226 323,234" fill="#9ca3af"/>
+  <line x1="140" y1="270" x2="140" y2="72" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="140,70 136,79 144,79" fill="#9ca3af"/>
+  <text x="336" y="235" font-size="12" fill="#6b7280">x</text>
+
+  <!-- 原向量與旋轉後 -->
+  <line x1="140" y1="230" x2="260" y2="180" stroke="#9ca3af" stroke-width="2.4"/>
+  <circle cx="260" cy="180" r="4.5" fill="#6b7280"/>
+  <text x="266" y="176" font-size="13" fill="#4b5563">P(x, y)</text>
+
+  <line x1="140" y1="230" x2="199.8" y2="114.6" stroke="#7c3aed" stroke-width="2.8"/>
+  <circle cx="199.8" cy="114.6" r="4.5" fill="#7c3aed"/>
+  <text x="150" y="106" font-size="13" fill="#6d28d9">P′(x′, y′)</text>
+
+  <!-- 旋轉弧 -->
+  <path d="M 260 180 A 130 130 0 0 0 199.8 114.6" fill="none" stroke="#d97706" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <text x="248" y="134" font-size="14" fill="#b45309">θ</text>
+
+  <circle cx="140" cy="230" r="3.5" fill="#374151"/>
+  <text x="124" y="248" font-size="12" fill="#374151">O</text>
+
+  <text x="40" y="288" font-size="12" fill="#4b5563">兩個欄就是 (1, 0) 與 (0, 1) 轉過去的位置：</text>
+  <text x="40" y="308" font-size="12" fill="#4b5563">(cos θ, sin θ) 與 (−sin θ, cos θ)</text>
+  <text x="40" y="330" font-size="12" fill="#b45309">負號在「右上角」，位置放錯就變成順時針</text>
+
+  <!-- 右側 -->
+  <text x="356" y="86" font-size="13.5" font-weight="bold" fill="#6d28d9">R(θ) =</text>
+  <line x1="420" y1="66" x2="420" y2="122" stroke="#374151" stroke-width="1.6"/>
+  <line x1="420" y1="66" x2="428" y2="66" stroke="#374151" stroke-width="1.6"/>
+  <line x1="420" y1="122" x2="428" y2="122" stroke="#374151" stroke-width="1.6"/>
+  <line x1="536" y1="66" x2="536" y2="122" stroke="#374151" stroke-width="1.6"/>
+  <line x1="528" y1="66" x2="536" y2="66" stroke="#374151" stroke-width="1.6"/>
+  <line x1="528" y1="122" x2="536" y2="122" stroke="#374151" stroke-width="1.6"/>
+  <text x="432" y="88" font-size="12.5" fill="#1f2937">cos θ　−sin θ</text>
+  <text x="432" y="112" font-size="12.5" fill="#1f2937">sin θ 　 cos θ</text>
+
+  <text x="356" y="158" font-size="12.5" fill="#1f2937">R(α) · R(β) = R(α + β)</text>
+  <text x="356" y="180" font-size="12" fill="#4b5563">連續旋轉＝角度相加</text>
+  <text x="356" y="206" font-size="12.5" fill="#1f2937">R(θ)⁻¹ = R(−θ)</text>
+  <text x="356" y="230" font-size="12.5" fill="#1f2937">det R(θ) = 1 → 面積不變</text>
+
+  <text x="356" y="266" font-size="12.5" fill="#b45309">繞非原點旋轉：</text>
+  <text x="356" y="288" font-size="12" fill="#4b5563">平移到原點 → 旋轉 →</text>
+  <text x="372" y="308" font-size="12" fill="#4b5563">再平移回去</text>
+</svg>

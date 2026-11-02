@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="34" text-anchor="middle" font-size="17" fill="#111">分項相消：先把一項拆成「前 − 後」</text>
+
+  <text x="280" y="72" text-anchor="middle" font-size="17" fill="#db2777">1 / k(k+1)　=　1/k　−　1/(k+1)</text>
+
+  <!-- 一列一列展開 -->
+  <text x="70"  y="126" font-size="16" fill="#111">k = 1 :</text>
+  <text x="170" y="126" font-size="16" fill="#111">1/1</text>
+  <text x="222" y="126" font-size="16" fill="#111">−</text>
+  <text x="252" y="126" font-size="16" fill="#111">1/2</text>
+
+  <text x="70"  y="164" font-size="16" fill="#111">k = 2 :</text>
+  <text x="170" y="164" font-size="16" fill="#111">+ 1/2</text>
+  <text x="246" y="164" font-size="16" fill="#111">−</text>
+  <text x="276" y="164" font-size="16" fill="#111">1/3</text>
+
+  <text x="70"  y="202" font-size="16" fill="#111">k = 3 :</text>
+  <text x="170" y="202" font-size="16" fill="#111">+ 1/3</text>
+  <text x="246" y="202" font-size="16" fill="#111">−</text>
+  <text x="276" y="202" font-size="16" fill="#111">1/4</text>
+
+  <text x="70"  y="238" font-size="16" fill="#111">…</text>
+  <text x="170" y="238" font-size="16" fill="#111">…</text>
+
+  <text x="70"  y="276" font-size="16" fill="#111">k = n :</text>
+  <text x="170" y="276" font-size="16" fill="#111">+ 1/n</text>
+  <text x="246" y="276" font-size="16" fill="#111">−</text>
+  <text x="276" y="276" font-size="16" fill="#111">1/(n+1)</text>
+
+  <!-- 消去線 -->
+  <line x1="249" y1="121" x2="279" y2="121" stroke="#db2777" stroke-width="2"/>
+  <line x1="184" y1="159" x2="212" y2="159" stroke="#db2777" stroke-width="2"/>
+  <line x1="273" y1="159" x2="303" y2="159" stroke="#db2777" stroke-width="2"/>
+  <line x1="184" y1="197" x2="212" y2="197" stroke="#db2777" stroke-width="2"/>
+  <line x1="184" y1="271" x2="212" y2="271" stroke="#db2777" stroke-width="2"/>
+
+  <!-- 配對連線：上一列的「後」和下一列的「前」抵銷 -->
+  <path d="M262 128 Q 232 150 202 152" fill="none" stroke="#db2777" stroke-width="1.3"/>
+  <path d="M286 166 Q 244 190 202 190" fill="none" stroke="#db2777" stroke-width="1.3"/>
+
+  <text x="330" y="126" font-size="14" fill="#db2777">中間每一項都被下一列消掉</text>
+
+  <!-- 結果 -->
+  <line x1="60" y1="296" x2="500" y2="296" stroke="#555" stroke-width="1.2"/>
+  <text x="70"  y="322" font-size="17" fill="#111">總和 =</text>
+  <text x="170" y="322" font-size="17" fill="#db2777">1/1</text>
+  <text x="222" y="322" font-size="17" fill="#111">−</text>
+  <text x="252" y="322" font-size="17" fill="#db2777">1/(n+1)</text>
+  <text x="360" y="322" font-size="14" fill="#333">只剩「最前」和「最後」</text>
+</svg>

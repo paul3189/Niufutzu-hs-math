@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">絕對值不等式：小於取中間、大於取兩邊（r &gt; 0）</text>
+
+  <!-- 上：小於型 -->
+  <text x="50" y="80" font-size="15" fill="#1d4ed8">| X | &lt; r　⟺　−r &lt; X &lt; r</text>
+  <line x1="60" y1="130" x2="510" y2="130" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="510,130 500,125 500,135" fill="#94a3b8"/>
+  <line x1="180" y1="130" x2="380" y2="130" stroke="#2563eb" stroke-width="6" stroke-linecap="butt"/>
+  <circle cx="180" cy="130" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <circle cx="380" cy="130" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="280" y1="124" x2="280" y2="136" stroke="#94a3b8"/>
+  <text x="180" y="155" text-anchor="middle" font-size="14" fill="#1f2937">−r</text>
+  <text x="280" y="155" text-anchor="middle" font-size="14" fill="#475569">0</text>
+  <text x="380" y="155" text-anchor="middle" font-size="14" fill="#1f2937">r</text>
+  <text x="280" y="113" text-anchor="middle" font-size="12" fill="#1d4ed8">一段區間</text>
+
+  <!-- 下：大於型 -->
+  <text x="50" y="215" font-size="15" fill="#1d4ed8">| X | &gt; r　⟺　X &lt; −r　或　X &gt; r</text>
+  <line x1="60" y1="265" x2="510" y2="265" stroke="#94a3b8" stroke-width="1.6"/>
+  <polygon points="510,265 500,260 500,270" fill="#94a3b8"/>
+  <line x1="62" y1="265" x2="180" y2="265" stroke="#2563eb" stroke-width="6"/>
+  <line x1="380" y1="265" x2="508" y2="265" stroke="#2563eb" stroke-width="6"/>
+  <circle cx="180" cy="265" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <circle cx="380" cy="265" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="280" y1="259" x2="280" y2="271" stroke="#94a3b8"/>
+  <text x="180" y="290" text-anchor="middle" font-size="14" fill="#1f2937">−r</text>
+  <text x="280" y="290" text-anchor="middle" font-size="14" fill="#475569">0</text>
+  <text x="380" y="290" text-anchor="middle" font-size="14" fill="#1f2937">r</text>
+  <text x="280" y="248" text-anchor="middle" font-size="12" fill="#1d4ed8">兩條射線，中間是空的</text>
+
+  <text x="280" y="322" text-anchor="middle" font-size="12" fill="#64748b">寫成「−r &gt; X &gt; r」是不存在的區間；大於型只能用「或」，不能用「且」</text>
+</svg>

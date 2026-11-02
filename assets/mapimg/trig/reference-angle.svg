@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <!-- 坐標軸 -->
+  <line x1="55" y1="160" x2="300" y2="160" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="302,160 293,156 293,164" fill="#9ca3af"/>
+  <line x1="175" y1="252" x2="175" y2="60" stroke="#9ca3af" stroke-width="1.2"/>
+  <polygon points="175,58 171,67 179,67" fill="#9ca3af"/>
+  <text x="306" y="165" font-size="12" fill="#6b7280">x</text>
+
+  <circle cx="175" cy="160" r="78" fill="none" stroke="#d97706" stroke-width="1.8"/>
+
+  <!-- 140 度的終邊 -->
+  <line x1="175" y1="160" x2="115.2" y2="109.9" stroke="#d97706" stroke-width="2.4"/>
+  <circle cx="115.2" cy="109.9" r="4.5" fill="#d97706"/>
+  <text x="96" y="102" font-size="13" fill="#b45309">P</text>
+
+  <!-- 對稱點 40 度 -->
+  <line x1="175" y1="160" x2="234.8" y2="109.9" stroke="#d97706" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <circle cx="234.8" cy="109.9" r="4.5" fill="#fbbf24"/>
+  <text x="240" y="104" font-size="13" fill="#b45309">P′</text>
+  <line x1="115.2" y1="109.9" x2="234.8" y2="109.9" stroke="#0891b2" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+  <!-- 140 度的角弧 -->
+  <path d="M 209 160 A 34 34 0 0 0 148.9 138.1" fill="none" stroke="#d97706" stroke-width="1.6"/>
+  <text x="186" y="142" font-size="13" fill="#b45309">θ = 140°</text>
+
+  <!-- 參考角 40 度 -->
+  <path d="M 155.1 143.3 A 26 26 0 0 0 149 160" fill="none" stroke="#0891b2" stroke-width="1.8"/>
+  <text x="112" y="146" font-size="12.5" fill="#0e7490">40°</text>
+
+  <text x="46" y="264" font-size="12.5" fill="#1f2937">參考角＝終邊與 x 軸所夾的銳角</text>
+  <text x="46" y="288" font-size="12.5" fill="#1f2937">140° 的參考角是 180° − 140° = 40°</text>
+  <text x="46" y="314" font-size="12.5" fill="#0e7490">P 與 P′ 對 y 軸對稱 ⇒ sin 相同、cos 變號</text>
+
+  <!-- 右側規則 -->
+  <text x="330" y="70" font-size="15" font-weight="bold" fill="#b45309">兩條規則</text>
+  <text x="330" y="102" font-size="13" fill="#1f2937">180° ± θ、360° ± θ</text>
+  <text x="348" y="126" font-size="13" fill="#0e7490">→ 函數名「不變」</text>
+  <text x="330" y="158" font-size="13" fill="#1f2937">90° ± θ、270° ± θ</text>
+  <text x="348" y="182" font-size="13" fill="#0e7490">→ 函數名「互換」sin ↔ cos</text>
+  <text x="330" y="214" font-size="12.5" fill="#4b5563">正負號：看「原來的角」落在哪</text>
+  <text x="348" y="234" font-size="12.5" fill="#4b5563">一象限，該函數在那裡是正是負</text>
+  <text x="330" y="270" font-size="13" fill="#1f2937">sin(180° − θ) = sin θ</text>
+  <text x="330" y="292" font-size="13" fill="#1f2937">cos(180° − θ) = − cos θ</text>
+  <text x="330" y="314" font-size="13" fill="#1f2937">sin(90° − θ) = cos θ</text>
+</svg>

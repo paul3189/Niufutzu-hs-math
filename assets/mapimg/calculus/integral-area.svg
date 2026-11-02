@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">定積分是「帶正負號的面積」</text>
+
+  <line x1="50" y1="180" x2="520" y2="180" stroke="#555" stroke-width="1.5"/>
+  <line x1="80" y1="300" x2="80"  y2="60"  stroke="#555" stroke-width="1.5"/>
+  <text x="524" y="185" font-size="13" fill="#555">x</text>
+
+  <!-- 三塊區域：上方、下方、上方 -->
+  <path d="M110 180 L110 120 C 160 70 200 96 240 180 Z" fill="#65a30d" fill-opacity="0.22"/>
+  <path d="M240 180 C 270 244 320 262 360 180 Z" fill="#dc2626" fill-opacity="0.20"/>
+  <path d="M360 180 C 390 120 430 100 470 86 L470 180 Z" fill="#65a30d" fill-opacity="0.22"/>
+
+  <!-- 曲線：先在上、後在下、再回上 -->
+  <path d="M110 120 C 160 70 200 96 240 180 C 270 244 320 262 360 180 C 390 120 430 100 470 86"
+        fill="none" stroke="#65a30d" stroke-width="2.4"/>
+
+  <!-- 上方區域標示 -->
+  <text x="175" y="146" text-anchor="middle" font-size="15" fill="#65a30d">＋</text>
+  <text x="175" y="166" text-anchor="middle" font-size="12" fill="#333">在 x 軸上方</text>
+  <text x="300" y="208" text-anchor="middle" font-size="15" fill="#dc2626">－</text>
+  <text x="300" y="228" text-anchor="middle" font-size="12" fill="#333">在 x 軸下方</text>
+  <text x="425" y="146" text-anchor="middle" font-size="15" fill="#65a30d">＋</text>
+
+  <!-- 積分上下限 -->
+  <line x1="110" y1="120" x2="110" y2="180" stroke="#999" stroke-width="1.2"/>
+  <line x1="470" y1="86"  x2="470" y2="180" stroke="#999" stroke-width="1.2"/>
+  <text x="110" y="198" text-anchor="middle" font-size="13" fill="#333">a</text>
+  <text x="470" y="198" text-anchor="middle" font-size="13" fill="#333">b</text>
+  <text x="240" y="198" text-anchor="middle" font-size="12" fill="#333">變號點</text>
+  <text x="360" y="198" text-anchor="middle" font-size="12" fill="#333">變號點</text>
+
+  <text x="50" y="286" font-size="15" fill="#111">定積分（累積量）＝ 上方面積 − 下方面積</text>
+  <text x="50" y="312" font-size="15" fill="#111">真正的「面積」＝ 上方面積 ＋ 下方面積 ⇒ 必須在變號點切開再取絕對值</text>
+  <text x="50" y="334" font-size="14" fill="#333">所以「求面積」的題目一定要先畫圖找交點，不能一路積到底</text>
+</svg>

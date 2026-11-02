@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">三次函數：極大值 × 極小值 的正負決定實根個數</text>
+
+  <!-- 面板 1 -->
+  <line x1="40" y1="200" x2="182" y2="200" stroke="#94a3b8" stroke-width="1.4"/>
+  <polyline points="44,256.7 50,228 56,206 62,190.1 68,179.6 74,173.8 80,172 86,173.6 92,177.8 101,187.8 110,200 119,212.2 128,222.2 134,226.4 140,228 146,226.2 152,220.4 158,209.9 164,194 170,172 176,143.3"
+            fill="none" stroke="#059669" stroke-width="2.4"/>
+  <circle cx="80" cy="172" r="4" fill="#047857"/>
+  <circle cx="140" cy="228" r="4" fill="#047857"/>
+  <circle cx="58" cy="200" r="4.5" fill="#b91c1c"/>
+  <circle cx="110" cy="200" r="4.5" fill="#b91c1c"/>
+  <circle cx="162" cy="200" r="4.5" fill="#b91c1c"/>
+  <text x="110" y="283" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">極大 × 極小 &lt; 0</text>
+  <text x="110" y="303" text-anchor="middle" font-size="12" fill="#475569">3 個相異實根</text>
+
+  <!-- 面板 2 -->
+  <line x1="208" y1="200" x2="348" y2="200" stroke="#94a3b8" stroke-width="1.4"/>
+  <polyline points="214,228.7 220,200 226,178 232,162.1 238,151.6 244,145.8 250,144 256,145.6 262,149.8 271,159.8 280,172 289,184.2 298,194.2 304,198.4 310,200 316,198.2 322,192.4 328,181.9 334,166 340,144"
+            fill="none" stroke="#059669" stroke-width="2.4"/>
+  <circle cx="250" cy="144" r="4" fill="#047857"/>
+  <circle cx="310" cy="200" r="4" fill="#047857"/>
+  <circle cx="220" cy="200" r="4.5" fill="#b91c1c"/>
+  <circle cx="310" cy="200" r="7" fill="none" stroke="#b91c1c" stroke-width="2"/>
+  <text x="280" y="283" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">極大 × 極小 = 0</text>
+  <text x="280" y="303" text-anchor="middle" font-size="12" fill="#475569">有重根（2 個相異實根）</text>
+
+  <!-- 面板 3 -->
+  <line x1="372" y1="200" x2="512" y2="200" stroke="#94a3b8" stroke-width="1.4"/>
+  <polyline points="378,236.7 384,200.7 390,172 396,150 402,134.1 408,123.6 414,117.8 420,116 426,117.6 432,121.8 441,131.8 450,144 459,156.2 468,166.2 474,170.4 480,172 486,170.2 492,164.4 498,153.9 504,137.9"
+            fill="none" stroke="#059669" stroke-width="2.4"/>
+  <circle cx="420" cy="116" r="4" fill="#047857"/>
+  <circle cx="480" cy="172" r="4" fill="#047857"/>
+  <circle cx="384" cy="200" r="4.5" fill="#b91c1c"/>
+  <text x="450" y="283" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">極大 × 極小 &gt; 0</text>
+  <text x="450" y="303" text-anchor="middle" font-size="12" fill="#475569">只有 1 個實根</text>
+
+  <text x="280" y="328" text-anchor="middle" font-size="12" fill="#64748b">沒有極值（圖形單調遞增）時恆為 1 個實根，不能套這個判準</text>
+  <text x="280" y="52" text-anchor="middle" font-size="12" fill="#64748b">紅點＝與 x 軸的交點（實根）　綠點＝極大值與極小值</text>
+</svg>

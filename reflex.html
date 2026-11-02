@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>牛夫子直覺道場｜限時反射訓練</title>
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/reflex.css?v=20260924">
+<link rel="stylesheet" href="assets/theme-cow.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/mathfit.js"></script>
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-inner">
+  <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
+  <a href="index.html">🏠 首頁</a>
+  <a href="map.html">🗺️ 工具地圖</a>
+  <a href="cross.html">🔀 跨章流程圖</a>
+  <a href="https://wrongbook.niufutzu.com/">📓 錯題本</a>
+  <a href="https://wrongbook.niufutzu.com/habits">📋 讀書習慣卡</a>
+  <span class="spacer"></span>
+  <span class="crumb">⚔️ 直覺道場</span>
+</div></div>
+
+<div class="rx-wrap">
+
+<!-- ══════════ 選單 ══════════ -->
+<section id="scrMenu">
+
+  <div class="rx-hero">
+    <img src="assets/mascot/web/cow_teach.png" alt="牛夫子">
+    <div>
+      <h1>⚔️ 牛夫子直覺道場</h1>
+      <p>考試失分，很多時候不是因為<span class="hi">不會</span>，而是<span class="hi">想太久</span>。<br>
+      這裡練的是：看到題目，馬上想到該用哪個觀念。<br>
+      答對就打怪，想太久就被怪打。在時限內答對，才算真的熟。</p>
+    </div>
+  </div>
+
+  <div id="reviewBox"></div>
+
+  <div class="rx-sec">① 選難度 <small>秒數＝你必須做出反應的時間；秒數愈短分數倍率愈高</small></div>
+  <div id="diffCards"></div>
+
+  <div class="rx-sec">② 選範圍 <small>段考前選單章（可複選），考前總複習選學測或全範圍</small></div>
+  <div id="scopeCards"></div>
+  <div id="chapterPick" class="hide"></div>
+
+  <div class="rx-sec">③ 選題型 <small>可複選，至少留一個；此範圍沒有的題型會自動變灰</small></div>
+  <div id="catChips"></div>
+
+  <div id="setupLine" class="rx-setup"></div>
+  <button class="rx-go" id="btnStart">開始訓練（10 題）</button>
+  <p class="rx-hint">鍵盤 <b>1 ~ 4</b> 選答案、<b>Enter</b> 繼續／開始。生命 5 顆心，答錯或超時各扣一顆。</p>
+
+  <div class="rx-sec">👾 怪物陣容 <small>三隻輪流出場，打完一輪血量再往上加</small></div>
+  <div id="lineup" class="rx-lineup"></div>
+
+  <div id="cloudAccount"></div>
+  <div id="cloudBoard"></div>
+
+  <div class="rx-sec">🏆 個人最佳紀錄 <small>存在這台裝置的瀏覽器裡</small></div>
+  <div id="records"></div>
+  <div id="lifetime"></div>
+
+  <div class="rx-sec">📜 規則</div>
+  <div class="card" style="font-size:.92rem">
+    <ul style="margin:0;padding-left:20px;line-height:1.9">
+      <li>一場 <b>10 題</b>，題目從你勾選的<b>範圍與題型</b>隨機出，數字每次都不一樣，背不起來。</li>
+      <li>答對＝對怪物造成傷害；<b>答得愈快傷害愈高</b>，連擊愈長加成愈多。</li>
+      <li>答錯或超時扣一顆心，並立刻顯示正解與破題理由。<b>請把理由讀完</b>，這個遊戲要練的就是它。</li>
+      <li>打倒一隻怪就換下一隻，愈後面的怪血量愈厚。</li>
+      <li>結束後會給你<b>題型診斷＋考點處方＋章節診斷</b>：錯在哪個考點，就附上工具地圖、練習本與道場考點練習的連結。</li>
+      <li>答錯或超時的題會自動收進<b>錯題本</b>，隔天起出現在最上面的「今日複習」：<b>原題和一題同考點的類似題都答對，才算過關</b>，間隔依 1、3、7、14 天拉長，過關四次就畢業；複習不打怪、不上榜、不扣心。</li>
+      <li>題型共 <b>8 種</b>：特殊角三角值、角度變換、關鍵字反射、公式辨識、<b>觀念判斷</b>、<b>串聯反射</b>、<b>圖形辨識</b>、秒算直覺。</li>
+      <li>讀題比較久的題型會自動多給秒數：<b>秒算 ×1.3</b>、<b>關鍵字 ×1.2</b>、<b>觀念判斷與串聯反射 ×1.15</b>、<b>圖形辨識 ×1.1</b>、<b>公式辨識 ×1.05</b>；三角值與角度變換不加成。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ 戰鬥 ══════════ -->
+<section id="scrPlay" class="hide">
+  <div class="rx-arena" id="arena">
+
+    <div class="rx-topline">
+      <span id="hudDiff"></span>
+      <span>
+        <button type="button" id="btnMute">🔊 音效開</button>
+        <button type="button" id="btnGiveUp">結束這場</button>
+      </span>
+    </div>
+
+    <div id="monBox">
+      <div class="mon-stage"><img id="monImg" src="" alt=""></div>
+      <div class="mon-meta">
+        <span id="monName"></span>
+        <span id="monQuip"></span>
+      </div>
+      <div class="mon-hp">
+        <div class="bar"><i id="monHpFill"></i></div>
+        <span id="monHpTxt"></span>
+      </div>
+    </div>
+
+    <div id="timerWrap">
+      <div class="track"><div id="timerFill"></div></div>
+      <div id="timerNum">0.0</div>
+    </div>
+
+    <div class="rx-qcard">
+      <div id="qCat"></div>
+      <div id="qText"></div>
+      <div id="choices"></div>
+      <div class="rx-fb" id="fb"></div>
+    </div>
+
+    <div class="rx-hud">
+      <span id="hudHp"></span>
+      <span class="box" id="hudCombo">連擊 0</span>
+      <span class="box">分數 <span id="hudScore">0</span></span>
+      <span class="grow">
+        <div id="hudProgBar"><div id="hudProgFill" style="width:0%"></div></div>
+      </span>
+      <span id="hudProg">0 / 10</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ 結算 ══════════ -->
+<section id="scrEnd" class="hide">
+  <div id="endBody"></div>
+  <div class="rx-endbtns">
+    <button type="button" id="btnAgain">🔁 再來一場</button>
+    <button type="button" id="btnMenu">⚙️ 換難度／題型</button>
+  </div>
+</section>
+
+</div>
+
+<script src="data/site.js?v=20260928"></script>
+<script src="data/curriculum.js?v=20261030"></script>
+<script src="data/kp.js?v=20261030"></script>
+<script src="data/reflex-bank.js?v=20261030"></script>
+<script src="data/reflex-bank-2.js?v=20261030"></script>
+<script src="data/reflex-bank-3.js?v=20261030"></script>
+<script src="data/reflex-bank-4.js?v=20260928"></script>
+<script src="data/reflex-bank-5.js?v=20261015"></script>
+<script src="data/reflex-bank-6.js?v=20261013"></script>
+<script src="data/reflex-bank-7.js?v=20261014"></script>
+<script src="data/reflex-bank-8.js?v=20261013"></script>
+<script src="data/reflex-bank-9.js?v=20261013"></script>
+<script src="data/reflex-bank-10.js?v=20261013"></script>
+<script src="data/reflex-bank-11.js?v=20261013"></script>
+<script src="data/reflex-bank-12.js?v=20261025"></script>
+<script src="data/reflex-bank-13.js?v=20261030"></script>
+<script src="data/kp-tools.js?v=20261031"></script>
+<script src="data/kp-practice.js?v=20260928"></script>
+<script src="assets/firebase-config.js"></script>
+<script src="assets/reflex-cloud.js?v=20261030"></script>
+<script src="assets/reflex.js?v=20261030"></script>
+<div class="wrap"><div class="cow-credit">
+  <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
+  <div><b>牛夫子</b>　圖／楊安琪　・　本頁沿用《國中數學工具地圖》的牛夫子主題，色票取自角色本身：斑塊的深酒紅、數學課本的粉紅、圓框眼鏡的黑、紙張的米白。</div>
+</div></div>
+<script src="assets/wb-back.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">期望值：先列分布表，再一列一列乘起來相加</text>
+  <text x="280" y="52" text-anchor="middle" font-size="14" fill="#555">買一張 20 元的彩券，中獎金額扣掉成本後的淨得失</text>
+
+  <!-- 表格 4 欄 x 4 列 -->
+  <rect x="55" y="72" width="450" height="160" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="55" y1="112" x2="505" y2="112" stroke="#333" stroke-width="1.5"/>
+  <line x1="55" y1="152" x2="505" y2="152" stroke="#333" stroke-width="1"/>
+  <line x1="55" y1="192" x2="505" y2="192" stroke="#333" stroke-width="1.5"/>
+  <line x1="175" y1="72" x2="175" y2="232" stroke="#333" stroke-width="1.5"/>
+  <line x1="285" y1="72" x2="285" y2="232" stroke="#333" stroke-width="1"/>
+  <line x1="395" y1="72" x2="395" y2="232" stroke="#333" stroke-width="1"/>
+
+  <text x="115" y="98"  text-anchor="middle" font-size="14" fill="#111">結果</text>
+  <text x="230" y="98"  text-anchor="middle" font-size="14" fill="#111">淨得失 xᵢ</text>
+  <text x="340" y="98"  text-anchor="middle" font-size="14" fill="#111">機率 pᵢ</text>
+  <text x="450" y="98"  text-anchor="middle" font-size="14" fill="#4f46e5">xᵢ · pᵢ</text>
+
+  <text x="115" y="138" text-anchor="middle" font-size="14" fill="#111">頭獎</text>
+  <text x="230" y="138" text-anchor="middle" font-size="14" fill="#333">+980</text>
+  <text x="340" y="138" text-anchor="middle" font-size="14" fill="#333">0.01</text>
+  <text x="450" y="138" text-anchor="middle" font-size="14" fill="#4f46e5">+9.8</text>
+
+  <text x="115" y="178" text-anchor="middle" font-size="14" fill="#111">貳獎</text>
+  <text x="230" y="178" text-anchor="middle" font-size="14" fill="#333">+80</text>
+  <text x="340" y="178" text-anchor="middle" font-size="14" fill="#333">0.10</text>
+  <text x="450" y="178" text-anchor="middle" font-size="14" fill="#4f46e5">+8.0</text>
+
+  <text x="115" y="218" text-anchor="middle" font-size="14" fill="#111">沒中</text>
+  <text x="230" y="218" text-anchor="middle" font-size="14" fill="#333">−20</text>
+  <text x="340" y="218" text-anchor="middle" font-size="14" fill="#333">0.89</text>
+  <text x="450" y="218" text-anchor="middle" font-size="14" fill="#4f46e5">−17.8</text>
+
+  <text x="340" y="258" text-anchor="middle" font-size="14" fill="#111">機率合計 = 1</text>
+  <text x="450" y="258" text-anchor="middle" font-size="15" fill="#4f46e5">合計 = 0</text>
+
+  <line x1="405" y1="238" x2="495" y2="238" stroke="#4f46e5" stroke-width="1.4"/>
+
+  <text x="60" y="296" font-size="16" fill="#111">E(X) = 980(0.01) + 80(0.10) + (−20)(0.89) = 0</text>
+  <text x="60" y="324" font-size="15" fill="#4f46e5">淨得失的期望值 = 0 ⇒ 這是一場「公平」的遊戲</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">導數：割線的斜率，在 h 趨近 0 之後變成切線斜率</text>
+
+  <line x1="70" y1="285" x2="520" y2="285" stroke="#555" stroke-width="1.5"/>
+  <line x1="70" y1="285" x2="70"  y2="55"  stroke="#555" stroke-width="1.5"/>
+  <text x="524" y="290" font-size="13" fill="#555">x</text>
+  <text x="56"  y="52"  font-size="13" fill="#555">y</text>
+
+  <!-- 曲線 y = f(x)（拋物線，用二次貝茲精確表示） -->
+  <path d="M90 274.6 Q 260 248.4 430 95.1" fill="none" stroke="#65a30d" stroke-width="2.6"/>
+  <text x="436" y="92" font-size="14" fill="#65a30d">y = f(x)</text>
+
+  <!-- 割線 A→B -->
+  <line x1="180" y1="265.1" x2="430" y2="105.4" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="434" y="122" font-size="13" fill="#f59e0b">割線</text>
+
+  <!-- 切線（在 A 相切） -->
+  <line x1="150" y1="270.4" x2="330" y2="183.2" stroke="#0891b2" stroke-width="2.2" stroke-dasharray="8 5"/>
+  <line x1="330" y1="185" x2="342" y2="198" stroke="#0891b2" stroke-width="1.1"/>
+  <text x="344" y="204" font-size="13" fill="#0891b2">切線</text>
+
+  <!-- 直角三角形 -->
+  <line x1="240" y1="226.8" x2="380" y2="226.8" stroke="#888" stroke-width="1.3"/>
+  <line x1="380" y1="226.8" x2="380" y2="137.4" stroke="#888" stroke-width="1.3"/>
+  <text x="310" y="245" text-anchor="middle" font-size="14" fill="#333">h</text>
+  <text x="388" y="188" font-size="13" fill="#333">f(a+h) − f(a)</text>
+
+  <!-- 兩個點 -->
+  <circle cx="240" cy="226.8" r="5.5" fill="#111"/>
+  <text x="222" y="219" font-size="14" fill="#111">A</text>
+  <circle cx="380" cy="137.4" r="5.5" fill="#111"/>
+  <text x="364" y="130" font-size="14" fill="#111">B</text>
+
+  <line x1="240" y1="226.8" x2="240" y2="285" stroke="#aaa" stroke-width="1"/>
+  <line x1="380" y1="137.4" x2="380" y2="285" stroke="#aaa" stroke-width="1"/>
+  <text x="240" y="303" text-anchor="middle" font-size="13" fill="#333">a</text>
+  <text x="380" y="303" text-anchor="middle" font-size="13" fill="#333">a + h</text>
+
+  <!-- B 沿著曲線滑向 A -->
+  <path d="M366 152 C 330 176 300 182 264 208" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+  <polygon points="256,214 274,205 268,218" fill="#f59e0b"/>
+  <text x="206" y="140" font-size="13" fill="#f59e0b">B 沿著曲線往 A 滑，h → 0</text>
+
+  <text x="60" y="328" font-size="15" fill="#111">割線斜率 = [ f(a+h) − f(a) ] / h　→　h 趨近 0 時就是 f ′(a)</text>
+</svg>

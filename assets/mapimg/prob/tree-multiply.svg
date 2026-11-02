@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+
+  <text x="280" y="28" text-anchor="middle" font-size="17" fill="#111">樹狀圖：分步就相乘</text>
+  <text x="280" y="52" text-anchor="middle" font-size="14" fill="#555">2 件上衣 × 3 條褲子 = 6 種穿法</text>
+
+  <!-- 根 -->
+  <circle cx="60" cy="185" r="7" fill="#4f46e5"/>
+  <text x="34" y="212" font-size="13" fill="#333">出發</text>
+
+  <!-- 第一層：2 個分支 -->
+  <line x1="60" y1="185" x2="180" y2="105" stroke="#4f46e5" stroke-width="1.6"/>
+  <line x1="60" y1="185" x2="180" y2="265" stroke="#4f46e5" stroke-width="1.6"/>
+  <circle cx="180" cy="105" r="6" fill="#4f46e5"/>
+  <circle cx="180" cy="265" r="6" fill="#4f46e5"/>
+  <text x="100" y="128" font-size="13" fill="#333">上衣 A</text>
+  <text x="100" y="250" font-size="13" fill="#333">上衣 B</text>
+
+  <!-- 第二層：各 3 個分支 -->
+  <line x1="180" y1="105" x2="330" y2="70"  stroke="#4f46e5" stroke-width="1.4"/>
+  <line x1="180" y1="105" x2="330" y2="105" stroke="#4f46e5" stroke-width="1.4"/>
+  <line x1="180" y1="105" x2="330" y2="140" stroke="#4f46e5" stroke-width="1.4"/>
+  <line x1="180" y1="265" x2="330" y2="230" stroke="#4f46e5" stroke-width="1.4"/>
+  <line x1="180" y1="265" x2="330" y2="265" stroke="#4f46e5" stroke-width="1.4"/>
+  <line x1="180" y1="265" x2="330" y2="300" stroke="#4f46e5" stroke-width="1.4"/>
+
+  <circle cx="330" cy="70"  r="5" fill="#4f46e5"/>
+  <circle cx="330" cy="105" r="5" fill="#4f46e5"/>
+  <circle cx="330" cy="140" r="5" fill="#4f46e5"/>
+  <circle cx="330" cy="230" r="5" fill="#4f46e5"/>
+  <circle cx="330" cy="265" r="5" fill="#4f46e5"/>
+  <circle cx="330" cy="300" r="5" fill="#4f46e5"/>
+
+  <text x="345" y="75"  font-size="13" fill="#333">褲 1　→　A1</text>
+  <text x="345" y="110" font-size="13" fill="#333">褲 2　→　A2</text>
+  <text x="345" y="145" font-size="13" fill="#333">褲 3　→　A3</text>
+  <text x="345" y="235" font-size="13" fill="#333">褲 1　→　B1</text>
+  <text x="345" y="270" font-size="13" fill="#333">褲 2　→　B2</text>
+  <text x="345" y="305" font-size="13" fill="#333">褲 3　→　B3</text>
+
+  <text x="192" y="180" font-size="13" fill="#4f46e5">每一個分支下面</text>
+  <text x="192" y="198" font-size="13" fill="#4f46e5">都長出一樣多的枝</text>
+
+  <text x="60" y="330" font-size="14" fill="#111">走到底的「路徑條數」就是答案：2 × 3 = 6</text>
+</svg>

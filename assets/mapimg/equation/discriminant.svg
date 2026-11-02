@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340" font-family="'Noto Sans TC','Microsoft JhengHei','Hiragino Sans',sans-serif">
+  <rect width="560" height="340" fill="#ffffff"/>
+  <text x="280" y="32" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2937">判別式 D = b² − 4ac 決定拋物線與 x 軸的關係</text>
+  <text x="280" y="56" text-anchor="middle" font-size="13" fill="#64748b">（圖為 a &gt; 0；a &lt; 0 時整張圖上下顛倒，結論不變）</text>
+  <text x="280" y="86" text-anchor="middle" font-size="13" fill="#475569">「有幾個實根」「相切」「恆正恆負」「與 x 軸幾個交點」都在問同一件事</text>
+
+  <!-- 面板 1：D > 0 -->
+  <line x1="35" y1="235" x2="185" y2="235" stroke="#94a3b8" stroke-width="1.6"/>
+  <path d="M40,165 Q110,385 180,165" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+  <circle cx="68" cy="235" r="5" fill="#dc2626"/>
+  <circle cx="152" cy="235" r="5" fill="#dc2626"/>
+  <text x="110" y="296" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">D &gt; 0</text>
+  <text x="110" y="316" text-anchor="middle" font-size="12" fill="#475569">交 x 軸 2 點</text>
+  <text x="110" y="333" text-anchor="middle" font-size="12" fill="#475569">兩相異實根</text>
+
+  <!-- 面板 2：D = 0 -->
+  <line x1="205" y1="235" x2="355" y2="235" stroke="#94a3b8" stroke-width="1.6"/>
+  <path d="M210,165 Q280,335 350,165" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+  <circle cx="280" cy="235" r="5" fill="#dc2626"/>
+  <text x="280" y="296" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">D = 0</text>
+  <text x="280" y="316" text-anchor="middle" font-size="12" fill="#475569">與 x 軸相切</text>
+  <text x="280" y="333" text-anchor="middle" font-size="12" fill="#475569">重根（兩根相等）</text>
+
+  <!-- 面板 3：D < 0 -->
+  <line x1="375" y1="235" x2="525" y2="235" stroke="#94a3b8" stroke-width="1.6"/>
+  <path d="M380,165 Q450,235 520,165" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+  <text x="450" y="296" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">D &lt; 0</text>
+  <text x="450" y="316" text-anchor="middle" font-size="12" fill="#475569">不相交</text>
+  <text x="450" y="333" text-anchor="middle" font-size="12" fill="#475569">沒有實根</text>
+</svg>
