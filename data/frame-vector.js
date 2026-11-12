@@ -11,7 +11,7 @@ FRAME({
       fields: [{ id: "formula", n: "坐標怎麼算" }, { id: "geo", n: "幾何意義" }, { id: "judge", n: "用來判斷／計算什麼" }, { id: "dim", n: "平面、空間都有嗎" }],
       rows: [
         {
-          id: "1", n: "加減",
+          id: "1", fig: "v-add", n: "加減",
           ans: {
             formula: "$\\vec a\\pm\\vec b=(a_1\\pm b_1,a_2\\pm b_2,a_3\\pm b_3)$；兩點 $A$、$B$：$\\overrightarrow{AB}$＝$B$ 的坐標減 $A$ 的坐標（終點減始點）",
             geo: "平行四邊形：共起點的兩邊，$\\vec a+\\vec b$ 是從起點出發的對角線，$\\vec a-\\vec b$ 是另一條（$\\vec b$ 的終點指向 $\\vec a$ 的終點）",
@@ -26,7 +26,7 @@ FRAME({
           ]
         },
         {
-          id: "2", n: "係數積（實數乘向量）",
+          id: "2", fig: "v-scalar", n: "係數積（實數乘向量）",
           ans: {
             formula: "$t$ 是實數：$t\\vec a=(ta_1,ta_2,ta_3)$；單位向量 $\\dfrac{\\vec a}{\\lvert\\vec a\\rvert}$（$\\vec a\\ne\\vec 0$）",
             geo: "伸縮：$t>0$ 同向、$t \\lt 0$ 反向，長度乘 $\\lvert t\\rvert$；再配上加法就是線性組合",
@@ -41,7 +41,7 @@ FRAME({
           ]
         },
         {
-          id: "3", n: "內積",
+          id: "3", fig: "v-dot", n: "內積",
           ans: {
             formula: "$\\vec a\\cdot\\vec b=a_1b_1+a_2b_2+a_3b_3=\\lvert\\vec a\\rvert\\lvert\\vec b\\rvert\\cos\\theta$（結果是一個數）；$\\lvert\\vec a\\rvert^2=\\vec a\\cdot\\vec a$",
             geo: "投影（$\\vec b\\ne\\vec 0$）：$\\vec a$ 在 $\\vec b$ 上的正射影向量是 $\\dfrac{\\vec a\\cdot\\vec b}{\\lvert\\vec b\\rvert^2}\\vec b$，正射影長是 $\\dfrac{\\lvert\\vec a\\cdot\\vec b\\rvert}{\\lvert\\vec b\\rvert}$；內積＝$\\lvert\\vec b\\rvert$ 乘上有正負的正射影長",
@@ -56,7 +56,7 @@ FRAME({
           ]
         },
         {
-          id: "4", n: "外積",
+          id: "4", fig: "v-cross", n: "外積",
           ans: {
             formula: "$\\vec a\\times\\vec b=\\left(\\begin{vmatrix}a_2&a_3\\\\ b_2&b_3\\end{vmatrix},\\begin{vmatrix}a_3&a_1\\\\ b_3&b_1\\end{vmatrix},\\begin{vmatrix}a_1&a_2\\\\ b_1&b_2\\end{vmatrix}\\right)$（結果是一個向量；第二個分量順序最容易寫反）",
             geo: "方向：同時垂直 $\\vec a$、$\\vec b$（右手定則）；長度 $\\lvert\\vec a\\times\\vec b\\rvert=\\lvert\\vec a\\rvert\\lvert\\vec b\\rvert\\sin\\theta$＝$\\vec a$、$\\vec b$ 張成的平行四邊形面積，三角形取一半",
@@ -71,7 +71,7 @@ FRAME({
           ]
         },
         {
-          id: "5", n: "二階行列式",
+          id: "5", fig: "v-det2", n: "二階行列式",
           ans: {
             formula: "平面向量 $\\vec a=(a_1,a_2)$、$\\vec b=(b_1,b_2)$：$\\begin{vmatrix}a_1&a_2\\\\ b_1&b_2\\end{vmatrix}=a_1b_2-a_2b_1$",
             geo: "$\\vec a$、$\\vec b$ 張成的平行四邊形的有向面積：絕對值是面積（三角形取一半），$\\vec a$ 逆時針轉到 $\\vec b$（轉不到 $180^\\circ$）時為正",
@@ -86,7 +86,7 @@ FRAME({
           ]
         },
         {
-          id: "6", n: "三階行列式",
+          id: "6", fig: "v-det3", n: "三階行列式",
           ans: {
             formula: "$\\begin{vmatrix}a_1&a_2&a_3\\\\ b_1&b_2&b_3\\\\ c_1&c_2&c_3\\end{vmatrix}=\\vec a\\cdot(\\vec b\\times\\vec c)$（三重積）；可按第一列展開成三個二階行列式",
             geo: "$\\vec a$、$\\vec b$、$\\vec c$ 張成的平行六面體的有向體積：絕對值是體積，四面體是它的 $\\frac16$",
@@ -131,7 +131,7 @@ FRAME({
           ex: [{ id: "vo15", q: "$A(1,0,0)$、$B(0,1,0)$、$C(0,0,1)$、$D(1,1,k)$ 共面，求 $k$", a: "$-1$", val: "-1" }]
         },
         {
-          id: "10", n: "三角形面積",
+          id: "10", fig: "v-tri", n: "三角形面積",
           ans: {
             flat: "$\\frac12$ 乘 $\\overrightarrow{AB}$、$\\overrightarrow{AC}$ 的二階行列式的絕對值",
             space: "$\\frac12\\lvert\\overrightarrow{AB}\\times\\overrightarrow{AC}\\rvert$；平面、空間都能用 $\\frac12\\sqrt{\\lvert\\overrightarrow{AB}\\rvert^2\\lvert\\overrightarrow{AC}\\rvert^2-(\\overrightarrow{AB}\\cdot\\overrightarrow{AC})^2}$"
@@ -141,7 +141,7 @@ FRAME({
           ex: [{ id: "vo16", q: "$A(1,1)$、$B(4,2)$、$C(2,5)$，$\\triangle ABC$ 面積", a: "$\\frac{11}2$", val: "11/2" }]
         },
         {
-          id: "11", n: "四面體體積",
+          id: "11", fig: "v-tetra", n: "四面體體積",
           ans: { flat: "（平面沒有體積）", space: "$\\frac16$ 乘 $\\overrightarrow{AB}$、$\\overrightarrow{AC}$、$\\overrightarrow{AD}$ 的三階行列式的絕對值" },
           reduce: ["6"],
           tools: ["vector/cross/純量三重積＝體積"], kp: ["G-07"],

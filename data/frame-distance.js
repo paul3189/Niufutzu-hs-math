@@ -28,7 +28,7 @@ FRAME({
           ]
         },
         {
-          id: "2", r: "pt", c: "ln", n: "點–直線",
+          id: "2", fig: "d-pt-line", r: "pt", c: "ln", n: "點–直線",
           fields: [{ id: "zero", n: "何時為 0" }, { id: "method", n: "方法" }, { id: "formula", n: "公式（平面、空間）" }, { id: "pre", n: "前提" }],
           ans: {
             zero: "點在直線上",
@@ -44,7 +44,7 @@ FRAME({
           ]
         },
         {
-          id: "3", r: "pt", c: "pl", n: "點–平面",
+          id: "3", fig: "d-pt-plane", r: "pt", c: "pl", n: "點–平面",
           ans: {
             zero: "點在平面上",
             method: "沿法向量作垂線；或體積法 $d=\\dfrac{3V}{S}$（看到三軸截距或坐標好算的四面體時更快）：在平面上取不共線三點圍成三角形當底面，$S$ 是這個底面三角形的面積，$V$ 是以該點為頂點、這個三角形為底的四面體體積",
@@ -56,7 +56,7 @@ FRAME({
           ex: [{ id: "d3", q: "$(1,2,3)$ 到 $2x-y+2z+3=0$", a: "$3$", val: "3" }]
         },
         {
-          id: "4", r: "ln", c: "ln", n: "直線–直線",
+          id: "4", fig: "d-skew", r: "ln", c: "ln", n: "直線–直線",
           fields: [{ id: "zero", n: "位置關係有幾種" }, { id: "method", n: "每一種怎麼算" }, { id: "formula", n: "公式" }, { id: "pre", n: "前提" }],
           ans: {
             zero: "平面上 2 種、空間 3 種（重合不算）：相交（距離 $0$）、平行、歪斜（只在空間）",
@@ -73,7 +73,7 @@ FRAME({
           ]
         },
         {
-          id: "5", r: "ln", c: "pl", n: "直線–平面",
+          id: "5", fig: "d-line-plane", r: "ln", c: "pl", n: "直線–平面",
           fields: [{ id: "zero", n: "位置關係有幾種" }, { id: "method", n: "怎麼算" }, { id: "pre", n: "前提" }],
           ans: {
             zero: "3 種：直線在平面上、交於一點（距離都是 $0$）、平行",
@@ -85,7 +85,7 @@ FRAME({
           ex: [{ id: "d5", q: "過 $(1,0,1)$ 方向 $(1,0,-1)$ 的直線，與 $x+y+z=5$", a: "$\\sqrt3$", val: "sqrt(3)" }]
         },
         {
-          id: "6", r: "pl", c: "pl", n: "平面–平面",
+          id: "6", fig: "d-plane-plane", r: "pl", c: "pl", n: "平面–平面",
           fields: [{ id: "zero", n: "位置關係有幾種" }, { id: "method", n: "怎麼算" }, { id: "formula", n: "公式" }, { id: "pre", n: "前提" }],
           ans: {
             zero: "2 種（重合不算）：相交（距離 $0$）、平行",
@@ -104,21 +104,21 @@ FRAME({
       fields: [{ id: "how", n: "最短距離（必要時寫最遠）" }],
       rows: [
         {
-          id: "7", n: "點–圓",
+          id: "7", fig: "d-pt-circle", n: "點–圓",
           ans: { how: "點 $P$ 到圓（圓心 $O$、半徑 $r$）：最短 $\\lvert\\overline{PO}-r\\rvert$，最遠 $\\overline{PO}+r$" },
           reduce: ["1"], reduceNote: "先換成圓心，用①，再 $\\pm r$",
           tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
           ex: [{ id: "d7", q: "$(7,0)$ 到 $x^2+y^2=9$ 的最短距離", a: "$4$", val: "4" }]
         },
         {
-          id: "8", n: "直線–圓",
+          id: "8", fig: "d-line-circle", n: "直線–圓",
           ans: { how: "先求弦心距 $d$（圓心 $O$ 到直線的距離），$r$ 是半徑。$d>r$：最短 $d-r$；$d\\le r$：最短 $0$（$d \\lt r$ 相交時，弦長 $2\\sqrt{r^2-d^2}$）" },
           reduce: ["2"], reduceNote: "弦心距就是②",
           tools: ["geometry/circle/圓與直線的關係", "geometry/line/點到直線的距離"], kp: ["G-02"],
           ex: [{ id: "d8", q: "$3x+4y=25$ 與 $x^2+y^2=9$ 的最短距離", a: "$2$", val: "2" }]
         },
         {
-          id: "9", n: "圓–圓",
+          id: "9", fig: "d-circle-circle", n: "圓–圓",
           ans: { how: "兩圓半徑 $r_1$、$r_2$，先求兩圓心的距離 $d$。外離（$d>r_1+r_2$）：$d-r_1-r_2$；內含（$d < \\lvert r_1-r_2\\rvert$）：$\\lvert r_1-r_2\\rvert-d$；其餘（相交、相切、重合）：$0$" },
           reduce: ["1"], reduceNote: "圓心距就是①",
           tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],

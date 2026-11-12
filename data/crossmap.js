@@ -139,7 +139,7 @@ CROSSMAP.push({
   tree: {
     t: "這個角夾在什麼之間？", kind: "q",
     children: [
-      { on: "直線與 x 軸（斜角）", t: "tanθ ＝ 斜率 m", note: "斜率與斜角彼此等價；鉛直線斜角 90°、沒有斜率", ref: "geometry/line/斜率與平行垂直" },
+      { on: "直線與 x 軸（斜角）", t: "tanθ ＝ 斜率 m", note: "斜率與斜角彼此等價；鉛直線沒有斜率，也沒有斜角", ref: "geometry/line/斜率與平行垂直" },
       { on: "兩向量", t: "cosθ = a·b ÷ (|a||b|)", note: "結果可為鈍角，不要隨手取絕對值", ref: "vector/dot/內積的兩種算法" },
       { on: "兩直線（平面）", t: "各求斜角再相減", note: "或 tanθ = |(m₁−m₂)÷(1+m₁m₂)|；有鉛直線時改用方向向量，夾角一律取銳角", ref: "geometry/line/兩直線的夾角" },
       { on: "兩直線（空間）", t: "取方向向量算內積", note: "歪斜線也有夾角；取絕對值化成銳角", ref: "vector/cross/空間中兩向量的夾角" },
@@ -496,7 +496,7 @@ CROSSMAP.push({
           { on: "邊角混合", t: "正弦、餘弦定理", ref: "trig/solvetri/餘弦定理" }
         ]
       },
-      { on: "存在性", t: "勘根定理或直接建構", note: "f(a)f(b) < 0 就有根（需連續）", ref: "number/poly/勘根定理" },
+      { on: "存在性", t: "勘根定理（補充）或直接建構", note: "f(a)f(b) < 0 就有根（需連續）", ref: "number/poly/勘根定理" },
       { on: "唯一性或「不可能」", t: "反證法", note: "假設結論不成立（例如假設有兩個），推出矛盾；這和「證逆否命題」是不同的方法", ref: "number/setlogic/逆、否、逆否命題" }
     ]
   },

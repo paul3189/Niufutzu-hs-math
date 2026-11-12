@@ -11,7 +11,7 @@ FRAME({
       fields: [{ id: "period", n: "週期" }, { id: "range", n: "值域" }, { id: "sym", n: "對稱（奇偶、對稱軸、對稱中心）" }, { id: "zero", n: "零點（tan 寫零點＋漸近線）" }, { id: "ext", n: "最大最小在哪裡" }],
       rows: [
         {
-          id: "1", n: "$y=\\sin x$",
+          id: "1", fig: "t-sin", n: "$y=\\sin x$",
           ans: {
             period: "$2\\pi$",
             range: "$[-1,1]$",
@@ -24,7 +24,7 @@ FRAME({
           ex: [{ id: "tf1", q: "$y=\\sin x$ 在 $0\\le x\\le4\\pi$ 的零點個數", a: "$5$ 個（$0,\\pi,2\\pi,3\\pi,4\\pi$）", val: "5" }]
         },
         {
-          id: "2", n: "$y=\\cos x$",
+          id: "2", fig: "t-cos", n: "$y=\\cos x$",
           ans: {
             period: "$2\\pi$",
             range: "$[-1,1]$",
@@ -37,7 +37,7 @@ FRAME({
           ex: [{ id: "tf2", q: "$\\cos x=0$ 在 $0\\le x\\le2\\pi$ 的解", a: "$x=\\frac{\\pi}{2},\\frac{3\\pi}{2}$", val: "(pi/2,3*pi/2)" }]
         },
         {
-          id: "3", n: "$y=\\tan x$",
+          id: "3", fig: "t-tan", n: "$y=\\tan x$",
           ans: {
             period: "$\\pi$（不是 $2\\pi$）",
             range: "全體實數",
@@ -50,7 +50,7 @@ FRAME({
           ex: [{ id: "tf3", q: "$y=\\tan x$ 在 $0\\le x\\le2\\pi$ 的零點個數、漸近線條數", a: "零點 $3$ 個、漸近線 $2$ 條", val: "(3,2)" }]
         },
         {
-          id: "4", n: "一般式 $y=a\\sin(bx+c)+d$（$a,b\\ne0$）",
+          id: "4", fig: "t-general", n: "一般式 $y=a\\sin(bx+c)+d$（$a,b\\ne0$）",
           ans: {
             period: "$\\frac{2\\pi}{\\lvert b\\rvert}$（$b$ 管週期）",
             range: "$[d-\\lvert a\\rvert,d+\\lvert a\\rvert]$；振幅 $\\lvert a\\rvert$，中心線 $y=d$",
@@ -67,7 +67,7 @@ FRAME({
           ]
         },
         {
-          id: "5", n: "疊合 $y=a\\sin x+b\\cos x$（$a,b$ 不全為 $0$）",
+          id: "5", fig: ["t-aux-tri", "t-aux-graph"], n: "疊合 $y=a\\sin x+b\\cos x$（$a,b$ 不全為 $0$）",
           ans: {
             period: "$2\\pi$（同週期的波相加）",
             range: "化為 $r\\sin(x+\\varphi)$（$r=\\sqrt{a^2+b^2}$ 是振幅，$\\cos\\varphi=\\frac{a}{r}$、$\\sin\\varphi=\\frac{b}{r}$），值域 $[-r,r]$（不是 $a+b$）",

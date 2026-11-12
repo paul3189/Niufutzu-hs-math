@@ -10,7 +10,7 @@ FRAME({
       fields: [{ id: "when", n: "看到題目給什麼條件" }, { id: "formula", n: "公式" }, { id: "use", n: "怎麼用／反求什麼" }],
       rows: [
         {
-          id: "1", n: "底乘高除以 $2$",
+          id: "1", fig: "ta-base", n: "底乘高除以 $2$",
           ans: {
             when: "已知底邊長 $a$ 與這條底邊上的高 $h_a$（或頂點到直線的距離）",
             formula: "$S=\\dfrac12 a h_a$",
@@ -21,7 +21,7 @@ FRAME({
           ex: [{ id: "ta1", q: "底邊 $a=8$、高 $h_a=5$，求面積 $S$", a: "$20$", val: "20" }]
         },
         {
-          id: "2", n: "兩邊夾一角",
+          id: "2", fig: "ta-sas", n: "兩邊夾一角",
           ans: {
             when: "已知兩邊長 $a,b$ 與它們的夾角 $C$（或三邊配餘弦定理先算出 $\\cos C$，再轉 $\\sin C=\\sqrt{1-\\cos^2 C}$）",
             formula: "$S=\\dfrac12 ab\\sin C=\\dfrac12 bc\\sin A=\\dfrac12 ca\\sin B$",
@@ -43,7 +43,7 @@ FRAME({
           ex: [{ id: "ta3", q: "三邊長 $a=5$、$b=6$、$c=7$，求 $\\triangle ABC$ 面積", a: "$6\\sqrt6$", val: "6*sqrt(6)" }]
         },
         {
-          id: "4", n: "內切圓半徑公式",
+          id: "4", fig: "ta-in", n: "內切圓半徑公式",
           ans: {
             when: "題目提到「內切圓半徑 $r$」或「內心到三邊的距離」",
             formula: "半周長 $s=\\dfrac{a+b+c}{2}$，面積 $S=r\\cdot s=\\dfrac12 r(a+b+c)$",
@@ -54,7 +54,7 @@ FRAME({
           ex: [{ id: "ta4", q: "三邊長 $5,12,13$ 的直角三角形，求內切圓半徑 $r$", a: "$2$", val: "2" }]
         },
         {
-          id: "5", n: "外接圓半徑公式",
+          id: "5", fig: "ta-circ", n: "外接圓半徑公式",
           ans: {
             when: "題目給三邊長 $a,b,c$，要求外接圓半徑 $R$（而又不想單獨算某個角的 $\\sin$）",
             formula: "$S=\\dfrac{abc}{4R}$，移項得 $R=\\dfrac{abc}{4S}$",
@@ -71,7 +71,7 @@ FRAME({
       fields: [{ id: "when", n: "看到題目給什麼條件" }, { id: "formula", n: "公式" }, { id: "use", n: "平面與空間的差別" }],
       rows: [
         {
-          id: "6", n: "向量長度與內積公式＋平面二階行列式",
+          id: "6", fig: "ta-vec", n: "向量長度與內積公式＋平面二階行列式",
           ans: {
             when: "已知兩夾邊向量的長度 $\\lvert\\vec u\\rvert,\\lvert\\vec v\\rvert$ 與內積 $\\vec u\\cdot\\vec v$；或已知平面上三頂點坐標",
             formula: "$S=\\dfrac12\\sqrt{\\lvert\\vec u\\rvert^2\\lvert\\vec v\\rvert^2-(\\vec u\\cdot\\vec v)^2}$；若在平面上 $\\vec u=(x_1,y_1)$、$\\vec v=(x_2,y_2)$，展開化簡就是二階行列式絕對值的一半：$S=\\dfrac12\\bigl\\lvert\\begin{vmatrix}x_1&y_1\\\\ x_2&y_2\\end{vmatrix}\\bigr\\rvert=\\dfrac12\\lvert x_1y_2-x_2y_1\\rvert$",
@@ -85,7 +85,7 @@ FRAME({
           ]
         },
         {
-          id: "7", n: "空間向量外積公式",
+          id: "7", fig: "v-cross", n: "空間向量外積公式",
           ans: {
             when: "已知空間中三頂點坐標 $A,B,C$，或兩夾邊空間向量 $\\vec u=(x_1,y_1,z_1)$、$\\vec v=(x_2,y_2,z_2)$",
             formula: "$S=\\dfrac12\\lvert\\vec u\\times\\vec v\\rvert$（外積向量長度的一半；平行四邊形面積則不乘 $\\dfrac12$）",

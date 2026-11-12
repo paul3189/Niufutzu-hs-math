@@ -80,7 +80,7 @@ FRAME({
           ]
         },
         {
-          id: "6", n: "最適直線（最小平方法迴歸直線）",
+          id: "6", fig: "s-reg", n: "最適直線（最小平方法迴歸直線）",
           ans: {
             def: "$Y$ 對 $X$ 的最適直線必過重心 $(\\mu_X,\\mu_Y)$，方程式為 $y-\\mu_Y=m(x-\\mu_X)$，其中斜率 $m=r\\dfrac{\\sigma_Y}{\\sigma_X}=\\dfrac{\\sum(x_i-\\mu_X)(y_i-\\mu_Y)}{\\sum(x_i-\\mu_X)^2}$",
             shift: "新的最適直線（$V$ 對 $U$）可直接把原直線裡的 $x,y$ 代換成 $\\dfrac{u-b}{a}$ 與 $\\dfrac{v-d}{c}$；新斜率 $=\\dfrac{c}{a}m$（只變 $x$ 時是 $\\dfrac{m}{a}$、只變 $y$ 時是 $cm$；因為 $\\sigma_V=\\lvert c\\rvert\\sigma_Y$、$\\sigma_U=\\lvert a\\rvert\\sigma_X$，配⑤的正負號恰好消掉絕對值）",

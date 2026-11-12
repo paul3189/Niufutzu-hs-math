@@ -23,13 +23,13 @@
 <body>
 <div class="topbar"><div class="topbar-inner">
   <a class="cow-brand" href="index.html"><img class="cow-logo" src="assets/mascot/web/cow_stand.png" alt="牛夫子"><span class="brand-t">牛夫子‧高中數學</span></a>
-  <a href="index.html">課程總覽</a>
+  <a href="index.html">首頁</a>
   <a href="map.html">工具地圖</a>
   <a href="cross.html">跨章流程圖</a>
   <a href="frame.html">架構重建卡</a>
   <span class="crumb" id="crumb">跨章決策流程圖</span>
-  <a href="https://wrongbook.niufutzu.com/">📓 錯題本</a>
-  <a href="https://wrongbook.niufutzu.com/habits">📋 讀書習慣卡</a>
+  <a href="https://wrongbook.niufutzu.com/">錯題本</a>
+  <a href="https://wrongbook.niufutzu.com/habits">讀書習慣卡</a>
   <span class="spacer"></span>
   <span id="edSwitch"></span>
 </div></div>
@@ -71,23 +71,24 @@
 </div>
 
 <script src="data/site.js?v=20260928"></script>
-<script src="data/scope.js?v=20261101"></script>
-<script src="data/crossmap.js?v=20261030"></script>
+<script src="data/scope.js?v=20261112k"></script>
+<script src="data/crossmap.js?v=20261112k"></script>
 <!-- 工具地圖資料：流程圖上有 ref 的節點要靠它打開工具抽屜（順序比照 branch.html） -->
 <script src="data/toolmap.js?v=20260928"></script>
-<script src="data/tm-1-number.js?v=20261101"></script>
-<script src="data/tm-2-equation.js?v=20261101"></script>
+<script src="data/tm-1-number.js?v=20261112k"></script>
+<script src="data/tm-2-equation.js?v=20261112k"></script>
 <script src="data/tm-3-function.js?v=20261101"></script>
 <script src="data/tm-4-trig.js?v=20261101"></script>
 <script src="data/tm-5-geometry.js?v=20261101"></script>
 <script src="data/tm-6-vector.js?v=20261101"></script>
-<script src="data/tm-7-sequence.js?v=20261101"></script>
+<script src="data/tm-7-sequence.js?v=20261112k"></script>
 <script src="data/tm-8-prob.js?v=20261101"></script>
 <script src="data/tm-9-calculus.js?v=20261101"></script>
 <script src="data/curriculum.js?v=20261030"></script>
-<script src="data/kp.js?v=20261030"></script>
-<script src="data/kp-tools.js?v=20261031"></script>
-<script src="data/kp-practice.js?v=20260928"></script>
+<script src="data/kp.js?v=20261112"></script>
+<script src="data/kp-tools.js?v=20261112k"></script>
+<script src="data/kp-practice.js?v=20261112k"></script>
+<script src="assets/nfz-icons.js?v=20261107"></script>
 <script src="assets/flow.js?v=20260924"></script>
 <script src="assets/map.js?v=20260928"></script>
 <script>
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var lead = document.getElementById("cxLead");
     lead.style.borderLeftColor = c.color;
-    lead.innerHTML = '<h2 style="color:' + c.color + '">' + c.icon + " " + c.n + "</h2>" +
+    lead.innerHTML = '<h2 style="color:' + c.color + '">' + c.n + "</h2>" +
       "<p>" + c.lead + "</p>" +
       '<div class="cx-kw">' + c.when.map(function (k) { return "<span>" + k + "</span>"; }).join("") + "</div>";
     katex(lead);
@@ -183,13 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var nx = CROSSMAP[(i + 1) % CROSSMAP.length];
     var a = document.getElementById("nextC");
     a.href = "cross.html#c=" + nx.id;
-    a.textContent = nx.icon + " " + nx.n + " →";
+    a.textContent = nx.n + " →";
     a.onclick = function (e) { e.preventDefault(); show((i + 1) % CROSSMAP.length); window.scrollTo({ top: 0, behavior: "smooth" }); };
   }
 
   CROSSMAP.forEach(function (c, i) {
     var b = document.createElement("button");
-    b.textContent = c.icon + " " + c.n;
+    b.textContent = c.n;
     b.addEventListener("click", function () { show(i); });
     tabs.appendChild(b);
   });
@@ -200,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <div class="wrap"><div class="cow-credit">
   <img src="assets/mascot/web/cow_cos.png" alt="牛夫子的背影">
-  <div><b>牛夫子</b>　圖／楊安琪　・　本頁沿用《國中數學工具地圖》的牛夫子主題，色票取自角色本身：斑塊的深酒紅、數學課本的粉紅、圓框眼鏡的黑、紙張的米白。</div>
+  <div><b>牛夫子</b>　圖／楊安琪</div>
 </div></div>
 <script src="assets/wb-back.js"></script>
 </body>

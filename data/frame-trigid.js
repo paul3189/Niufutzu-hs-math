@@ -11,7 +11,7 @@ FRAME({
       fields: [{ id: "formula", n: "公式" }, { id: "how", n: "怎麼從上一代推出來／口訣" }, { id: "use", n: "何時用（常搭配的變形）" }],
       rows: [
         {
-          id: "1", n: "商數與平方關係",
+          id: "1", fig: "ti-unit", n: "商數與平方關係",
           ans: {
             formula: "$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$（$\\cos\\theta\\ne0$）；$\\sin^2\\theta+\\cos^2\\theta=1$",
             how: "第一源頭：角 $\\theta$ 的終邊與單位圓交於 $(\\cos\\theta,\\sin\\theta)$，終邊所在直線的斜率就是 $\\tan\\theta$（縱坐標除以橫坐標，橫坐標不為 $0$），畢氏定理得平方和 $=1$",
@@ -25,7 +25,7 @@ FRAME({
           ]
         },
         {
-          id: "2", n: "廣義角與餘角化簡",
+          id: "2", fig: "ti-sym", n: "廣義角與餘角化簡",
           ans: {
             formula: "負角：$\\sin(-\\theta)=-\\sin\\theta$、$\\cos(-\\theta)=\\cos\\theta$、$\\tan(-\\theta)=-\\tan\\theta$；補角：$\\sin(180^\\circ-\\theta)=\\sin\\theta$、$\\cos(180^\\circ-\\theta)=-\\cos\\theta$；餘角：$\\sin(90^\\circ-\\theta)=\\cos\\theta$、$\\cos(90^\\circ-\\theta)=\\sin\\theta$",
             how: "奇變偶不變、正負看象限：$90^\\circ\\times k\\pm\\theta$（$k$ 是整數）中 $k$ 是奇數時 $\\sin\\leftrightarrow\\cos$ 互換，$k$ 是偶數時函數名不變；正負號看把 $\\theta$ 當銳角時原角所在的象限",
@@ -39,7 +39,7 @@ FRAME({
           ]
         },
         {
-          id: "3", n: "餘弦差角與和角",
+          id: "3", fig: "ti-cosdiff", n: "餘弦差角與和角",
           ans: {
             formula: "$\\cos(\\alpha-\\theta)=\\cos\\alpha\\cos\\theta+\\sin\\alpha\\sin\\theta$；$\\cos(\\alpha+\\theta)=\\cos\\alpha\\cos\\theta-\\sin\\alpha\\sin\\theta$",
             how: "第二源頭：在單位圓上取角 $\\alpha$、$\\theta$ 的終邊點，由兩點距離公式等於餘弦定理推得 $\\cos(\\alpha-\\theta)$；再把 $\\theta$ 換成 $-\\theta$（套②）得 $\\cos(\\alpha+\\theta)$",

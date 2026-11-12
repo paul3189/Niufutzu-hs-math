@@ -215,7 +215,7 @@
   }
   function catOf(id) {
     return REFLEX_BANK.cats.filter(function (c) { return c.id === id; })[0] ||
-      { id: id, icon: "❓", name: id, timeMul: 1 };          /* 錯題本裡的舊題型已被移除時的保底 */
+      { id: id, icon: "", name: id, timeMul: 1 };          /* 錯題本裡的舊題型已被移除時的保底 */
   }
   function diffOf(id) {
     return DIFFS.filter(function (d) { return d.id === id; })[0] || DIFFS[2];
@@ -354,7 +354,7 @@
       b.type = "button";
       b.className = "rx-chip" + (on ? " on" : "") + (ok ? "" : " dead");
       b.disabled = !ok;
-      b.innerHTML = '<span class="c-ic">' + c.icon + '</span><span class="c-nm">' + c.name +
+      b.innerHTML = '<span class="c-ic">' + (window.NFZ_IC ? NFZ_IC.svg(c.icon) : "") + '</span><span class="c-nm">' + c.name +
         '</span><span class="c-ds">' + (ok ? c.desc : "此範圍沒有這類題目") + '</span>';
       b.addEventListener("click", function () {
         var i = sel.cats.indexOf(c.id);
@@ -377,10 +377,10 @@
     $("btnStart").disabled = empty;
     $("btnStart").classList.toggle("off", empty);
     $("setupLine").innerHTML = empty
-      ? '<span class="warn-src">' + (sel.scope === "kp" ? "⚠ 這幾個考點道場還沒有題目" : "⚠ 請至少選一個章節") + '</span>'
+      ? '<span class="warn-src">' + (sel.scope === "kp" ? "這幾個考點道場還沒有題目" : "請至少選一個章節") + '</span>'
       : '<b>' + d.sec + ' 秒</b>（' + d.name + '）　▸　<b>' + scopeLabel() + '</b>　▸　' +
         use.length + ' 種題型　▸　題源 ' + srcCount + ' 個' +
-        (srcCount < 4 ? '<span class="warn-src">　⚠ 範圍很窄，10 題內會重複出現</span>' : "");
+        (srcCount < 4 ? '<span class="warn-src">　範圍很窄，10 題內會重複出現</span>' : "");
 
     /* ── 個人紀錄 ── */
     var db = load();
@@ -406,7 +406,7 @@
         var s = st[c.id];
         if (!s || !s.n) return "";
         var acc = Math.round(100 * s.ok / s.n);
-        return '<div class="lf"><span class="lf-n">' + c.icon + ' ' + c.name + '</span>' +
+        return '<div class="lf"><span class="lf-n">' + c.name + '</span>' +
           '<span class="lf-bar"><i style="width:' + acc + '%"></i></span>' +
           '<span class="lf-v">' + acc + '%．平均 ' + (s.ms / s.n / 1000).toFixed(1) + ' 秒．' + s.n + ' 題</span></div>';
       }).join("") + '</div>';
@@ -438,11 +438,11 @@
     var due = live.filter(function (w) { return isDue(w, now); });
     var grad = all.length - live.length;
     var signed = cloudOn && C && C.user();
-    var sync = signed ? "☁️ 已登入：錯題本會跟雲端同步，換裝置也接得上。"
+    var sync = signed ? "已登入：錯題本會跟雲端同步，換裝置也接得上。"
       : "錯題本存在這台裝置" + (cloudOn ? "；登入後會跟雲端合併。" : "。");
     if (wbSyncMsg) sync = wbSyncMsg;
     if (!all.length) {
-      box.innerHTML = '<div class="rx-rv empty"><div class="rv-main"><b>📓 錯題本還是空的</b>' +
+      box.innerHTML = '<div class="rx-rv empty"><div class="rv-main"><b>錯題本還是空的</b>' +
         '<span>答錯或超時的題會自動收進來，隔天起出現在「今日複習」。原題和一題同考點的類似題都答對，才算過關；' +
         '之後間隔依 1、3、7、14 天拉長，過關四次就畢業。</span></div></div>';
       return;
@@ -452,7 +452,7 @@
     var info = '錯題本 ' + live.length + ' 題在複習中' + (grad ? '．已畢業 ' + grad + ' 題' : "") +
       (next ? '．下一批 ' + fmtDay(next) + ' 到期' : "");
     box.innerHTML = '<div class="rx-rv' + (due.length ? " due" : "") + '">' +
-      '<div class="rv-main"><b>' + (due.length ? "📅 今日複習 " + due.length + " 題" : "📅 今天沒有要複習的題目 ✔") + '</b>' +
+      '<div class="rv-main"><b>' + (due.length ? "今日複習 " + due.length + " 題" : "今天沒有要複習的題目 ✓") + '</b>' +
       '<span>' + info + '</span><span class="rv-sync">' + esc(sync) + '</span></div>' +
       (due.length ? '<button type="button" id="btnReview">開始複習 ▶' +
         (due.length > REVIEW_MAX ? '<small>這次先 ' + REVIEW_MAX + ' 題</small>' : "") + '</button>' : "") +
@@ -478,7 +478,7 @@
     var box = $("cloudAccount");
     if (!box || !cloudOn) return;
     var u = C.user(), nick = C.nick();
-    var html = '<div class="rx-sec">👤 帳號 <small>登入後成績會上榜、錯題本跨裝置同步；排行榜只顯示暱稱，不會出現 Email</small></div>';
+    var html = '<div class="rx-sec">帳號 <small>登入後成績會上榜、錯題本跨裝置同步；排行榜只顯示暱稱，不會出現 Email</small></div>';
     if (!u) {
       var remembered = C.rememberedEmail();
       html += '<div class="rx-cloud">' +
@@ -493,7 +493,7 @@
       return;
     }
     html += '<div class="rx-cloud">' +
-      '<div class="cl-row"><span class="cl-who">✅ 已登入　<span class="cl-mail">' + esc(u.email) + '</span></span>' +
+      '<div class="cl-row"><span class="cl-who">已登入　<span class="cl-mail">' + esc(u.email) + '</span></span>' +
       '<button type="button" class="cl-out" id="clOut">登出</button></div>' +
       '<div class="cl-row"><label for="clNick">暱稱</label>' +
       '<input type="text" id="clNick" maxlength="12" placeholder="排行榜上顯示的名字（1～12 字）" value="' + esc(nick) + '">' +
@@ -510,7 +510,7 @@
     $("clSend").disabled = true;
     $("clMsg").textContent = "寄送中…";
     C.sendLink(email).then(function () {
-      $("clMsg").innerHTML = "📨 已寄到 <b>" + esc(email) + "</b>。打開那封信、點裡面的連結就會回到這裡並登入。沒收到請看垃圾信匣。";
+      $("clMsg").innerHTML = "已寄到 <b>" + esc(email) + "</b>。打開那封信、點裡面的連結就會回到這裡並登入。沒收到請看垃圾信匣。";
     }).catch(function (e) {
       $("clSend").disabled = false;
       $("clMsg").textContent = "寄送失敗：" + friendly(e);
@@ -540,7 +540,7 @@
     var box = $("cloudBoard");
     if (!box || !cloudOn) return;
     if (!boardSel.diff) boardSel.diff = sel.diff;
-    var html = '<div class="rx-sec">🏆 排行榜 <small>每個難度一個榜；本週榜每週一重新開始，總榜是歷史最高分</small></div>' +
+    var html = '<div class="rx-sec">排行榜 <small>每個難度一個榜；本週榜每週一重新開始，總榜是歷史最高分</small></div>' +
       '<div class="rx-cloud"><div class="bd-tabs">' +
       '<span class="bd-kind"><button type="button" data-k="week"' + (boardSel.kind === "week" ? ' class="on"' : "") + '>本週榜</button>' +
       '<button type="button" data-k="all"' + (boardSel.kind === "all" ? ' class="on"' : "") + '>總榜</button></span>' +
@@ -579,7 +579,7 @@
     var html = !rows.length ? '<div class="rx-none">這個榜還沒有人上榜，打一場就是第一名。</div>' :
       '<table class="bd-tbl' + (sum ? " sum" : "") + '">' + head +
       rows.map(function (x, i) {
-        var medal = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : (i + 1);
+        var medal = i + 1;
         var who = '<td>' + medal + '</td><td>' + esc(x.nick) +
           (x.uid === me ? '<span class="bd-me">我</span>' : "") + '</td><td class="bd-s">' + x.score + '</td>';
         var rest = sum
@@ -598,8 +598,8 @@
   function cloudSubmit(run) {
     if (!cloudOn) return Promise.resolve("");
     var u = C.user();
-    if (!u) return Promise.resolve('<div class="rx-cloud end"><b>☁️ 這一場沒有上榜</b>：回選單用 Email 登入，之後的成績就會進排行榜。</div>');
-    if (!C.nick()) return Promise.resolve('<div class="rx-cloud end"><b>☁️ 這一場沒有上榜</b>：暱稱還沒設定好，回選單看一下「👤 帳號」。</div>');
+    if (!u) return Promise.resolve('<div class="rx-cloud end"><b>這一場沒有上榜</b>：回選單用 Email 登入，之後的成績就會進排行榜。</div>');
+    if (!C.nick()) return Promise.resolve('<div class="rx-cloud end"><b>這一場沒有上榜</b>：暱稱還沒設定好，回選單看一下「帳號」。</div>');
     return C.submit(run).then(function (r) {
       boardCache = {};
       renderBoard();                       /* 選單雖然還沒顯示，先把榜更新好 */
@@ -609,9 +609,9 @@
         return "<div>" + name + "：" + where +
           (x.improved ? '<span class="bd-new">刷新個人最佳</span>' : "（個人最佳 " + x.best + " 分）") + plays + "</div>";
       }
-      return '<div class="rx-cloud end"><b>☁️ 成績已上傳</b>' + line("本週榜", r.week) + line("總榜", r.all) + '</div>';
+      return '<div class="rx-cloud end"><b>成績已上傳</b>' + line("本週榜", r.week) + line("總榜", r.all) + '</div>';
     }).catch(function (e) {
-      return '<div class="rx-cloud end"><b>☁️ 上傳失敗</b>：' + esc(friendly(e)) + '（本機紀錄已存）</div>';
+      return '<div class="rx-cloud end"><b>上傳失敗</b>：' + esc(friendly(e)) + '（本機紀錄已存）</div>';
     });
   }
 
@@ -633,7 +633,7 @@
       return chunks.reduce(function (p, ch) { return p.then(function () { return C.wrongAdd(ch); }); }, Promise.resolve());
     }).catch(function (e) {
       wbSyncedUid = null;
-      wbSyncMsg = "⚠ 錯題本雲端同步失敗：" + friendly(e) + "（本機的錯題本照常可用）";
+      wbSyncMsg = "錯題本雲端同步失敗：" + friendly(e) + "（本機的錯題本照常可用）";
       renderReviewBox();
     });
   }
@@ -726,9 +726,9 @@
         '<div class="rxp-h"><span class="rxp-code">' + esc(id) + '</span>' +
         '<span class="rxp-n">' + esc(kpName(id) || "") + '</span>' +
         '<span class="rxp-v">錯 ' + (s.n - s.ok) + '／答 ' + s.n + '</span></div>' +
-        row("🗺️ 工具地圖", tools) +
-        row("📝 練習本", prac) +
-        '<div class="rxp-row"><span class="rxp-l">⚔️ 道場</span><span class="rxp-links">' +
+        row("工具地圖", tools) +
+        row("練習本", prac) +
+        '<div class="rxp-row"><span class="rxp-l">道場</span><span class="rxp-links">' +
         '<a class="rxp-a go" href="' + esc(kpHref(id)) + '">再練這個考點 →</a></span></div>' +
         '</div>';
     }).join("");
@@ -738,9 +738,9 @@
     var rx = prescriptionHtml(perKp);
     var good = Object.keys(perKp || {}).filter(function (k) { return perKp[k].ok >= perKp[k].n; }).sort();
     if (!rx && !good.length) return "";
-    return '<h3 class="rx-h3">💊 考點處方 <small>這一場答錯的考點，照下面的連結回去補</small></h3>' +
+    return '<h3 class="rx-h3">考點處方 <small>這一場答錯的考點，照下面的連結回去補</small></h3>' +
       (rx ? '<div class="rx-rx">' + rx + '</div>' : '<div class="rx-none">這一場出現的考點全部答對。</div>') +
-      (good.length ? '<div class="rx-kpok">✔ 全對的考點：' + good.map(function (k) {
+      (good.length ? '<div class="rx-kpok">✓ 全對的考點：' + good.map(function (k) {
         return '<span title="' + esc(kpName(k)) + '">' + esc(k) + (kpName(k) ? " " + esc(kpName(k)) : "") + '</span>';
       }).join("、") + '</div>' : "");
   }
@@ -770,7 +770,7 @@
       ? '<div class="rx-none">' + allOk + '</div>'
       : wrongs.map(function (w) {
         var c = catOf(w.cat);
-        return '<div class="wr"><div class="wr-c">' + c.icon + ' ' + c.name +
+        return '<div class="wr"><div class="wr-c">' + c.name +
           (w.tag ? '<span class="wr-tag">' + w.tag + '</span>' : "") +
           (w.timeout ? '<span class="wr-to">超時</span>' : '<span class="wr-x">答錯</span>') +
           '<span class="wr-ch">' + REFLEX_BANK.labelOf(w.ch) + '</span></div>' +
@@ -860,7 +860,7 @@
   }
   function paintHud() {
     var h = "";
-    for (var i = 0; i < MAX_HP; i++) h += '<span class="hp' + (i < G.hp ? "" : " off") + '">❤</span>';
+    for (var i = 0; i < MAX_HP; i++) h += '<span class="hp' + (i < G.hp ? "" : " off") + '"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5S2 9.8 2 5.8A3 3 0 0 1 8 4.4a3 3 0 0 1 6 1.4c0 4-6 7.7-6 7.7z"/></svg></span>';
     $("hudHp").innerHTML = h;
     $("hudScore").textContent = G.score;
     $("hudCombo").innerHTML = G.combo >= 2 ? '<b>' + G.combo + '</b> 連擊' : "連擊 " + G.combo;
@@ -893,7 +893,7 @@
     G.item = it;
     var cat = catOf(it.cat);
 
-    $("qCat").innerHTML = cat.icon + " " + cat.name + (tag ? '<span class="q-tag">' + tag + '</span>' : "") +
+    $("qCat").innerHTML = cat.name + (tag ? '<span class="q-tag">' + tag + '</span>' : "") +
       '<span class="q-ch">' + REFLEX_BANK.labelOf(it.ch) + '</span>';
     $("qText").innerHTML = it.q;
     var cw = $("choices");
@@ -989,9 +989,9 @@
       $("monImg").classList.add("hit");
       setTimeout(function () { $("monImg").classList.remove("hit"); }, 380);
       paintMonHp();
-      var extra = speed > 0.7 ? '<span class="fb-bonus">⚡ 反應很快，速度加成 +' + Math.round(12 * speed) + '</span>' : "";
+      var extra = speed > 0.7 ? '<span class="fb-bonus">反應很快，速度加成 +' + Math.round(12 * speed) + '</span>' : "";
       $("fb").className = "rx-fb ok show";
-      $("fb").innerHTML = '<div class="fb-h">✔ 正解　<span class="fb-t">' + (used / 1000).toFixed(2) + ' 秒</span>' + extra + '</div>' +
+      $("fb").innerHTML = '<div class="fb-h">✓ 正解　<span class="fb-t">' + (used / 1000).toFixed(2) + ' 秒</span>' + extra + '</div>' +
         (it.tip ? '<div class="fb-tip">' + it.tip + '</div>' : "");
       rm($("fb"));
       if (G.monHp <= 0) { killMonster(); return; }
@@ -1009,7 +1009,7 @@
     G.wrongs.push({ cat: it.cat, ch: it.ch, kp: it.kp, q: it.q, ans: it.choices[it.ans], tip: it.tip, timeout: timeout });
     wbRecordWrong(it);                     /* 立刻收進錯題本（明天起進今日複習） */
     $("fb").className = "rx-fb no show";
-    $("fb").innerHTML = '<div class="fb-h">' + (timeout ? "⏱ 時間到" : "✘ 答錯") +
+    $("fb").innerHTML = '<div class="fb-h">' + (timeout ? "時間到" : "✗ 答錯") +
       '　<span class="fb-t">正解：' + it.choices[it.ans] + '</span></div>' +
       (it.tip ? '<div class="fb-tip">' + it.tip + '</div>' : "") +
       '<button class="fb-next" id="fbNext">繼續 ▶（Enter）</button>';
@@ -1096,14 +1096,14 @@
         var a = Math.round(100 * s.ok / s.n);
         var lv = a >= 80 ? "good" : a >= 50 ? "mid" : "bad";
         return '<div class="dg ' + lv + '">' +
-          '<div class="dg-n">' + c.icon + ' ' + c.name + '</div>' +
+          '<div class="dg-n">' + c.name + '</div>' +
           '<div class="dg-bar"><i style="width:' + a + '%"></i></div>' +
           '<div class="dg-v">' + s.ok + '/' + s.n + '（' + a + '%）．平均 ' +
           (s.ms / s.n / 1000).toFixed(1) + ' 秒' + (a >= 80 ? "．已經很穩" : "") + '</div></div>';
       }).join("");
 
     var wbNote = G.wrongs.length
-      ? '<div class="rx-wbnote">📓 這一場答錯的 ' + G.wrongs.length + ' 題已經收進錯題本，明天起會出現在選單最上面的「今日複習」。</div>'
+      ? '<div class="rx-wbnote">這一場答錯的 ' + G.wrongs.length + ' 題已經收進錯題本，明天起會出現在選單最上面的「今日複習」。</div>'
       : "";
 
     $("endBody").innerHTML =
@@ -1121,14 +1121,14 @@
         '<div><b>' + G.kills + '</b><span>擊倒怪物</span></div>' +
         '<div><b>' + G.hp + ' / ' + MAX_HP + '</b><span>剩餘生命</span></div>' +
       '</div>' +
-      '<h3 class="rx-h3">🔍 題型診斷</h3><div class="rx-diag">' + diag + '</div>' +
+      '<h3 class="rx-h3">題型診斷</h3><div class="rx-diag">' + diag + '</div>' +
       kpSectionHtml(G.perKp) +
-      '<h3 class="rx-h3">📚 該回去補的章節</h3><div class="rx-chdiag">' + chDiagHtml(G.perCh) + '</div>' +
-      '<h3 class="rx-h3">📓 錯題回顧</h3>' + wbNote +
+      '<h3 class="rx-h3">該回去補的章節</h3><div class="rx-chdiag">' + chDiagHtml(G.perCh) + '</div>' +
+      '<h3 class="rx-h3">錯題回顧</h3>' + wbNote +
       '<div class="rx-wrongs">' + wrongListHtml(G.wrongs, "這一場全對，沒有錯題。") + '</div>';
 
     rm($("endBody"));
-    $("btnAgain").textContent = "🔁 再來一場";
+    $("btnAgain").textContent = "再來一場";
     show("scrEnd");
 
     /* 雲端上傳（有登入才會真的傳）；結果補在分數下面。失敗只顯示原因，本機紀錄上面已經存好 */
@@ -1160,7 +1160,7 @@
     };
     $("arena").classList.add("rx-review");
     show("scrPlay");
-    $("hudDiff").textContent = "📅 今日複習｜" + d.sec + " 秒｜" + d.name;
+    $("hudDiff").textContent = "今日複習｜" + d.sec + " 秒｜" + d.name;
     reviewNext();
   }
 
@@ -1238,15 +1238,15 @@
         var sim = makeSimilar(G.cur);
         if (sim) {
           G.phase = "sim"; G.simItem = sim;
-          head = "✔ 原題答對。下一題是同考點的類似題，也答對才算過關";
+          head = "✓ 原題答對。下一題是同考點的類似題，也答對才算過關";
         } else {
           reviewFinish(true);
-          head = "✔ 過關（這個考點道場暫時出不了類似題，原題答對就算）";
+          head = "✓ 過關（這個考點道場暫時出不了類似題，原題答對就算）";
         }
       } else {
         reviewFinish(true);
         var w = G.results[G.results.length - 1].w;
-        head = w.done ? "🎓 過關，這題畢業了" : "✔ 過關，下次 " + fmtDay(w.due) + " 再複習";
+        head = w.done ? "過關，這題畢業了" : "✓ 過關，下次 " + fmtDay(w.due) + " 再複習";
       }
       $("fb").className = "rx-fb ok show";
       $("fb").innerHTML = '<div class="fb-h">' + head + '　<span class="fb-t">' + (used / 1000).toFixed(2) + ' 秒</span></div>' + tipHtml;
@@ -1263,7 +1263,7 @@
                     timeout: timeout, tag: G.phase === "sim" ? "類似題" : "原題" });
     reviewFinish(false);
     $("fb").className = "rx-fb no show";
-    $("fb").innerHTML = '<div class="fb-h">' + (timeout ? "⏱ 時間到" : "✘ 答錯") +
+    $("fb").innerHTML = '<div class="fb-h">' + (timeout ? "時間到" : "✗ 答錯") +
       '　<span class="fb-t">正解：' + it.choices[it.ans] + '</span></div>' + tipHtml +
       '<div class="fb-tip rv-reset">這題明天會再出現（間隔重新從 1 天算）。</div>' +
       '<button class="fb-next" id="fbNext">繼續 ▶（Enter）</button>';
@@ -1291,7 +1291,7 @@
     $("endBody").innerHTML =
       '<div class="rx-end-head">' +
         '<img class="end-cow" src="assets/mascot/web/' + cow + '" alt="牛夫子">' +
-        '<div><div class="end-rank">📅 今日複習　<span class="end-cond">' + G.d.sec + ' 秒｜' + G.d.name + '</span></div>' +
+        '<div><div class="end-rank">今日複習　<span class="end-cond">' + G.d.sec + ' 秒｜' + G.d.name + '</span></div>' +
         '<div class="end-score rv-score">過關 ' + G.pass + '／待複習 ' + pend + '</div>' +
         '<div class="end-word">' + word + '</div></div>' +
       '</div>' +
@@ -1303,17 +1303,17 @@
       '</div>' +
       (G.results.length ? '<div class="rx-rvlist">' + G.results.map(function (r) {
         var c = catOf(r.w.cat);
-        return '<div class="rvi ' + (r.pass ? "ok" : "no") + '"><span class="rvi-s">' + (r.pass ? (r.w.done ? "🎓" : "✔") : "✘") + '</span>' +
-          '<span class="rvi-n">' + c.icon + ' ' + c.name + (r.w.kp ? '　' + esc(r.w.kp) : "") + '</span>' +
+        return '<div class="rvi ' + (r.pass ? "ok" : "no") + '"><span class="rvi-s">' + (r.pass ? (r.w.done ? "" : "✓") : "✗") + '</span>' +
+          '<span class="rvi-n">' + c.name + (r.w.kp ? '　' + esc(r.w.kp) : "") + '</span>' +
           '<span class="rvi-v">' + (r.pass ? (r.w.done ? "畢業" : "下次 " + fmtDay(r.w.due)) : "明天再來") + '</span></div>';
       }).join("") + '</div>' : "") +
       kpSectionHtml(G.perKp) +
-      (Object.keys(G.perCh).length ? '<h3 class="rx-h3">📚 該回去補的章節</h3><div class="rx-chdiag">' + chDiagHtml(G.perCh) + '</div>' : "") +
-      '<h3 class="rx-h3">📓 這次複習答錯的題</h3>' +
+      (Object.keys(G.perCh).length ? '<h3 class="rx-h3">該回去補的章節</h3><div class="rx-chdiag">' + chDiagHtml(G.perCh) + '</div>' : "") +
+      '<h3 class="rx-h3">這次複習答錯的題</h3>' +
       '<div class="rx-wrongs">' + wrongListHtml(G.wrongs, "這次複習沒有答錯的題。") + '</div>';
 
     rm($("endBody"));
-    $("btnAgain").textContent = left ? "🔁 繼續複習（還有 " + left + " 題）" : "⚔️ 開一場一般訓練";
+    $("btnAgain").textContent = left ? "繼續複習（還有 " + left + " 題）" : "開一場一般訓練";
     show("scrEnd");
   }
 
@@ -1340,11 +1340,11 @@
   document.addEventListener("DOMContentLoaded", function () {
     var db = load();
     muted = !!db.muted;
-    $("btnMute").textContent = muted ? "🔇 音效關" : "🔊 音效開";
+    $("btnMute").textContent = muted ? "音效關" : "音效開";
     $("btnMute").addEventListener("click", function () {
       muted = !muted;
       var d = load(); d.muted = muted; save(d);
-      $("btnMute").textContent = muted ? "🔇 音效關" : "🔊 音效開";
+      $("btnMute").textContent = muted ? "音效關" : "音效開";
       if (!muted) SFX.tick();
     });
     $("btnStart").addEventListener("click", startGame);

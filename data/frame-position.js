@@ -9,11 +9,11 @@ FRAME({
       id: "lc", col: 1, title: "A　直線與圓（$d$ 是圓心到直線的距離，$r$ 是半徑）", type: "table", hideNames: true,
       fields: [{ id: "cond", n: "用 $d$ 與 $r$ 判斷" }, { id: "disc", n: "聯立消去一變數後的判別式 $D$" }, { id: "pts", n: "交點數" }],
       rows: [
-        { id: "A1", n: "相離", ans: { cond: "$d>r$", disc: "$D \\lt 0$", pts: "$0$" }, tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
+        { id: "A1", fig: "p-lc-1", n: "相離", ans: { cond: "$d>r$", disc: "$D \\lt 0$", pts: "$0$" }, tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
           ex: [{ id: "pA1", q: "$x^2+y^2=25$ 與 $3x+4y=30$ 的交點數", a: "$0$", val: "0" }] },
-        { id: "A2", n: "相切", ans: { cond: "$d=r$", disc: "$D=0$", pts: "$1$" }, tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
+        { id: "A2", fig: "p-lc-2", n: "相切", ans: { cond: "$d=r$", disc: "$D=0$", pts: "$1$" }, tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
           ex: [{ id: "pA2", q: "$x^2+y^2=25$ 與 $3x+4y=25$ 的交點數", a: "$1$", val: "1" }] },
-        { id: "A3", n: "相交（割線）", ans: { cond: "$d \\lt r$，弦長 $2\\sqrt{r^2-d^2}$", disc: "$D>0$", pts: "$2$" }, tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
+        { id: "A3", fig: "p-lc-3", n: "相交（割線）", ans: { cond: "$d \\lt r$，弦長 $2\\sqrt{r^2-d^2}$", disc: "$D>0$", pts: "$2$" }, tools: ["geometry/circle/圓與直線的關係"], kp: ["G-02"],
           ex: [{ id: "pA3", q: "$x^2+y^2=25$ 與 $3x+4y=0$ 的弦長", a: "$10$", val: "10" }] }
       ]
     },
@@ -21,15 +21,15 @@ FRAME({
       id: "cc", col: 1, title: "B　相異兩圓（$d$ 是兩圓心的距離，$r_1$、$r_2$ 是兩圓半徑，$r_1\\ge r_2$）", type: "table", hideNames: true,
       fields: [{ id: "cond", n: "條件" }, { id: "pts", n: "交點數" }, { id: "tan", n: "公切線條數" }],
       rows: [
-        { id: "B1", n: "外離", ans: { cond: "$d>r_1+r_2$", pts: "$0$", tan: "$4$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
+        { id: "B1", fig: "p-cc-1", n: "外離", ans: { cond: "$d>r_1+r_2$", pts: "$0$", tan: "$4$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
           ex: [{ id: "pB1", q: "圓心距 $8$、半徑 $5$ 與 $2$ 的交點數", a: "$0$", val: "0" }] },
-        { id: "B2", n: "外切", ans: { cond: "$d=r_1+r_2$", pts: "$1$", tan: "$3$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
+        { id: "B2", fig: "p-cc-2", n: "外切", ans: { cond: "$d=r_1+r_2$", pts: "$1$", tan: "$3$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
           ex: [{ id: "pB2", q: "圓心距 $7$、半徑 $5$ 與 $2$ 的交點數", a: "$1$", val: "1" }] },
-        { id: "B3", n: "相交", ans: { cond: "$r_1-r_2 \\lt d \\lt r_1+r_2$", pts: "$2$", tan: "$2$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
+        { id: "B3", fig: "p-cc-3", n: "相交", ans: { cond: "$r_1-r_2 \\lt d \\lt r_1+r_2$", pts: "$2$", tan: "$2$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
           ex: [{ id: "pB3", q: "圓心距 $4$、半徑 $5$ 與 $2$ 的交點數", a: "$2$", val: "2" }] },
-        { id: "B4", n: "內切", ans: { cond: "$d=r_1-r_2>0$", pts: "$1$", tan: "$1$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
+        { id: "B4", fig: "p-cc-4", n: "內切", ans: { cond: "$d=r_1-r_2>0$", pts: "$1$", tan: "$1$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
           ex: [{ id: "pB4", q: "圓心距 $3$、半徑 $5$ 與 $2$ 的交點數", a: "$1$", val: "1" }] },
-        { id: "B5", n: "內含（含同心）", ans: { cond: "$0\\le d \\lt r_1-r_2$（$d=0$ 是同心；內含要 $r_1>r_2$）", pts: "$0$", tan: "$0$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
+        { id: "B5", fig: "p-cc-5", n: "內含（含同心）", ans: { cond: "$0\\le d \\lt r_1-r_2$（$d=0$ 是同心；內含要 $r_1>r_2$）", pts: "$0$", tan: "$0$" }, tools: ["geometry/circle/兩圓的位置關係"], kp: ["G-02"],
           ex: [{ id: "pB5", q: "圓心距 $1$、半徑 $5$ 與 $2$ 的交點數", a: "$0$", val: "0" }] }
       ]
     },
@@ -39,11 +39,11 @@ FRAME({
       rows: [
         { id: "C1", n: "重合", ans: { cond: "$\\vec v_1\\parallel\\vec v_2$ 且 $A$ 也在第二條直線上（即 $\\overrightarrow{AB}\\parallel\\vec v_1$ 或 $A=B$）", plane: "是", pts: "無限多" }, tools: ["geometry/space/兩直線的位置關係"], kp: ["G-06"],
           ex: [{ id: "pC1", q: "$(t,t,0)$ 與 $(2-s,2-s,0)$", a: "重合", val: "coincide" }] },
-        { id: "C2", n: "平行", ans: { cond: "$\\vec v_1\\parallel\\vec v_2$，但 $\\overrightarrow{AB}\\not\\parallel\\vec v_1$", plane: "是", pts: "$0$" }, tools: ["geometry/space/兩直線的位置關係"], kp: ["G-06"],
+        { id: "C2", fig: "p-ll-par", n: "平行", ans: { cond: "$\\vec v_1\\parallel\\vec v_2$，但 $\\overrightarrow{AB}\\not\\parallel\\vec v_1$", plane: "是", pts: "$0$" }, tools: ["geometry/space/兩直線的位置關係"], kp: ["G-06"],
           ex: [{ id: "pC2", q: "$(t,t,0)$ 與 $(2s,1+2s,0)$", a: "平行", val: "parallel" }] },
-        { id: "C3", n: "相交", ans: { cond: "$\\vec v_1\\not\\parallel\\vec v_2$ 且 $\\overrightarrow{AB}\\cdot(\\vec v_1\\times\\vec v_2)=0$", plane: "是", pts: "$1$" }, tools: ["geometry/space/兩直線的位置關係", "vector/cross/空間中兩向量的夾角"], kp: ["G-06", "G-07"],
+        { id: "C3", fig: "p-ll-cross", n: "相交", ans: { cond: "$\\vec v_1\\not\\parallel\\vec v_2$ 且 $\\overrightarrow{AB}\\cdot(\\vec v_1\\times\\vec v_2)=0$", plane: "是", pts: "$1$" }, tools: ["geometry/space/兩直線的位置關係", "vector/cross/空間中兩向量的夾角"], kp: ["G-06", "G-07"],
           ex: [{ id: "pC3", q: "$(t,t,0)$ 與 $(1,1,5+s)$", a: "相交於 $(1,1,0)$", val: "intersect" }] },
-        { id: "C4", n: "歪斜", ans: { cond: "$\\vec v_1\\not\\parallel\\vec v_2$ 且 $\\overrightarrow{AB}\\cdot(\\vec v_1\\times\\vec v_2)\\ne0$", plane: "否（只在空間才有）", pts: "$0$" }, tools: ["geometry/space/兩直線的位置關係", "vector/plane/兩歪斜線的距離"], kp: ["G-06", "G-08"],
+        { id: "C4", fig: "p-skew", n: "歪斜", ans: { cond: "$\\vec v_1\\not\\parallel\\vec v_2$ 且 $\\overrightarrow{AB}\\cdot(\\vec v_1\\times\\vec v_2)\\ne0$", plane: "否（只在空間才有）", pts: "$0$" }, tools: ["geometry/space/兩直線的位置關係", "vector/plane/兩歪斜線的距離"], kp: ["G-06", "G-08"],
           ex: [{ id: "pC4", q: "$(t,t,0)$ 與 $(1,s,3+s)$", a: "歪斜", val: "skew" }] }
       ]
     },
@@ -51,11 +51,11 @@ FRAME({
       id: "lp", col: 2, title: "D　直線與平面（$\\vec v$ 是直線的方向向量，$\\vec n$ 是平面的法向量）", type: "table", hideNames: true,
       fields: [{ id: "cond", n: "判斷條件" }, { id: "pts", n: "交點數" }],
       rows: [
-        { id: "D1", n: "直線在平面上", ans: { cond: "$\\vec v\\cdot\\vec n=0$，且線上一點在平面上", pts: "無限多" }, tools: ["geometry/space/直線與平面的位置關係"], kp: ["G-06"],
+        { id: "D1", fig: "p-lp-in", n: "直線在平面上", ans: { cond: "$\\vec v\\cdot\\vec n=0$，且線上一點在平面上", pts: "無限多" }, tools: ["geometry/space/直線與平面的位置關係"], kp: ["G-06"],
           ex: [{ id: "pD1", q: "$(5+t,-t,0)$ 與 $x+y+z=5$", a: "在平面上", val: "inplane" }] },
-        { id: "D2", n: "平行", ans: { cond: "$\\vec v\\cdot\\vec n=0$，但線上的點不在平面上", pts: "$0$" }, tools: ["geometry/space/直線與平面的位置關係"], kp: ["G-06"],
+        { id: "D2", fig: "p-lp-par", n: "平行", ans: { cond: "$\\vec v\\cdot\\vec n=0$，但線上的點不在平面上", pts: "$0$" }, tools: ["geometry/space/直線與平面的位置關係"], kp: ["G-06"],
           ex: [{ id: "pD2", q: "$(1+t,0,1-t)$ 與 $x+y+z=5$", a: "平行", val: "parallel" }] },
-        { id: "D3", n: "交於一點", ans: { cond: "$\\vec v\\cdot\\vec n\\ne0$（$\\vec v\\parallel\\vec n$ 時垂直）", pts: "$1$" }, tools: ["geometry/space/直線與平面的位置關係"], kp: ["G-06", "G-08"],
+        { id: "D3", fig: "p-lp-cross", n: "交於一點", ans: { cond: "$\\vec v\\cdot\\vec n\\ne0$（$\\vec v\\parallel\\vec n$ 時垂直）", pts: "$1$" }, tools: ["geometry/space/直線與平面的位置關係"], kp: ["G-06", "G-08"],
           ex: [{ id: "pD3", q: "$(t,t,t)$ 與 $x+y+z=5$ 的交點", a: "$\\left(\\frac53,\\frac53,\\frac53\\right)$", val: "(5/3,5/3,5/3)" }] }
       ]
     },
@@ -65,9 +65,9 @@ FRAME({
       rows: [
         { id: "E1", n: "重合", ans: { cond: "兩式都寫成 $ax+by+cz=d_0$（$d_0$ 是常數項）後，四個係數 $(a,b,c,d_0)$ 成比例（$\\vec n_1\\parallel\\vec n_2$ 且常數項跟著同比例）", pts: "整個平面" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08"],
           ex: [{ id: "pE1", q: "$x+2y+2z=1$ 與 $2x+4y+4z=2$", a: "重合", val: "coincide" }] },
-        { id: "E2", n: "平行", ans: { cond: "$\\vec n_1\\parallel\\vec n_2$，但常數項不成同比例（或一平面上的點不在另一平面上）", pts: "空集合" }, tools: ["vector/plane/點到平面的距離"], kp: ["G-08"],
+        { id: "E2", fig: "p-pp-par", n: "平行", ans: { cond: "$\\vec n_1\\parallel\\vec n_2$，但常數項不成同比例（或一平面上的點不在另一平面上）", pts: "空集合" }, tools: ["vector/plane/點到平面的距離"], kp: ["G-08"],
           ex: [{ id: "pE2", q: "$x+2y+2z=1$ 與 $x+2y+2z=-8$", a: "平行", val: "parallel" }] },
-        { id: "E3", n: "相交", ans: { cond: "$\\vec n_1\\not\\parallel\\vec n_2$", pts: "一條直線，方向 $\\vec n_1\\times\\vec n_2$" }, tools: ["vector/plane/兩平面夾角"], kp: ["G-08", "G-07"],
+        { id: "E3", fig: "p-pp-cross", n: "相交", ans: { cond: "$\\vec n_1\\not\\parallel\\vec n_2$", pts: "一條直線，方向 $\\vec n_1\\times\\vec n_2$" }, tools: ["vector/plane/兩平面夾角"], kp: ["G-08", "G-07"],
           ex: [{ id: "pE3", q: "$x+2y+2z=1$ 與 $x-y=0$ 的交線方向", a: "$(2,2,-3)$ 的倍數", val: "(2,2,-3)" }] }
       ]
     },
@@ -75,21 +75,21 @@ FRAME({
       id: "ppp", short: "三平面", title: "延伸（背面）　三平面：共有幾種？（建議按「有重合 3 種 → 沒重合有平行 2 種 → 兩兩相交 3 種」順序寫）", type: "table", hideNames: true, back: true,
       fields: [{ id: "fig", n: "長什麼樣子" }, { id: "sol", n: "聯立方程組的解" }],
       rows: [
-        { id: "F1", n: "三面重合", ans: { fig: "三個式子都成比例", sol: "無限多（一整個平面）" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F1", fig: "p3-1", n: "三面重合", ans: { fig: "三個式子都成比例", sol: "無限多（一整個平面）" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF1", q: "$x+y+z=1$、$2x+2y+2z=2$、$3x+3y+3z=3$", a: "無限多（平面）", val: "plane" }] },
-        { id: "F2", n: "兩面重合、第三面與之平行", ans: { fig: "兩片疊在一起，另一片分開", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F2", fig: "p3-2", n: "兩面重合、第三面與之平行", ans: { fig: "兩片疊在一起，另一片分開", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF2", q: "$x+y+z=1$、$2x+2y+2z=2$、$x+y+z=3$", a: "無解", val: "none" }] },
-        { id: "F3", n: "兩面重合、第三面與之相交", ans: { fig: "交於一條直線", sol: "無限多（一條直線）" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F3", fig: "p3-3", n: "兩面重合、第三面與之相交", ans: { fig: "交於一條直線", sol: "無限多（一條直線）" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF3", q: "$x+y+z=1$、$2x+2y+2z=2$、$x-y=0$", a: "無限多（直線）", val: "line" }] },
-        { id: "F4", n: "三面互相平行", ans: { fig: "三片平行", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F4", fig: "p3-4", n: "三面互相平行", ans: { fig: "三片平行", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF4", q: "$x+y+z=1$、$x+y+z=2$、$x+y+z=3$", a: "無解", val: "none" }] },
-        { id: "F5", n: "兩面平行、第三面與之相交", ans: { fig: "交出兩條平行線", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F5", fig: "p3-5", n: "兩面平行、第三面與之相交", ans: { fig: "交出兩條平行線", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF5", q: "$x+y+z=1$、$x+y+z=2$、$x-y=0$", a: "無解", val: "none" }] },
-        { id: "F6", n: "三面交於一直線", ans: { fig: "像書頁繞著書脊", sol: "無限多（一條直線）" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F6", fig: "p3-6", n: "三面交於一直線", ans: { fig: "像書頁繞著書脊", sol: "無限多（一條直線）" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF6", q: "$x+y+z=1$、$x-y=0$、$2x+z=1$", a: "無限多（直線）", val: "line" }] },
-        { id: "F7", n: "兩兩相交於三條平行線", ans: { fig: "三稜柱的三個側面", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F7", fig: "p3-7", n: "兩兩相交於三條平行線", ans: { fig: "三稜柱的三個側面", sol: "無解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF7", q: "$x+y+z=1$、$x-y=0$、$2x+z=5$", a: "無解", val: "none" }] },
-        { id: "F8", n: "交於一點", ans: { fig: "像房間的牆角", sol: "唯一解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
+        { id: "F8", fig: "p3-8", n: "交於一點", ans: { fig: "像房間的牆角", sol: "唯一解" }, tools: ["vector/plane/三平面的相交關係"], kp: ["G-08", "G-10"],
           ex: [{ id: "pF8", q: "$x+y+z=1$、$x-y=0$、$z=0$", a: "$\\left(\\frac12,\\frac12,0\\right)$", val: "(1/2,1/2,0)" }] }
       ]
     }

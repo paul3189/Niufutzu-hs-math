@@ -230,7 +230,7 @@
     return '<ul class="dw-see">' + list.map(function (p) {
       var r = resolveSee(p);
       if (!r) return "";
-      var label = r.dom.icon + " " + r.dom.n + " ▸ " + r.topic.n + (r.tool ? " ▸ " + r.tool.n : "");
+      var label = r.dom.n + " ▸ " + r.topic.n + (r.tool ? " ▸ " + r.tool.n : "");
       return '<li><a href="#" data-see="' + esc(p) + '">' + esc(label) + "</a></li>";
     }).join("") + "</ul>";
   }
@@ -292,7 +292,7 @@
     var items = hits.slice(0, 6).map(function (h) {
       var anchor = h.gen ? "#c-" + h.key : "#" + h.key;      // 產生器卡片 id="c-級.型"；固定題 id="L4-3"
       var label = (TI[h.ch] && TI[h.ch][h.key]) || h.key;
-      return '<li><a href="' + esc(base + "handouts/" + h.ch + "/practice.html" + anchor) + '">📝 ' + esc(chapterName(h.ch)) + "・" + esc(label) + "</a></li>";
+      return '<li><a href="' + esc(base + "handouts/" + h.ch + "/practice.html" + anchor) + '">' + esc(chapterName(h.ch)) + "・" + esc(label) + "</a></li>";
     });
     if (hits.length > 6) items.push('<li class="dw-more">…還有 ' + (hits.length - 6) + " 個題型</li>");
     html += '<ul class="dw-train">' + items.join("") +
@@ -415,7 +415,7 @@
     if (!S) return [];
     var all = (window.TOOLMAP && TOOLMAP.domains) || [];
     function domName(id) {
-      for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i].icon + " " + all[i].n;
+      for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i].n;
       return id;
     }
     function topicName(path) {
@@ -423,7 +423,7 @@
       for (var i = 0; i < all.length; i++) if (all[i].id === p[0]) {
         var ts = all[i].topics || [];
         for (var j = 0; j < ts.length; j++) if (ts[j].id === p[1])
-          return all[i].icon + " " + all[i].n + " ▸ " + ts[j].n;
+          return all[i].n + " ▸ " + ts[j].n;
       }
       return path;
     }
@@ -548,7 +548,7 @@
         label: "高中數學",
         children: doms.map(function (d) {
           return {
-            label: d.icon + " " + d.n, color: d.color, _d: d,
+            label: d.n, color: d.color, _d: d,
             children: (d.topics || []).map(function (t) {
               return { label: t.n, _d: d, _t: t };
             })
@@ -564,7 +564,7 @@
     /* 分支圖：領域 → 主題 → 工具 */
     renderBranch: function (mountId, dom) {
       var root = {
-        label: dom.icon + " " + dom.n,
+        label: dom.n,
         children: (dom.topics || []).map(function (t) {
           return {
             label: t.n, color: dom.color, _t: t,
@@ -596,7 +596,7 @@
       var doms = domains();
       mount.innerHTML = '<div class="lv">' + doms.map(function (d) {
         return '<details class="lv-item" style="border-left-color:' + d.color + '">' +
-          '<summary><span style="color:' + d.color + '">' + d.icon + " " + esc(d.n) + "</span>" +
+          '<summary><span style="color:' + d.color + '">' + (window.NFZ_IC ? NFZ_IC.svg(d.icon) : "") + esc(d.n) + "</span>" +
           '<span class="lv-n">' + d.topics.length + " 主題</span></summary>" +
           '<div class="lv-body"><p class="lv-ask">' + esc(d.ask) + "</p>" +
           d.topics.map(function (t) {
@@ -664,7 +664,7 @@
           div.className = "hit";
           div.style.borderLeftColor = r.dom.color;
           div.innerHTML = '<div class="h-t">' + esc(r.tool.n) + "</div>" +
-            '<div class="h-p">' + esc(r.dom.icon + " " + r.dom.n + " ▸ " + r.topic.n) + "</div>" +
+            '<div class="h-p">' + esc(r.dom.n + " ▸ " + r.topic.n) + "</div>" +
             (r.tool.w ? '<div class="h-w">' + rich(r.tool.w) + "</div>" : "");
           div.addEventListener("click", function () { openTool(r.tool, r.dom.n + " ▸ " + r.topic.n); });
           list.appendChild(div);
@@ -691,7 +691,7 @@
         a.className = "dom-card";
         a.href = "branch.html#d=" + d.id;
         a.style.borderLeftColor = d.color;
-        a.innerHTML = '<span class="dc-t" style="color:' + d.color + '">' + esc(d.icon + " " + d.n) + "</span>" +
+        a.innerHTML = '<span class="dc-t" style="color:' + d.color + '">' + (window.NFZ_IC ? NFZ_IC.svg(d.icon) : "") + esc(d.n) + "</span>" +
           '<span class="dc-a">' + esc(d.ask) + "</span>" +
           '<span class="dc-k">主題：' + esc((d.topics || []).map(function (t) { return t.n; }).join("・")) + "</span>";
         grid.appendChild(a);

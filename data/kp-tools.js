@@ -59,7 +59,7 @@ window.KP_TOOLS = {
   "number/poly/有理根定理": ["P-02"],
   "number/poly/根與係數（二次）": ["P-02"],
   "number/poly/根與係數（三次）": ["P-02"],
-  "number/poly/勘根定理": ["P-02"],
+  "number/poly/勘根定理": ["C-01"],   // 2026-11-12 勘根高一不教，標補充、歸 C-01
   "number/poly/多項式相等（比較係數）": ["P-07"],
   "number/poly/係數和技巧": ["P-07","D-15"],
   // number/remainder 餘式的設法
@@ -303,15 +303,15 @@ window.KP_TOOLS = {
   "vector/matrix/轉移矩陣（馬可夫）": ["G-09"],
   "vector/matrix/求 A 的 n 次方": ["G-09"],
   "vector/matrix/解穩定狀態": ["G-09","G-10"],
-  // vector/persp 單點透視法
-  "vector/persp/消失點的求法": ["G-01"],
-  "vector/persp/地平線": ["G-01","G-04"],
-  "vector/persp/透視長度公式": ["G-04"],
-  "vector/persp/背面＝正面以 V 為中心的縮小（分點公式）": ["G-05","G-04"],
-  "vector/persp/面積比 → 邊長比 → 距離比": ["G-04"],
-  "vector/persp/比較實際高度（h 除以 d）": ["G-04"],
-  "vector/persp/等比例位置的點自成一條深度線": ["G-04","G-01"],
-  "vector/persp/對角線交點找中央": ["G-01"],
+  // vector/persp 單點透視法（2026-11-12 裁定歸數 B，改掛 G-13，不再掛 G-04）
+  "vector/persp/消失點的求法": ["G-13"],
+  "vector/persp/地平線": ["G-13"],
+  "vector/persp/透視長度公式": ["G-13"],
+  "vector/persp/背面＝正面以 V 為中心的縮小（分點公式）": ["G-13"],
+  "vector/persp/面積比 → 邊長比 → 距離比": ["G-13"],
+  "vector/persp/比較實際高度（h 除以 d）": ["G-13"],
+  "vector/persp/等比例位置的點自成一條深度線": ["G-13"],
+  "vector/persp/對角線交點找中央": ["G-13"],
 
   /* ── sequence 數列・級數・極限 ── */
   // sequence/seq 數列與遞迴
@@ -480,7 +480,7 @@ window.KP_TOPICS = {
   "vector/cross": ["G-07"],   // 空間向量與外積
   "vector/plane": ["G-08"],   // 空間中的平面與直線
   "vector/matrix": ["G-09"],   // 矩陣與線性變換
-  "vector/persp": ["G-04","G-01"],   // 單點透視法
+  "vector/persp": ["G-13"],   // 單點透視法
   "sequence/seq": ["D-01","D-03"],   // 數列與遞迴
   "sequence/series": ["D-01","D-02"],   // 級數求和
   "sequence/induction": ["D-08"],   // 數學歸納法
