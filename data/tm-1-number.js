@@ -1,6 +1,6 @@
 /* 領域 1：數與式 */
 TM({
-  id: "number", n: "數與式", icon: "🔢", color: "#2563eb",
+  id: "number", n: "數與式", icon: "number", color: "#2563eb",
   ask: "題目給一個很複雜的式子，要你化簡、求值或判斷數的性質時，用這一區的工具把它改寫成你認得的樣子。",
   topics: [
 

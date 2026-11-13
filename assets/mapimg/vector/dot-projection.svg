@@ -31,7 +31,7 @@
   <circle cx="60" cy="250" r="3.5" fill="#374151"/>
   <text x="46" y="264" font-size="12" fill="#374151">O</text>
 
-  <text x="40" y="312" font-size="11.5" fill="#4b5563">θ 為鈍角時投影長是負的</text>
+  <text x="40" y="312" font-size="11.5" fill="#4b5563">θ 為鈍角時投影量是負的</text>
 
   <!-- 右側 -->
   <text x="298" y="78" font-size="14" font-weight="bold" fill="#6d28d9">內積的兩種算法</text>
@@ -40,9 +40,10 @@
   <text x="298" y="154" font-size="11.5" fill="#4b5563">結果是純量，不是向量</text>
 
   <text x="298" y="190" font-size="14" font-weight="bold" fill="#b45309">正射影</text>
-  <text x="298" y="216" font-size="12.5" fill="#1f2937">投影長 = (a · b) ÷ |b|</text>
-  <text x="298" y="240" font-size="12.5" fill="#1f2937">投影向量 = ((a · b) ÷ |b|²) · b</text>
-  <text x="298" y="262" font-size="11.5" fill="#4b5563">分母是 |b| 還是 |b|² 別搞混</text>
+  <text x="298" y="214" font-size="12.5" fill="#1f2937">投影量 = (a · b) ÷ |b|（可負）</text>
+  <text x="298" y="236" font-size="12.5" fill="#1f2937">投影向量 = 投影量 × (b ÷ |b|)</text>
+  <text x="298" y="256" font-size="11.5" fill="#4b5563">整理成 ((a · b) ÷ |b|²) · b</text>
+  <text x="298" y="275" font-size="11.5" fill="#4b5563">正射影長 = |投影量| ≥ 0</text>
 
   <text x="298" y="296" font-size="12.5" fill="#0e7490">a ⊥ b ⟺ a · b = 0</text>
   <text x="298" y="318" font-size="11.5" fill="#4b5563">a · b &gt; 0 銳角、&lt; 0 鈍角（須非零向量）</text>

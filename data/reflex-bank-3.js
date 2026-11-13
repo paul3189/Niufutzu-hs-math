@@ -253,7 +253,7 @@
       "先算內積、再算兩個長度，三個數一次到位", "G-05"],
     ["g11a-10", "求「$\\vec u$ 在 $\\vec v$ 上的正射影<b>向量</b>」", "$\\dfrac{\\vec u\\cdot\\vec v}{|\\vec v|^2}\\vec v$",
       ["$\\dfrac{\\vec u\\cdot\\vec v}{|\\vec v|}$", "$\\dfrac{\\vec u\\cdot\\vec v}{|\\vec u|^2}\\vec u$", "$|\\vec u|\\cos\\theta$"],
-      "長度除一次 $|\\vec v|$、方向再除一次，所以分母是平方", "G-05"],
+      "$\\vec v$ 的單位向量 $\\dfrac{\\vec v}{|\\vec v|}$ 乘投影量 $\\dfrac{\\vec u\\cdot\\vec v}{|\\vec v|}$，整理出分母是平方", "G-05"],
     ["g11a-10", "看到 $|\\vec u+\\vec v|^2$ 要展開", "$=|\\vec u|^2+2\\vec u\\cdot\\vec v+|\\vec v|^2$",
       ["$=|\\vec u|^2+\\vec u\\cdot\\vec v+|\\vec v|^2$", "$=|\\vec u|^2-2\\vec u\\cdot\\vec v+|\\vec v|^2$", "$=|\\vec u|^2+2|\\vec u||\\vec v|+|\\vec v|^2$"],
       "與數字的乘法公式同形，只是中間那項換成內積", "G-05"],

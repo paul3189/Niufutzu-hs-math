@@ -1,6 +1,6 @@
 /* 領域 2：方程式與不等式 */
 TM({
-  id: "equation", n: "方程式與不等式", icon: "⚖️", color: "#dc2626",
+  id: "equation", n: "方程式與不等式", icon: "equation", color: "#dc2626",
   ask: "題目要你解出 x、求出範圍，或判斷根的個數時，用這一區的工具：高次式想辦法降次，不等式先判斷正負號。",
   topics: [
 

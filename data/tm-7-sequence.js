@@ -9,7 +9,7 @@
  *   → 「極限與無窮級數」整個主題是高三選修，學測版由 data/scope.js 過濾掉。
  */
 TM({
-  id: "sequence", n: "數列・級數・極限", icon: "🔁", color: "#db2777",
+  id: "sequence", n: "數列・級數・極限", icon: "sequence", color: "#db2777",
   ask: "題目出現「一項一項」「規律」「總和」「越來越接近」時，用這一區的工具：先找出通項，再求和或求極限。",
   topics: [
 

@@ -1,6 +1,6 @@
 /* 領域 6：向量與矩陣 */
 TM({
-  id: "vector", n: "向量與矩陣", icon: "➡️", color: "#7c3aed",
+  id: "vector", n: "向量與矩陣", icon: "vector", color: "#7c3aed",
   ask: "題目有方向的量、空間中的位置關係，或要把一批點做線性變換時，用這一區的工具：把它們寫成坐標，一起計算。",
   topics: [
 
@@ -146,15 +146,15 @@ TM({
         },
         {
           n: "正射影",
-          f: "\\text{投影長}=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|},\\qquad \\text{投影向量}=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|^{2}}\\vec b",
+          f: "\\text{投影量}=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|},\\qquad \\text{投影向量}=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|}\\cdot\\frac{\\vec b}{|\\vec b|}=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|^{2}}\\vec b",
           w: "求點到直線的距離、分解力、求影子長度。",
-          l: "投影長可以是負的（代表反方向）；分母是 $|\\vec b|$ 還是 $|\\vec b|^2$ 別搞混。段考熱點就是「長」與「向量」的差別。",
-          t: "求「投影向量」時只除一次 $|\\vec b|$。",
+          l: "先取 $\\vec b$ 方向的單位向量 $\\dfrac{\\vec b}{|\\vec b|}$，再乘上投影量 $|\\vec a|\\cos\\theta=\\dfrac{\\vec a\\cdot\\vec b}{|\\vec b|}$（$\\vec b\\ne\\vec 0$）。鈍角時投影量是負的，乘上去影子就自動指向 $-\\vec b$。分母的平方是整理出來的：一個 $|\\vec b|$ 來自算長度，一個來自做單位向量。正射影長是投影量取絕對值，一定 $\\ge 0$。段考熱點就是「長」與「向量」的差別。",
+          t: "求「投影向量」時忘了先把 $\\vec b$ 化成單位向量，直接拿投影量乘 $\\vec b$；或把正射影長寫成負數。",
           img: "assets/mapimg/vector/dot-projection.svg",
-          imgCap: "把 a 垂直打到 b 的方向上：除一次 |b| 得「投影長」，除兩次再乘回 b 得「投影向量」。",
+          imgCap: "把 a 垂直打到 b 的方向上：影子＝b 方向的單位向量 × 投影量；投影量取絕對值就是正射影長。",
           cue: [
-            "看到「$\\vec a$ 在 $\\vec b$ 上的正射影『長』」→ 只除一次 $|\\vec b|$，答案是一個數",
-            "看到「正射影『向量』」→ 除兩次再乘回 $\\vec b$，答案是一個向量",
+            "看到「$\\vec a$ 在 $\\vec b$ 上的正射影『長』」→ 投影量 $\\dfrac{\\vec a\\cdot\\vec b}{|\\vec b|}$ 取絕對值，答案是一個 $\\ge 0$ 的數",
+            "看到「正射影『向量』」→ $\\vec b$ 的單位向量 × 投影量，整理成 $\\dfrac{\\vec a\\cdot\\vec b}{|\\vec b|^2}\\vec b$，答案是一個向量",
             "看到「垂足」「分解成平行與垂直兩部分」→ 平行的那部分就是投影向量"
           ],
           see: ["geometry/line/點到直線的距離", "geometry/space/正射影與投影面積", "trig/solvetri/正射影定理"]

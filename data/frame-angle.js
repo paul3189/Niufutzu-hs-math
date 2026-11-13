@@ -24,7 +24,7 @@ FRAME({
         },
         {
           id: "3", fig: "a-skew", n: "空間兩直線",
-          ans: { vec: "兩直線的方向向量 $\\vec v_1$、$\\vec v_2$", formula: "$\\theta$ 是兩直線的夾角：$\\cos\\theta=\\dfrac{\\lvert\\vec v_1\\cdot\\vec v_2\\rvert}{\\lvert\\vec v_1\\rvert\\lvert\\vec v_2\\rvert}$", range: "$0^\\circ\\le\\theta\\le90^\\circ$", zero: "平行或重合", right: "$\\vec v_1\\cdot\\vec v_2=0$（歪斜也可以垂直）" },
+          ans: { vec: "兩直線的方向向量 $\\vec v_1$、$\\vec v_2$", formula: "$\\theta$ 是兩直線的夾角：$\\cos\\theta=\\dfrac{\\lvert\\vec v_1\\cdot\\vec v_2\\rvert}{\\lvert\\vec v_1\\rvert\\lvert\\vec v_2\\rvert}$", range: "$0^\\circ\\le\\theta\\le90^\\circ$", zero: "平行或重合", right: "$\\vec v_1\\cdot\\vec v_2=0$ 是方向垂直；相交才叫兩直線垂直，歪斜線不算" },
           reduce: ["1"], reduceNote: "方向向量的夾角，再取絕對值（銳角）",
           tools: ["vector/cross/空間中兩向量的夾角", "geometry/space/兩直線的位置關係"], kp: ["G-05", "G-06"],
           ex: [{ id: "a3", q: "方向 $(1,0,-1)$ 與 $(0,1,1)$ 的兩直線", a: "$60^\\circ$", val: "60" }]
@@ -75,6 +75,6 @@ FRAME({
     "求兩直線的夾角沒加絕對值，答成鈍角；或反過來，求向量的夾角時加了絕對值。",
     "平面兩直線用斜角相減，差超過 $90^\\circ$ 忘了用 $180^\\circ$ 減；遇到鉛直線還硬套 $\\tan$ 公式。",
     "兩面角直接答法向量夾角：要看圖，題目要的可能是它的補角。",
-    "以為歪斜線不能說「垂直」：方向向量內積為 $0$ 就是垂直（本專案採「方向垂直」的說法，段考題看選項措辭）。"
+    "以為方向向量內積為 $0$ 就是「兩直線垂直」：還要相交；歪斜線只能說方向垂直，不叫垂直。"
   ]
 });
